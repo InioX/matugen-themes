@@ -19,6 +19,106 @@
   <img src="https://github.com/InioX/matugen/assets/81521595/9008d8d9-0157-4b38-9500-597986a2cb9f">
 </div>
 
-> [!CAUTION]
-> This repository is WIP.
+#### List of all templates
+- [Hyprland](#hyprland)
+- [Waybar](#waybar)
+- [Kitty](#kitty)
+- [GTK (3.0, 4.0)](#gtk)
+- [Sway](#sway)
+- [wlogout](#wlogout)
 
+### Hyprland
+Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+```toml
+[config]
+# ...
+
+[templates.hyprland]
+input_path = 'path/to/template'
+output_path = '~/.config/hypr/colors.conf'
+```
+
+Then, add this line to the top of your `~/.config/hypr/config.conf` file
+```
+source = ~/.config/hypr/colors.conf
+```
+
+The theme will now be applied if you reload hyprland.
+> [!NOTE]
+> To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
+
+### Waybar
+Copy the [waybar-colors.css]() template and add it to the matugen config.
+```toml
+[config]
+# ...
+
+[templates.waybar]
+input_path = 'path/to/template'
+output_path = '~/.config/waybar/colors.css'
+```
+
+Then, add this line to the top of your `~/.config/waybar/style.css` file
+```
+@import "colors.css";
+```
+
+You can now use all the color variables inside the file.
+```css
+* {
+     background-color: @primary_container;
+}
+```
+
+### Kitty
+Copy the [kitty-colors.conf]() template and add it to the matugen config.
+```toml
+[config]
+# ...
+
+[templates.kitty]
+input_path = 'path/to/template'
+output_path = '~/.config/kitty/colors.conf'
+```
+
+Then, add this line to the bottom of your `~/.config/kitty/kitty.conf`
+```
+include colors.conf
+```
+
+The theme will now be applied after you reload kitty.
+
+### GTK
+```toml
+[config]
+# ...
+
+[templates.gtk3]
+input_path = 'path/to/template'
+output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk4]
+input_path = 'path/to/template'
+output_path = '~/.config/gtk-4.0/colors.css'
+```
+
+TODO
+
+### Sway
+
+TODO
+
+### wlogout
+
+TODO
+
+<h2 class="acknowledgements">
+     <sub>
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
+           height="25"
+           width="25">
+     </sub>
+     Acknowledgements
+</h2>
+
+[Heus-Sueh](https://github.com/Heus-Sueh)
