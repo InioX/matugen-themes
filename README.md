@@ -43,7 +43,7 @@ Then, add this line to the top of your `~/.config/hypr/config.conf` file
 source = ~/.config/hypr/colors.conf
 ```
 
-The theme will now be applied if you reload hyprland.
+The theme will now be applied after you reload hyprland.
 > [!NOTE]
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
 
