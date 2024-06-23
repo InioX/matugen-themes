@@ -102,6 +102,11 @@ input_path = 'path/to/template'
 output_path = '~/.config/gtk-4.0/colors.css'
 ```
 
+Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`
+```css
+@import 'colors.css';
+```
+
 ### Sway
 ```toml
 [config]
