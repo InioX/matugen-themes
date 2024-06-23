@@ -102,15 +102,42 @@ input_path = 'path/to/template'
 output_path = '~/.config/gtk-4.0/colors.css'
 ```
 
-TODO
-
 ### Sway
+```toml
+[config]
+# ...
 
-TODO
+[templates.sway]
+input_path = 'path/to/template'
+output_path = '~/.config/sway/colors.conf'
+```
+
+Then, add this line to your `~/.config/sway/config`
+```
+include colors.conf
+```
 
 ### wlogout
+```toml
+[config]
+# ...
 
-TODO
+[templates.wlogout]
+input_path = 'path/to/template'
+output_path = '~/.config/wlogout/colors.css'
+```
+
+Then, add this line to the top of your `~/.config/wlogout/style.css`
+```
+@import "colors.css";
+```
+
+You can now use all the color variables inside the file.
+```css
+* {
+     background-color: @primary_container;
+}
+```
 
 <h2 class="acknowledgements">
      <sub>
