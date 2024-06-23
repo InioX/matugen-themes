@@ -110,6 +110,7 @@ output_path = '~/.config/gtk-4.0/colors.css'
 [templates.sway]
 input_path = 'path/to/template'
 output_path = '~/.config/sway/colors.conf'
+```
 
 Then, add this line to your `~/.config/sway/config`
 ```
@@ -124,6 +125,7 @@ include colors.conf
 [templates.wlogout]
 input_path = 'path/to/template'
 output_path = '~/.config/wlogout/colors.css'
+```
 
 Then, add this line to the top of your `~/.config/wlogout/style.css`
 ```
