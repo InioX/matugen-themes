@@ -26,6 +26,7 @@
 - [GTK (3.0, 4.0)](#gtk)
 - [Sway](#sway)
 - [wlogout](#wlogout)
+- [rofi](#rofi)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
