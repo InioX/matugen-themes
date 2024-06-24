@@ -144,6 +144,27 @@ You can now use all the color variables inside the file.
 }
 ```
 
+### Rofi
+```toml
+[config]
+
+[templates.rofi]
+input_path = 'path/to/template'
+output_path = '~/.config/rofi/colors.rasi'
+```
+
+Then, add this line to the top of your `~/.config/rofi/config.rasi`
+```
+@import "colors.rasi";
+```
+
+You can now use all the color variables inside of the `config.rasi`.
+```css
+* {
+     background-color: @primary-container;
+}
+```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
