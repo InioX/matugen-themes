@@ -27,6 +27,8 @@
 - [Sway](#sway)
 - [wlogout](#wlogout)
 - [rofi](#rofi)
+- [dunst](#dunst)
+- [qt5ct](#qt5ct)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -165,6 +167,31 @@ You can now use all the color variables inside of the `config.rasi`.
      background-color: @primary-container;
 }
 ```
+
+### dunst
+```toml
+[config]
+
+[templates.dunst]
+input_path = 'path/to/template'
+output_path = '~/.config/dunst/dunstrc'
+```
+
+### qt5ct
+```toml
+[config]
+
+[templates.qt5ct]
+input_path = 'path/to/template'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+```
+Then, add this two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
+```
+[Appearance]
+color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
+custom_palette=true
+```
+
 
 <h2 class="acknowledgements">
      <sub>
