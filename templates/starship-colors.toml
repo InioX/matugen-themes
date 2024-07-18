@@ -1,0 +1,18 @@
+format="""$directory$git_branch
+$character"""
+add_newline = true
+
+# Prompt symbols 
+# [character]
+# success_symbol = "({{colors.tertiary.default.hex}} bold)"
+# error_symbol = "(@{error})"
+# vicmd_symbol = "(#f9e2af)"
+
+[directory]
+format = """
+[]($style)[$path](fg:{{colors.on_primary.default.hex}} bg:{{colors.primary.default.hex}})[ ](fg:{{colors.primary.default.hex}})"""
+
+style = "fg:{{colors.primary.default.hex}}"
+
+[git_branch]
+style = "fg:{{colors.primary.default.hex}}"
