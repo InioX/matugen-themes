@@ -25,10 +25,13 @@
 - [Kitty](#kitty)
 - [GTK (3.0, 4.0)](#gtk)
 - [Sway](#sway)
-- [wlogout](#wlogout)
-- [rofi](#rofi)
-- [dunst](#dunst)
-- [qt5ct](#qt5ct)
+- [Wlogout](#wlogout)
+- [Rofi](#rofi)
+- [Dunst](#dunst)
+- [Qt (qt5, qt6)](#qt)
+- [Alacritty](#alacritty)
+- [Starship](#starship)
+- [Midnight-Discord](#midnight-discord)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -177,7 +180,8 @@ input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
 ```
 
-### qt5ct
+### qt
+Change `5` to `6` for qt6ct
 ```toml
 [config]
 
@@ -191,6 +195,29 @@ Then, add this two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
 color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
 custom_palette=true
 ```
+
+### Alacritty
+```toml
+[config]
+
+[templates.alacritty]
+input_path = 'path/to/template'
+output_path = '~/.config/alacritty/colors.toml'
+```
+Then, add this line to your `~/.config/alacritty/alacritty.toml`
+```
+import = ["colors.toml"]
+```
+
+### Starship
+```toml
+[config]
+
+[templates.starship]
+input_path = 'path/to/template'
+output_path = '~/.config/starship.toml'
+```
+That's it!
 
 
 <h2 class="acknowledgements">
