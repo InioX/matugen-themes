@@ -33,6 +33,7 @@
 - [Qt (qt5, qt6)](#qt)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
+- [Bat](#bat)
 - [Midnight-Discord](#midnight-discord)
 
 ### Hyprland
@@ -204,6 +205,18 @@ input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
 That's it!
+
+
+### Bat
+```toml
+[config]
+
+[templates.bat]
+input_path = 'path/to/template'
+output_path = '~/.config/bat/themes/matugen.tmTheme'
+```
+> [!NOTE]
+> Everytime the file changes, you'll need to run `bat cache --build"`.
 
 
 <h2 class="acknowledgements">
