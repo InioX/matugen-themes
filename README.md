@@ -219,6 +219,20 @@ output_path = '~/.config/bat/themes/matugen.tmTheme'
 > Everytime the file changes, you'll need to run `bat cache --build"`.
 
 
+### Midnight-Discord
+This is a adaptation of [midnight-discord](https://github.com/refact0r/midnight-discord) theme.
+Installation depends on your discord client. For [vesktop](https://github.com/Vencord/Vesktop) use this.
+
+```toml
+[config]
+
+[templates.midnight-discord]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/midnight-matugen.css'}
+```
+Then on vesktop settings, select the theme.
+
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
