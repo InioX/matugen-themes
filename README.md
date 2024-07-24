@@ -220,15 +220,16 @@ output_path = '~/.config/bat/themes/matugen.tmTheme'
 
 
 ### Midnight-Discord
-This is a adaptation of [midnight-discord](https://github.com/refact0r/midnight-discord) theme.
-Installation depends on your discord client. For [vesktop](https://github.com/Vencord/Vesktop) use this.
+This is a adaptation of [midnight-discord](https://github.com/refact0r/midnight-discord) theme. <br>
+>[!NOTE]
+> Installation may vary on your discord client. For [vesktop](https://github.com/Vencord/Vesktop) use this. 
 
 ```toml
 [config]
 
 [templates.midnight-discord]
 input_path = 'path/to/template'
-output_path = '~/.config/vesktop/themes/midnight-matugen.css'}
+output_path = '~/.config/vesktop/themes/midnight-matugen.css'
 ```
 Then on vesktop settings, select the theme.
 
