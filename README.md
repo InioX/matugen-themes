@@ -176,7 +176,7 @@ Change `5` to `6` for qt6ct
 input_path = 'path/to/template'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
 ```
-Then, add this two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
+Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
 ```
 [Appearance]
 color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
