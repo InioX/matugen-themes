@@ -21,16 +21,19 @@
 
 #### List of all templates
 - [Hyprland](#hyprland)
-- [Waybar](#waybar)
+- [Css](#css)
+    - [Waybar](#waybar)
+    - [Wlogout](#wlogout)
+    - [Swaync](#swaync)
 - [Kitty](#kitty)
 - [GTK (3.0, 4.0)](#gtk)
 - [Sway](#sway)
-- [Wlogout](#wlogout)
 - [Rofi](#rofi)
 - [Dunst](#dunst)
 - [Qt (qt5, qt6)](#qt)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
+- [Bat](#bat)
 - [Midnight-Discord](#midnight-discord)
 
 ### Hyprland
@@ -53,18 +56,23 @@ The theme will now be applied after you reload hyprland.
 > [!NOTE]
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
 
-### Waybar
-Copy the [waybar-colors.css]() template and add it to the matugen config.
+### Css
+Use [colors.css]() file for 
+- Waybar
+- Wlogout
+- Swaync
+
+Don't forget to change `app-name`.
 ```toml
 [config]
 # ...
 
-[templates.waybar]
+[templates.<app-name>]
 input_path = 'path/to/template'
-output_path = '~/.config/waybar/colors.css'
+output_path = '~/.config/<app-name>/colors.css'
 ```
 
-Then, add this line to the top of your `~/.config/waybar/style.css` file
+Then, add this line to the top of your `~/.config/<app-name>/style.css` file
 ```
 @import "colors.css";
 ```
@@ -128,27 +136,6 @@ Then, add this line to your `~/.config/sway/config`
 include colors.conf
 ```
 
-### wlogout
-```toml
-[config]
-# ...
-
-[templates.wlogout]
-input_path = 'path/to/template'
-output_path = '~/.config/wlogout/colors.css'
-```
-
-Then, add this line to the top of your `~/.config/wlogout/style.css`
-```
-@import "colors.css";
-```
-
-You can now use all the color variables inside the file.
-```css
-* {
-     background-color: @primary_container;
-}
-```
 
 ### Rofi
 ```toml
@@ -218,6 +205,33 @@ input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
 That's it!
+
+
+### Bat
+```toml
+[config]
+
+[templates.bat]
+input_path = 'path/to/template'
+output_path = '~/.config/bat/themes/matugen.tmTheme'
+```
+> [!NOTE]
+> Everytime the file changes, you'll need to run `bat cache --build"`.
+
+
+### Midnight-Discord
+This is a adaptation of [midnight-discord](https://github.com/refact0r/midnight-discord) theme. <br>
+>[!NOTE]
+> Installation may vary on your discord client. For [vesktop](https://github.com/Vencord/Vesktop) use this. 
+
+```toml
+[config]
+
+[templates.midnight-discord]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/midnight-matugen.css'
+```
+Then on vesktop settings, select the theme.
 
 
 <h2 class="acknowledgements">
