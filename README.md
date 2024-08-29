@@ -54,7 +54,7 @@ The theme will now be applied after you reload hyprland.
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
 
 ### Waybar
-Copy the [waybar-colors.css]() template and add it to the matugen config.
+Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
 ```toml
 [config]
 # ...
@@ -77,7 +77,7 @@ You can now use all the color variables inside the file.
 ```
 
 ### Kitty
-Copy the [kitty-colors.conf]() template and add it to the matugen config.
+Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/kitty-colors.conf) template and add it to the matugen config.
 ```toml
 [config]
 # ...
