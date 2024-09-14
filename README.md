@@ -21,6 +21,7 @@
 
 #### List of all templates
 - [Hyprland](#hyprland)
+- [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
 - [Kitty](#kitty)
 - [GTK (3.0, 4.0)](#gtk)
@@ -44,14 +45,42 @@ input_path = 'path/to/template'
 output_path = '~/.config/hypr/colors.conf'
 ```
 
-Then, add this line to the top of your `~/.config/hypr/config.conf` file
+Then, add this line to the top of your `~/.config/hypr/hyprland.conf` file
 ```
-source = ~/.config/hypr/colors.conf
+source = colors.conf
 ```
 
 The theme will now be applied after you reload hyprland.
 > [!NOTE]
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
+
+### Hyprlock
+Hyprlock uses the same color format as Hyprland so we can use `hyprland-colors.css`, if you didn't make the template above, Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+```toml
+[config]
+# ...
+
+[templates.hyprland]
+input_path = 'path/to/template'
+output_path = '~/.config/hypr/colors.conf'
+```
+
+Then, add this line to the top of your `~/.config/hypr/hyprlock.conf` file
+```
+source = colors.conf
+```
+
+Configuration Example (`hyprlock.conf`):
+```
+source = colors.conf
+background {
+    path = $image  # This variable contains the image you selected with matugen     
+}
+
+label {
+    color = $primary
+}
+```
 
 ### Waybar
 Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
