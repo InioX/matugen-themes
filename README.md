@@ -43,6 +43,7 @@ Copy the [hyprland-colors.conf]() template and add it to the matugen config.
 [templates.hyprland]
 input_path = 'path/to/template'
 output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
 ```
 
 Then, add this line to the top of your `~/.config/hypr/hyprland.conf` file
@@ -91,6 +92,7 @@ Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/template
 [templates.waybar]
 input_path = 'path/to/template'
 output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
 ```
 
 Then, add this line to the top of your `~/.config/waybar/style.css` file
@@ -150,6 +152,7 @@ Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.confi
 [templates.sway]
 input_path = 'path/to/template'
 output_path = '~/.config/sway/colors.conf'
+post_hook = 'swaymsg reload'
 ```
 
 Then, add this line to your `~/.config/sway/config`
