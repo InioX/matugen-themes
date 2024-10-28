@@ -1,5 +1,9 @@
-{config, lib}: let
-  contents = lib.pipe
+{
+  config,
+  lib,
+}: let
+  contents =
+    lib.pipe
     ../README.md
     [
       builtins.readFile
@@ -17,60 +21,65 @@
       # within a section(e.g., the details under '### Hyprland')
       (builtins.split "###[[:space:]]")
       (lib.filter (line: line != "\n\n" && line != []))
-      
+
       # Removes trailing newlines
       (map (line: lib.head (builtins.match "(.*[^\n])\n*" line)))
       # Makes a types.listOf types.attrs that looks like
       # {
-      #   name = "foo"; 
+      #   name = "foo";
       #   value = {
       #     input_path = "bar"
       #     output_path = "baz";
       #     post_hook = "qux";
-      #   }; 
+      #   };
       # }
       (map extractKeys)
       # Converts it into an attr set
       builtins.listToAttrs
       # Renames "hyprland" to "hypr" changes gtk-related things
-      (attrs: attrs // {
-        hypr = attrs.hyprland;
-        gtk3 = attrs.gtk // { output_path = "${config.xdg.configHome}/hypr/colors.config"; };
-        gtk4 = attrs.gtk;
-      })
+      (attrs:
+        attrs
+        // {
+          hypr = attrs.hyprland;
+          gtk3 = attrs.gtk // {output_path = "${config.xdg.configHome}/hypr/colors.config";};
+          gtk4 = attrs.gtk;
+        })
       # Removes unusable and/or unneeded entries
-      (attrs: builtins.removeAttrs attrs [
-        "hyprland"
-        "hyprlock"
-        "starship" # Unusable out of the box
-        "gtk"
-      ])
+      (attrs:
+        builtins.removeAttrs attrs [
+          "hyprland"
+          "hyprlock"
+          "starship" # Unusable out of the box
+          "gtk"
+        ])
     ];
-    extractKeys = section:
-    let
-      match = key: builtins.match ".*${key} = '([^']+)'.*" section;
-      
-      input_path = lib.pipe
-        "input_path"
-        [
-          match
-          builtins.head
-          (lib.removePrefix ".")
-          (path: ../. + path)
-        ];
-      output_path = builtins.replaceStrings
-        ["~/.config"]
-        ["${config.xdg.configHome}"]
-        (builtins.head (match "output_path"));
-      post_hook = match "post_hook";
-    in {
-      name = lib.toLower (builtins.head (builtins.match "([^\n]+).*" section));
-      value =
+  extractKeys = section: let
+    match = key: builtins.match ".*${key} = '([^']+)'.*" section;
+
+    input_path =
+      lib.pipe
+      "input_path"
+      [
+        match
+        builtins.head
+        (lib.removePrefix ".")
+        (path: ../. + path)
+      ];
+    output_path =
+      builtins.replaceStrings
+      ["~/.config"]
+      ["${config.xdg.configHome}"]
+      (builtins.head (match "output_path"));
+    post_hook = match "post_hook";
+  in {
+    name = lib.toLower (builtins.head (builtins.match "([^\n]+).*" section));
+    value =
       if post_hook == null
-      then { inherit input_path output_path; }
+      then {inherit input_path output_path;}
       else {
         inherit input_path output_path;
         post_hook = builtins.head post_hook;
       };
-    };
-in contents
+  };
+in
+  contents
