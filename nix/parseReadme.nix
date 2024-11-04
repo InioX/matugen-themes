@@ -41,8 +41,10 @@
         attrs
         // {
           hypr = attrs.hyprland;
-          gtk3 = attrs.gtk // {output_path = "${config.xdg.configHome}/hypr/colors.config";};
+          gtk3 = attrs.gtk // {output_path = "${config.xdg.configHome}/gtk-3.0/colors.css";};
           gtk4 = attrs.gtk;
+          # The following update is not needed since the regex should get this value anyways
+          # `// {output_path = "${config.xdg.configHome}/gtk-4.0/colors.css";}`
         })
       # Removes unusable and/or unneeded entries
       (attrs:
