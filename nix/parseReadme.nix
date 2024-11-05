@@ -38,15 +38,24 @@
       builtins.listToAttrs
       # Renames "hyprland" to "hypr" changes gtk-related things
       (attrs:
-        attrs
-        // {
+        attrs // {
           hypr = attrs.hyprland;
-          gtk3 = attrs.gtk // {output_path = "${config.xdg.configHome}/gtk-3.0/colors.css";};
+          gtk3 = attrs.gtk // {
+            output_path = "${config.xdg.configHome}/gtk-3.0/colors.css";
+            post_hook = lib.concatStringsSep "; " [
+              "gsettings set org.gnome.desktop.interface gtk-theme ''"
+              "gsettings set org.gnome.desktop.interface gtk-theme \"${
+                if config.gtk.theme.name != null
+                then config.gtk.theme.name
+                else "Adwaita-{{mode}}"
+              }\""
+            ];
+          };
+          # The output_path for gtk4 doesn't need to be manually set since the
+          # regex should capture it
           gtk4 = attrs.gtk;
-          # The following update is not needed since the regex should get this value anyways
-          # `// {output_path = "${config.xdg.configHome}/gtk-4.0/colors.css";}`
         })
-      # Removes unusable and/or unneeded entries
+      # Removes unusable and unneeded entries
       (attrs:
         builtins.removeAttrs attrs [
           "hyprland"
