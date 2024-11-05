@@ -35,13 +35,13 @@
 - [Midnight-Discord](#midnight-discord)
 
 ### Hyprland
-Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+Copy the [hyprland-colors.conf](./templates/hyprland-colors.conf) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
 [templates.hyprland]
-input_path = 'path/to/template'
+input_path = './templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
 post_hook = 'hyprctl reload'
 ```
@@ -56,13 +56,13 @@ The theme will now be applied after you reload hyprland.
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
 
 ### Hyprlock
-Hyprlock uses the same color format as Hyprland so we can use `hyprland-colors.css`, if you didn't make the template above, Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+Hyprlock uses the same color format as Hyprland so we can use the same template. If you didn't use the template above, copy the [hyprland-colors.conf](./templates/hyprland-colors.conf) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
-[templates.hyprland]
-input_path = 'path/to/template'
+[templates.hyprlock]
+input_path = './templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
 ```
 
@@ -71,7 +71,7 @@ Then, add this line to the top of your `~/.config/hypr/hyprlock.conf` file
 source = colors.conf
 ```
 
-Configuration Example (`hyprlock.conf`):
+Configuration example (`hyprlock.conf`):
 ```
 source = colors.conf
 background {
@@ -84,13 +84,13 @@ label {
 ```
 
 ### Waybar
-Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
+Copy the [colors.css](./templates/colors.css) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
 [templates.waybar]
-input_path = 'path/to/template'
+input_path = './templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 ```
@@ -108,13 +108,13 @@ You can now use all the color variables inside the file.
 ```
 
 ### Kitty
-Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/kitty-colors.conf) template and add it to the matugen config.
+Copy the [kitty-colors.conf](./templates/kitty-colors.conf) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
 [templates.kitty]
-input_path = 'path/to/template'
+input_path = './templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
 ```
 
@@ -126,31 +126,33 @@ include colors.conf
 The theme will now be applied after you reload kitty.
 
 ### GTK
+Copy the [gtk-colors.css](./templates/gtk-colors.css) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
 [templates.gtk3]
-input_path = 'path/to/template'
+input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
 
 [templates.gtk4]
-input_path = 'path/to/template'
+input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 ```
 
-Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`
+Then, add this line to the top of `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`
 ```css
 @import 'colors.css';
 ```
 
 ### Sway
+Copy the [sway-colors.conf](./templates/sway-colors.conf) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
 [templates.sway]
-input_path = 'path/to/template'
+input_path = './templates/sway-colors.conf'
 output_path = '~/.config/sway/colors.conf'
 post_hook = 'swaymsg reload'
 ```
@@ -161,12 +163,13 @@ include colors.conf
 ```
 
 ### wlogout
+Copy the [colors.css](./templates/colors.css) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 # ...
 
 [templates.wlogout]
-input_path = 'path/to/template'
+input_path = './templates/colors.css'
 output_path = '~/.config/wlogout/colors.css'
 ```
 
@@ -183,11 +186,12 @@ You can now use all the color variables inside the file.
 ```
 
 ### Rofi
+Copy the [rofi-colors.rasi](./templates/rofi-colors.rasi) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 
 [templates.rofi]
-input_path = 'path/to/template'
+input_path = './templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 ```
 
@@ -204,21 +208,23 @@ You can now use all the color variables inside of the `config.rasi`.
 ```
 
 ### dunst
+Copy the [dunstrc-colors](./templates/dunstrc-colors) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 
 [templates.dunst]
-input_path = 'path/to/template'
+input_path = './templates/dunstrc-colors'
 output_path = '~/.config/dunst/dunstrc'
 ```
 
 ### qt
+Copy the [qtct-colors](./templates/qtct-colors) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 Change `5` to `6` for qt6ct
 ```toml
 [config]
 
 [templates.qt5ct]
-input_path = 'path/to/template'
+input_path = './templates/qtct-colors.conf'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
 ```
 Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
@@ -229,11 +235,12 @@ custom_palette=true
 ```
 
 ### Alacritty
+Copy the [alacritty.toml](./templates/alacritty.toml) template to `$XDG_CONFIG_HOME/matugen/templates/`.
 ```toml
 [config]
 
 [templates.alacritty]
-input_path = 'path/to/template'
+input_path = './templates/alacritty.toml'
 output_path = '~/.config/alacritty/colors.toml'
 ```
 Then, add this line to your `~/.config/alacritty/alacritty.toml`
@@ -242,23 +249,27 @@ import = ["colors.toml"]
 ```
 
 ### Starship
+Copy the [starship-colors.toml](./templates/starship-colors.toml) template to `$XDG_CONFIG_HOME/matugen/templates/`(with your own modifications).
 ```toml
 [config]
 
 [templates.starship]
-input_path = 'path/to/template'
+input_path = './templates/starship-colors.toml'
 output_path = '~/.config/starship.toml'
 ```
+> [!WARNING]
+> This will overwrite `~/.config/starship.toml.` Please modify the template to your liking before adding it to your matugen configuration
+
 That's it!
 
 
 <h2 class="acknowledgements">
-     <sub>
-          <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
-           height="25"
-           width="25">
-     </sub>
-     Acknowledgements
+    <sub>
+        <img src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
+        height="25"
+        width="25">
+    </sub>
+    Acknowledgements
 </h2>
 
 [Heus-Sueh](https://github.com/Heus-Sueh)
