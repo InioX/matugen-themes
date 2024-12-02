@@ -33,6 +33,7 @@
 - [Alacritty](#alacritty)
 - [Starship](#starship)
 - [Midnight-Discord](#midnight-discord)
+- [Pywalfox](#pywalfox)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -249,6 +250,25 @@ import = ["colors.toml"]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
+
+### Pywalfox
+```toml
+[config]
+
+[templates.pywalfox]
+input_path = 'path/to/template'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+```
+
+> [!NOTE]
+> Add the [Pywalfox plugin](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/) to firefox / thunderbird. <br>
+> Dependencies: [pywalfox](https://github.com/frewacom/pywalfox) <br>
+> Install:
+> - Arch (AUR): `yay -S python-pywalfox`
+> - GNU/Linux, MacOS, Windows: [Follow Instructions](https://github.com/frewacom/pywalfox?tab=readme-ov-file#-installation)
+
+
 That's it!
 
 
