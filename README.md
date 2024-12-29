@@ -117,6 +117,7 @@ Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/t
 [templates.kitty]
 input_path = 'path/to/template'
 output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
 ```
 
 Then, add this line to the bottom of your `~/.config/kitty/kitty.conf`
