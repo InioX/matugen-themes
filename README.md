@@ -20,6 +20,7 @@
 </div>
 
 #### List of all templates
+
 - [Hyprland](#hyprland)
 - [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
@@ -32,11 +33,13 @@
 - [Qt (qt5, qt6)](#qt)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
-- [Midnight-Discord](#midnight-discord)
+- [Midnight Discord](#midnight-discord)
 - [Pywalfox](#pywalfox)
 
 ### Hyprland
-Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+
+Copy the [hyprland-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/midnight-discord.css) template and add it to the matugen config.
+
 ```toml
 [config]
 # ...
@@ -48,7 +51,8 @@ post_hook = 'hyprctl reload'
 ```
 
 Then, add this line to the top of your `~/.config/hypr/hyprland.conf` file
-```
+
+```conf
 source = colors.conf
 ```
 
@@ -57,7 +61,9 @@ The theme will now be applied after you reload hyprland.
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
 
 ### Hyprlock
-Hyprlock uses the same color format as Hyprland so we can use `hyprland-colors.css`, if you didn't make the template above, Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+
+Hyprlock uses the same color format as Hyprland so we can use `hyprland-colors.css`, if you didn't make the template above, Copy the [hyprland-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/hyprland-colors.conf) template and add it to the matugen config.
+
 ```toml
 [config]
 # ...
@@ -68,12 +74,14 @@ output_path = '~/.config/hypr/colors.conf'
 ```
 
 Then, add this line to the top of your `~/.config/hypr/hyprlock.conf` file
-```
+
+```conf
 source = colors.conf
 ```
 
 Configuration Example (`hyprlock.conf`):
-```
+
+```conf
 source = colors.conf
 background {
     path = $image  # This variable contains the image you selected with matugen     
@@ -85,7 +93,9 @@ label {
 ```
 
 ### Waybar
+
 Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
+
 ```toml
 [config]
 # ...
@@ -97,11 +107,13 @@ post_hook = 'pkill -SIGUSR2 waybar'
 ```
 
 Then, add this line to the top of your `~/.config/waybar/style.css` file
-```
+
+```css
 @import "colors.css";
 ```
 
 You can now use all the color variables inside the file.
+
 ```css
 * {
      background-color: @primary_container;
@@ -109,7 +121,9 @@ You can now use all the color variables inside the file.
 ```
 
 ### Kitty
+
 Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/kitty-colors.conf) template and add it to the matugen config.
+
 ```toml
 [config]
 # ...
@@ -121,13 +135,15 @@ post_hook = 'pkill -SIGUSR1 kitty'
 ```
 
 Then, add this line to the bottom of your `~/.config/kitty/kitty.conf`
-```
+
+```conf
 include colors.conf
 ```
 
 The theme will now be applied after you reload kitty.
 
 ### GTK
+
 ```toml
 [config]
 # ...
@@ -142,11 +158,13 @@ output_path = '~/.config/gtk-4.0/colors.css'
 ```
 
 Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`
+
 ```css
 @import 'colors.css';
 ```
 
 ### Sway
+
 ```toml
 [config]
 # ...
@@ -158,11 +176,13 @@ post_hook = 'swaymsg reload'
 ```
 
 Then, add this line to your `~/.config/sway/config`
-```
+
+```conf
 include colors.conf
 ```
 
 ### wlogout
+
 ```toml
 [config]
 # ...
@@ -173,11 +193,13 @@ output_path = '~/.config/wlogout/colors.css'
 ```
 
 Then, add this line to the top of your `~/.config/wlogout/style.css`
-```
+
+```css
 @import "colors.css";
 ```
 
 You can now use all the color variables inside the file.
+
 ```css
 * {
      background-color: @primary_container;
@@ -185,8 +207,10 @@ You can now use all the color variables inside the file.
 ```
 
 ### Rofi
+
 ```toml
 [config]
+# ...
 
 [templates.rofi]
 input_path = 'path/to/template'
@@ -194,11 +218,13 @@ output_path = '~/.config/rofi/colors.rasi'
 ```
 
 Then, add this line to the top of your `~/.config/rofi/config.rasi`
-```
+
+```rasi
 @import "colors.rasi";
 ```
 
 You can now use all the color variables inside of the `config.rasi`.
+
 ```css
 * {
      background-color: @primary-container;
@@ -206,8 +232,10 @@ You can now use all the color variables inside of the `config.rasi`.
 ```
 
 ### dunst
+
 ```toml
 [config]
+# ...
 
 [templates.dunst]
 input_path = 'path/to/template'
@@ -215,46 +243,70 @@ output_path = '~/.config/dunst/dunstrc'
 ```
 
 ### qt
+
 Change `5` to `6` for qt6ct
+
 ```toml
 [config]
+# ...
 
 [templates.qt5ct]
 input_path = 'path/to/template'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
 ```
+
 Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
-```
+
+```conf
 [Appearance]
 color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
 custom_palette=true
 ```
 
 ### Alacritty
+
 ```toml
 [config]
+# ...
 
 [templates.alacritty]
 input_path = 'path/to/template'
 output_path = '~/.config/alacritty/colors.toml'
 ```
+
 Then, add this line to your `~/.config/alacritty/alacritty.toml`
-```
+
+```toml
 import = ["colors.toml"]
 ```
 
 ### Starship
+
 ```toml
 [config]
+# ...
 
 [templates.starship]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
 
-### Pywalfox
+### Midnight discord
+
 ```toml
 [config]
+# ...
+
+[templates.discord]
+input_path = "./templates/discord.css"
+output_path = "~/.config/Vencord/themes/matugen.css"
+```
+
+### Pywalfox
+
+```toml
+[config]
+# ...
 
 [templates.pywalfox]
 input_path = 'path/to/template'
@@ -263,15 +315,16 @@ post_hook = 'pywalfox update'
 ```
 
 > [!NOTE]
-> Add the [Pywalfox plugin](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/) to firefox / thunderbird. <br>
-> Dependencies: [pywalfox](https://github.com/frewacom/pywalfox) <br>
+> Add the [Pywalfox plugin](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/) to firefox / thunderbird.
+>
+> Dependencies: [pywalfox](https://github.com/frewacom/pywalfox)
+>
 > Install:
+>
 > - Arch (AUR): `yay -S python-pywalfox`
 > - GNU/Linux, MacOS, Windows: [Follow Instructions](https://github.com/frewacom/pywalfox?tab=readme-ov-file#-installation)
 
-
 That's it!
-
 
 <h2 class="acknowledgements">
      <sub>
