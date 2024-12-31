@@ -33,6 +33,7 @@
 - [Alacritty](#alacritty)
 - [Starship](#starship)
 - [Midnight-Discord](#midnight-discord)
+- [Fish](#fish)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -246,7 +247,23 @@ import = ["colors.toml"]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
-That's it!
+
+
+### Fish
+```toml
+[config]
+
+[templates.fish]
+input_path = 'path/to/template'
+output_path = '~/.config/fish/themes/Matugen.theme'
+```
+
+Then, add this line to your `~/.config/fish/config.fish`
+
+```fish
+fish_config theme choose "Matugen"
+```
+
 
 
 <h2 class="acknowledgements">
