@@ -96,7 +96,7 @@ Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/template
 # ...
 
 [templates.waybar]
-input_path = 'path/to/template'
+input_path = 'path/to/template' # colors.css
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 ```
@@ -180,7 +180,7 @@ include colors.conf
 # ...
 
 [templates.wlogout]
-input_path = 'path/to/template'
+input_path = 'path/to/template' # colors.css
 output_path = '~/.config/wlogout/colors.css'
 ```
 
