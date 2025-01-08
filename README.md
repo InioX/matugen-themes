@@ -175,6 +175,7 @@ include colors.conf
 ---
 
 ### wlogout
+Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
 ```toml
 [config]
 # ...
@@ -280,7 +281,7 @@ output_path = '~/.config/starship.toml'
 
 ```toml
 [config]
-# Choose the modified discord client you use and copy the template accordingly, 
+# Choose the modified discord client you use and copy one of the templates below accordingly, 
 # if you are using another client that is not here and you know where `quickcss.css` is, 
 # feel free to modify the `output_path` to your client's path.
 
