@@ -34,6 +34,7 @@
 - [Starship](#starship)
 - [Midnight-Discord](#midnight-discord)
 - [Pywalfox](#pywalfox)
+- [Fish](#fish)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -55,6 +56,8 @@ source = colors.conf
 The theme will now be applied after you reload hyprland.
 > [!NOTE]
 > To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
+
+---
 
 ### Hyprlock
 Hyprlock uses the same color format as Hyprland so we can use `hyprland-colors.css`, if you didn't make the template above, Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -84,6 +87,8 @@ label {
 }
 ```
 
+---
+
 ### Waybar
 Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
 ```toml
@@ -91,7 +96,7 @@ Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/template
 # ...
 
 [templates.waybar]
-input_path = 'path/to/template'
+input_path = 'path/to/template' # colors.css
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 ```
@@ -107,6 +112,8 @@ You can now use all the color variables inside the file.
      background-color: @primary_container;
 }
 ```
+
+---
 
 ### Kitty
 Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/kitty-colors.conf) template and add it to the matugen config.
@@ -125,6 +132,8 @@ include colors.conf
 ```
 
 The theme will now be applied after you reload kitty.
+
+---
 
 ### GTK
 ```toml
@@ -145,6 +154,8 @@ Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.confi
 @import 'colors.css';
 ```
 
+---
+
 ### Sway
 ```toml
 [config]
@@ -161,13 +172,16 @@ Then, add this line to your `~/.config/sway/config`
 include colors.conf
 ```
 
+---
+
 ### wlogout
+Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
 ```toml
 [config]
 # ...
 
 [templates.wlogout]
-input_path = 'path/to/template'
+input_path = 'path/to/template' # colors.css
 output_path = '~/.config/wlogout/colors.css'
 ```
 
@@ -182,6 +196,8 @@ You can now use all the color variables inside the file.
      background-color: @primary_container;
 }
 ```
+
+---
 
 ### Rofi
 ```toml
@@ -204,6 +220,8 @@ You can now use all the color variables inside of the `config.rasi`.
 }
 ```
 
+---
+
 ### dunst
 ```toml
 [config]
@@ -212,6 +230,8 @@ You can now use all the color variables inside of the `config.rasi`.
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
 ```
+
+---
 
 ### qt
 Change `5` to `6` for qt6ct
@@ -225,9 +245,11 @@ output_path = '~/.config/qt5ct/colors/matugen.conf'
 Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
 ```
 [Appearance]
-color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
+color_scheme_path=$HOME/.config/qt5ct/colors/matugen.conf
 custom_palette=true
 ```
+
+---
 
 ### Alacritty
 ```toml
@@ -242,6 +264,8 @@ Then, add this line to your `~/.config/alacritty/alacritty.toml`
 import = ["colors.toml"]
 ```
 
+---
+
 ### Starship
 ```toml
 [config]
@@ -250,6 +274,27 @@ import = ["colors.toml"]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
+
+---
+
+### Midnight Discord
+
+```toml
+[config]
+# Choose the modified discord client you use and copy one of the templates below accordingly, 
+# if you are using another client that is not here and you know where `quickcss.css` is, 
+# feel free to modify the `output_path` to your client's path.
+
+[templates.vesktop] # vesktop client
+input_path = 'path/to/template'
+output_path = '~/.var/app/dev.vencord.Vesktop/config/vesktop/settings/quickCss.css' # for flatpak installation
+
+[templates.legcord] # legcord (old armcord) client
+input_path = 'path/to/template'
+output_path = '~/.var/app/xyz.armcord.ArmCord/config/armcord/quickCss.css' # for flatpak installation
+```
+
+---
 
 ### Pywalfox
 ```toml
@@ -268,9 +313,26 @@ post_hook = 'pywalfox update'
 > - Arch (AUR): `yay -S python-pywalfox`
 > - GNU/Linux, MacOS, Windows: [Follow Instructions](https://github.com/frewacom/pywalfox?tab=readme-ov-file#-installation)
 
+---
+
+### Fish
+```toml
+[config]
+
+[templates.fish]
+input_path = 'path/to/template'
+output_path = '~/.config/fish/themes/Matugen.theme'
+```
+
+Then, add this line to your `~/.config/fish/config.fish`
+
+```fish
+fish_config theme choose "Matugen"
+```
 
 That's it!
 
+---
 
 <h2 class="acknowledgements">
      <sub>
@@ -282,3 +344,5 @@ That's it!
 </h2>
 
 [Heus-Sueh](https://github.com/Heus-Sueh)
+[zDyanTB](https://github.com/zDyanTB)
+[FromWau](https://github.com/FromWau)
