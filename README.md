@@ -276,6 +276,25 @@ output_path = '~/.config/starship.toml'
 
 ---
 
+### Midnight Discord
+
+```toml
+[config]
+# Choose the modified discord client you use and copy the template accordingly, 
+# if you are using another client that is not here and you know where `quickcss.css` is, 
+# feel free to modify the `output_path` to your client's path.
+
+[templates.vesktop] # vesktop client
+input_path = 'path/to/template'
+output_path = '~/.var/app/dev.vencord.Vesktop/config/vesktop/settings/quickCss.css' # for flatpak installation
+
+[templates.legcord] # legcord (old armcord) client
+input_path = 'path/to/template'
+output_path = '~/.var/app/xyz.armcord.ArmCord/config/armcord/quickCss.css' # for flatpak installation
+```
+
+---
+
 ### Pywalfox
 ```toml
 [config]
