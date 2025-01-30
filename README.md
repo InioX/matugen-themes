@@ -194,7 +194,7 @@ output_path = '~/.config/rofi/colors.rasi'
 
 Then, add this line to the top of your `~/.config/rofi/config.rasi`
 ```
-@import "colors.rasi";
+@import "colors.rasi"
 ```
 
 You can now use all the color variables inside of the `config.rasi`.
