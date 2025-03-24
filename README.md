@@ -34,6 +34,7 @@
 - [Starship](#starship)
 - [Midnight-Discord](#midnight-discord)
 - [Pywalfox](#pywalfox)
+- [Yazi](#yazi)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -125,6 +126,11 @@ include colors.conf
 ```
 
 The theme will now be applied after you reload kitty.
+
+To autoreload kitty set ```allow_remote_control yes``` in kitty.conf
+Then append ```[templates.kitty]``` with
+```
+post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
 
 ### GTK
 ```toml
@@ -270,6 +276,16 @@ post_hook = 'pywalfox update'
 
 
 That's it!
+
+### Yazi
+```toml
+[config]
+
+[templates.yazi]
+input_path = 'path/to/template'
+output_path = '~/.config/yazi/theme.toml'
+```
+
 
 
 <h2 class="acknowledgements">
