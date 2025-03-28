@@ -35,6 +35,7 @@
 - [Midnight-Discord](#midnight-discord)
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
+- [Zathura](#zathura)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -131,6 +132,7 @@ To autoreload kitty set ```allow_remote_control yes``` in kitty.conf
 Then append ```[templates.kitty]``` with
 ```
 post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
+```
 
 ### GTK
 ```toml
@@ -285,7 +287,14 @@ That's it!
 input_path = 'path/to/template'
 output_path = '~/.config/yazi/theme.toml'
 ```
+### Zathura
+```toml
+[config]
 
+[templates.zathura]
+input_path = 'path/to/template'
+output_path = '~/.config/zathura/zathurarc'
+```
 
 
 <h2 class="acknowledgements">
