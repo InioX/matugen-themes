@@ -295,6 +295,15 @@ output_path = '~/.config/yazi/theme.toml'
 input_path = 'path/to/template'
 output_path = '~/.config/zathura/zathurarc'
 ```
+Then, if transparency is needed just change the alpha value in:
+```
+set default-bg              "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
+set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
+```
+And to change the font family and size just write it to:
+```
+set font "FiraCode Nerd Font 12"
+```
 
 
 <h2 class="acknowledgements">
