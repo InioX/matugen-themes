@@ -36,6 +36,7 @@
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
+- [Television](#television)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -305,6 +306,19 @@ And to change the font family and size just write it to:
 set font "FiraCode Nerd Font 12"
 ```
 
+### Television
+```toml
+[config]
+
+[templates.television]
+input_path = 'templates/television.toml'
+output_path = '~/.config/television/themes/matugen.toml'
+```
+Then, add this line to the `ui` section of your `~/.config/television/config.toml` file
+```toml
+[ui]
+theme = "matugen"
+```
 
 <h2 class="acknowledgements">
      <sub>
