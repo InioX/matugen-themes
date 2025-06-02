@@ -126,7 +126,7 @@ ForegroundInactive={{colors.on_surface_variant.default.hex}}
 ForegroundLink={{colors.secondary.default.hex}}
 ForegroundNegative={{colors.error.default.hex}}
 ForegroundNeutral={{colors.tertiary.default.hex}}
-ForegroundNormal={{colors.on_primary_container.default.hex}}
+ForegroundNormal={{colors.on_background.default.hex}}
 ForegroundPositive={{colors.tertiary_fixed.default.hex}}
 ForegroundVisited={{colors.on_secondary_container.default.hex}}
 
