@@ -30,7 +30,7 @@
 - [Rofi](#rofi)
 - [Dunst](#dunst)
 - [Qt (qt5, qt6)](#qt)
-- [Qt-Method-2(qt5, qt6)] (#qt-method2)
+- [Qt-Method-2(qt5, qt6)](#qt-method-2)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
 - [Midnight-Discord](#midnight-discord)
@@ -258,9 +258,9 @@ style=Breeze
 > [!Note]
 > for the theme to work you need to install the following <br>
 > Arch Linux:
-> - `sudo pacman -Sy breeze breeze5 breeze-icons breeze-gtk` 
+> - `sudo pacman -Sy breeze breeze5 breeze-icons breeze-gtk` <br
 > Once package thats needed for qt5ct-kde is dropped we will install a downgraged package to make it work. <br>
-> `sudo pacman -U https://archive.archlinux.org/packages/q/qqc2-desktop-style5/qqc2-desktop-style5-5.116.1-1-x86_64.pkg.tar.zst`
+> `sudo pacman -U https://archive.archlinux.org/packages/q/qqc2-desktop-style5/qqc2-desktop-style5-5.116.1-1-x86_64.pkg.tar.zst` <br>
 > Arch Linux (AUR):
 > - `yay -S qt6ct-kde qt5ct-kde` 
 
