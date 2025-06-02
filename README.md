@@ -36,6 +36,7 @@
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
+- [Cava](#cava)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -304,6 +305,25 @@ And to change the font family and size just write it to:
 ```
 set font "FiraCode Nerd Font 12"
 ```
+### Cava
+Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/templates/cava-colors.ini) template and add it to the matugen config.
+```toml
+[config]
+# ...
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/your-theme'
+post_hook = "pkill -USR1 cava"
+```
+
+Update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename.
+```toml
+theme = 'your-theme'
+```
+And that's it, by default the vertical gradient effect is activated, to disable it comment the line `gradient = 1` and uncomment `; gradient = 0` inside the `cava-colors.ini` template.
+> [!NOTE]
+>> Cava's current support for loading themes externally is only available in the git version, you will have to compile from source for it to work.
 
 
 <h2 class="acknowledgements">
