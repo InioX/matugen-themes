@@ -30,6 +30,7 @@
 - [Rofi](#rofi)
 - [Dunst](#dunst)
 - [Qt (qt5, qt6)](#qt)
+- [Qt-Method-2(qt5, qt6)] (#qt-method2)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
 - [Midnight-Discord](#midnight-discord)
@@ -236,6 +237,34 @@ Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
 color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
 custom_palette=true
 ```
+
+### Qt-Method-2
+
+
+```toml
+[templates.color-scheme]
+input_path = '~/.config/matugen/templates/Matugen.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+```
+Then, add these lines to tot top of `~/.config/qt5ct/qt5ct.conf` and change to 6 for qt6ct
+
+```
+color_scheme_path=~/.local/share/color-schemes/Matugen.colors
+custom_palette=true
+icon_theme=breeze
+style=Breeze
+```
+
+> [!Note]
+> for the theme to work you need to install the following <br>
+> Arch Linux:
+> - `sudo pacman -Sy breeze breeze5 breeze-icons breeze-gtk` 
+> Once package thats needed for qt5ct-kde is dropped we will install a downgraged package to make it work. <br>
+> `sudo pacman -U https://archive.archlinux.org/packages/q/qqc2-desktop-style5/qqc2-desktop-style5-5.116.1-1-x86_64.pkg.tar.zst`
+> Arch Linux (AUR):
+> - `yay -S qt6ct-kde qt5ct-kde` 
+
+
 
 ### Alacritty
 ```toml
