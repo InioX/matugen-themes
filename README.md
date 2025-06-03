@@ -240,13 +240,14 @@ custom_palette=true
 
 ### Qt-Method-2
 
+Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme 
 
 ```toml
 [templates.color-scheme]
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
 ```
-Then, add these lines to tot top of `~/.config/qt5ct/qt5ct.conf` and change to 6 for qt6ct
+Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the same for qt6
 
 ```
 color_scheme_path=~/.local/share/color-schemes/Matugen.colors
@@ -254,16 +255,12 @@ custom_palette=true
 icon_theme=breeze
 style=Breeze
 ```
+Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEM` set to `qt6ct`.
 
 > [!Note]
 > for the theme to work you need to install the following <br>
-> Arch Linux:
-> - `sudo pacman -Sy breeze breeze5 breeze-icons breeze-gtk` <br
-> Once package thats needed for qt5ct-kde is dropped we will install a downgraged package to make it work. <br>
-> `sudo pacman -U https://archive.archlinux.org/packages/q/qqc2-desktop-style5/qqc2-desktop-style5-5.116.1-1-x86_64.pkg.tar.zst` <br>
 > Arch Linux (AUR):
-> - `yay -S qt6ct-kde qt5ct-kde` 
-
+> - `yay -S breeze breeze5 breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
 
 
 ### Alacritty
