@@ -36,6 +36,7 @@
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
+- [Helix](#helix)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -303,6 +304,21 @@ set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}
 And to change the font family and size just write it to:
 ```
 set font "FiraCode Nerd Font 12"
+```
+
+### Helix
+
+
+```
+[templates.helix]
+input_path = 'path/to/template'
+output_path = '~/.config/helix/themes/matugen.toml'
+```
+
+Then, add this line to your `~/.config/helix/config.toml`
+
+```
+theme = "matugen"
 ```
 
 
