@@ -20,7 +20,7 @@ IntensityEffect=0
 
 [Colors:Button]
 BackgroundAlternate={{colors.surface_container_low.default.hex}}
-BackgroundNormal={{colors.surface_container.default.hex}}
+BackgroundNormal={{colors.surface_container_high.default.hex}}
 DecorationFocus={{colors.primary.default.hex}}
 DecorationHover={{colors.primary.default.hex}}
 ForegroundActive={{colors.primary.default.hex}}
