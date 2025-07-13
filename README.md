@@ -255,7 +255,7 @@ custom_palette=true
 icon_theme=breeze
 style=Breeze
 ```
-Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEM` set to `qt6ct`.
+Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEME` set to `qt6ct`.
 
 > [!Note]
 > for the theme to work you need to install the following <br>
