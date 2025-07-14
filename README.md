@@ -36,6 +36,7 @@
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
+- [Btop](#btop)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -305,7 +306,15 @@ And to change the font family and size just write it to:
 set font "FiraCode Nerd Font 12"
 ```
 
+### Btop
+```toml
+[config]
 
+[templates.btop]
+input_path = 'path/to/template'
+output_path = '~/.config/btop/themes/matugen.theme'
+```
+Then Choose `matugen` theme from btop settings.
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
