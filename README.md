@@ -120,6 +120,7 @@ Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/t
 [templates.kitty]
 input_path = 'path/to/template'
 output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
 ```
 
 Then, add this line to the bottom of your `~/.config/kitty/kitty.conf`
@@ -143,6 +144,7 @@ post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
 [templates.gtk3]
 input_path = 'path/to/template'
 output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
 input_path = 'path/to/template'
@@ -220,6 +222,7 @@ You can now use all the color variables inside of the `config.rasi`.
 [templates.dunst]
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
+post_hook = 'pkill -SIGUSR2 dunst
 ```
 
 ### qt
