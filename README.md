@@ -32,7 +32,7 @@
 - [Qt (qt5, qt6)](#qt)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
-- [Midnight-Discord](#midnight-discord)
+- [Midnight Discord](#midnight-discord)
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
@@ -259,6 +259,23 @@ import = ["colors.toml"]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
+
+### Midnight Discord
+
+Copy the [midnight-discord.css](https://github.com/InioX/matugen-themes/blob/main/templates/midnight-discord.css) template and add it to the matugen config.
+
+```toml
+[config]
+
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '/home/elrond/.config/vesktop/themes/midnight-discord.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
 
 ### Pywalfox
 ```toml
