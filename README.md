@@ -130,11 +130,14 @@ include colors.conf
 
 The theme will now be applied after you reload kitty.
 
-To autoreload kitty set ```allow_remote_control yes``` in kitty.conf
+To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf` 
+
 Then append ```[templates.kitty]``` with
 ```
-post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
+post_hook = "kitty +kitten themes --reload-in=all your-theme"
 ```
+[Kitty Themes Wiki](https://sw.kovidgoyal.net/kitty/kittens/themes/)
 
 ### GTK
 ```toml
