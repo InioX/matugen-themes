@@ -332,18 +332,18 @@ And to change the font family and size just write it to:
 set font "FiraCode Nerd Font 12"
 ```
 
-### Fuzzel
+### Television
 ```toml
 [config]
 
-[templates.fuzzel]
-input_path = 'path/to/template'
-output_path = '~/.config/fuzzel/colors.ini'
+[templates.television]
+input_path = 'templates/television.toml'
+output_path = '~/.config/television/themes/matugen.toml'
 ```
-Then, add this line to the top of your `~/.config/fuzzel/fuzzel.ini` file
-```ini
-[main]
-include = "~/.config/fuzzel/colors.ini"
+Then, add this line to the `ui` section of your `~/.config/television/config.toml` file
+```toml
+[ui]
+theme = "matugen"
 ```
 
 ### Cava
