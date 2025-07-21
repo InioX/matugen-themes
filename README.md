@@ -32,11 +32,14 @@
 - [Qt (qt5, qt6)](#qt)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
-- [Midnight-Discord](#midnight-discord)
+- [Midnight Discord](#midnight-discord)
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
 - [Television](#television)
+- [Cava](#cava)
+- [Helix](#helix)
+- [Btop](#btop)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -120,6 +123,7 @@ Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/t
 [templates.kitty]
 input_path = 'path/to/template'
 output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
 ```
 
 Then, add this line to the bottom of your `~/.config/kitty/kitty.conf`
@@ -129,11 +133,14 @@ include colors.conf
 
 The theme will now be applied after you reload kitty.
 
-To autoreload kitty set ```allow_remote_control yes``` in kitty.conf
+To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf` 
+
 Then append ```[templates.kitty]``` with
 ```
-post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
+post_hook = "kitty +kitten themes --reload-in=all your-theme"
 ```
+[Kitty Themes Wiki](https://sw.kovidgoyal.net/kitty/kittens/themes/)
 
 ### GTK
 ```toml
@@ -143,6 +150,7 @@ post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
 [templates.gtk3]
 input_path = 'path/to/template'
 output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
 input_path = 'path/to/template'
@@ -220,6 +228,7 @@ You can now use all the color variables inside of the `config.rasi`.
 [templates.dunst]
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
+post_hook = 'pkill -SIGUSR2 dunst
 ```
 
 ### qt
@@ -259,6 +268,23 @@ import = ["colors.toml"]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
 ```
+
+### Midnight Discord
+
+Copy the [midnight-discord.css](https://github.com/InioX/matugen-themes/blob/main/templates/midnight-discord.css) template and add it to the matugen config.
+
+```toml
+[config]
+
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '/home/elrond/.config/vesktop/themes/midnight-discord.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
 
 ### Pywalfox
 ```toml
@@ -306,20 +332,62 @@ And to change the font family and size just write it to:
 set font "FiraCode Nerd Font 12"
 ```
 
-### Television
+### Fuzzel
 ```toml
 [config]
 
-[templates.television]
-input_path = 'templates/television.toml'
-output_path = '~/.config/television/themes/matugen.toml'
+[templates.fuzzel]
+input_path = 'path/to/template'
+output_path = '~/.config/fuzzel/colors.ini'
 ```
-Then, add this line to the `ui` section of your `~/.config/television/config.toml` file
+Then, add this line to the top of your `~/.config/fuzzel/fuzzel.ini` file
+```ini
+[main]
+include = "~/.config/fuzzel/colors.ini"
+```
+
+### Cava
+Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/templates/cava-colors.ini) template and add it to the matugen config.
 ```toml
-[ui]
+[config]
+# ...
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/your-theme'
+post_hook = "pkill -USR1 cava"
+```
+
+Update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename.
+```toml
+theme = 'your-theme'
+```
+And that's it, by default the vertical gradient effect is activated, to disable it comment the line `gradient = 1` and uncomment `; gradient = 0` inside the `cava-colors.ini` template.
+> [!NOTE]
+>> Cava's current support for loading themes externally is only available in the git version, you will have to compile from source for it to work.
+
+### Helix
+```
+[templates.helix]
+input_path = 'path/to/template'
+output_path = '~/.config/helix/themes/matugen.toml'
+```
+
+Then, add this line to your `~/.config/helix/config.toml`
+
+```
 theme = "matugen"
 ```
 
+### Btop
+```toml
+[config]
+
+[templates.btop]
+input_path = 'path/to/template'
+output_path = '~/.config/btop/themes/matugen.theme'
+```
+Then Choose `matugen` theme from btop settings.
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
