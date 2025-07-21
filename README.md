@@ -37,6 +37,7 @@
 - [Yazi](#yazi)
 - [Zathura](#zathura)
 - [Cava](#cava)
+- [Helix](#helix)
 - [Btop](#btop)
 
 ### Hyprland
@@ -131,11 +132,14 @@ include colors.conf
 
 The theme will now be applied after you reload kitty.
 
-To autoreload kitty set ```allow_remote_control yes``` in kitty.conf
+To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf` 
+
 Then append ```[templates.kitty]``` with
 ```
-post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
+post_hook = "kitty +kitten themes --reload-in=all your-theme"
 ```
+[Kitty Themes Wiki](https://sw.kovidgoyal.net/kitty/kittens/themes/)
 
 ### GTK
 ```toml
@@ -345,6 +349,21 @@ theme = 'your-theme'
 And that's it, by default the vertical gradient effect is activated, to disable it comment the line `gradient = 1` and uncomment `; gradient = 0` inside the `cava-colors.ini` template.
 > [!NOTE]
 >> Cava's current support for loading themes externally is only available in the git version, you will have to compile from source for it to work.
+
+### Helix
+
+
+```
+[templates.helix]
+input_path = 'path/to/template'
+output_path = '~/.config/helix/themes/matugen.toml'
+```
+
+Then, add this line to your `~/.config/helix/config.toml`
+
+```
+theme = "matugen"
+```
 
 ### Btop
 ```toml
