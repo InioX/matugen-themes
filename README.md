@@ -36,6 +36,7 @@
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
+- [Television](#television)
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
@@ -330,6 +331,21 @@ And to change the font family and size just write it to:
 ```
 set font "FiraCode Nerd Font 12"
 ```
+
+### Television
+```toml
+[config]
+
+[templates.television]
+input_path = 'templates/television.toml'
+output_path = '~/.config/television/themes/matugen.toml'
+```
+Then, add this line to the `ui` section of your `~/.config/television/config.toml` file
+```toml
+[ui]
+theme = "matugen"
+```
+
 ### Cava
 Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/templates/cava-colors.ini) template and add it to the matugen config.
 ```toml
@@ -351,8 +367,6 @@ And that's it, by default the vertical gradient effect is activated, to disable 
 >> Cava's current support for loading themes externally is only available in the git version, you will have to compile from source for it to work.
 
 ### Helix
-
-
 ```
 [templates.helix]
 input_path = 'path/to/template'
