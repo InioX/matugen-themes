@@ -36,6 +36,7 @@
 - [Pywalfox](#pywalfox)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
+- [Fuzzel](#fuzzel)
 - [Television](#television)
 - [Cava](#cava)
 - [Helix](#helix)
@@ -330,6 +331,20 @@ set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}
 And to change the font family and size just write it to:
 ```
 set font "FiraCode Nerd Font 12"
+```
+
+### Fuzzel
+```toml
+[config]
+
+[templates.fuzzel]
+input_path = 'path/to/template'
+output_path = '~/.config/fuzzel/colors.ini'
+```
+Then, add this line to the top of your `~/.config/fuzzel/fuzzel.ini` file
+```ini
+[main]
+include = "~/.config/fuzzel/colors.ini"
 ```
 
 ### Television
