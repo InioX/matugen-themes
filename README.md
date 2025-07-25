@@ -30,6 +30,7 @@
 - [Rofi](#rofi)
 - [Dunst](#dunst)
 - [Qt (qt5, qt6)](#qt)
+- [Qt-Method-2(qt5, qt6)](#qt-method-2)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
 - [Midnight Discord](#midnight-discord)
@@ -247,6 +248,31 @@ Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
 color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
 custom_palette=true
 ```
+
+### Qt-Method-2
+
+Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme 
+
+```toml
+[templates.color-scheme]
+input_path = '~/.config/matugen/templates/Matugen.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+```
+Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the same for qt6
+
+```
+color_scheme_path=~/.local/share/color-schemes/Matugen.colors
+custom_palette=true
+icon_theme=breeze
+style=Breeze
+```
+Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEME` set to `qt6ct`.
+
+> [!Note]
+> for the theme to work you need to install the following <br>
+> Arch Linux (AUR):
+> - `yay -S breeze breeze5 breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
+
 
 ### Alacritty
 ```toml
