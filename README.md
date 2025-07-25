@@ -279,7 +279,7 @@ Copy the [midnight-discord.css](https://github.com/InioX/matugen-themes/blob/mai
 
 [templates.vesktop]
 input_path = 'path/to/template'
-output_path = '/home/elrond/.config/vesktop/themes/midnight-discord.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
 ```
 
 > [!NOTE]
