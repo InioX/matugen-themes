@@ -23,6 +23,7 @@
 - [Hyprland](#hyprland)
 - [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
+- [AGS](#ags)
 - [Kitty](#kitty)
 - [GTK (3.0, 4.0)](#gtk)
 - [Sway](#sway)
