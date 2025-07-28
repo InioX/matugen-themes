@@ -29,6 +29,7 @@
 - [Wlogout](#wlogout)
 - [Rofi](#rofi)
 - [Dunst](#dunst)
+- [Kvantum](#kvantum)
 - [Qt (qt5, qt6)](#qt)
 - [Qt-Method-2(qt5, qt6)](#qt-method-2)
 - [Alacritty](#alacritty)
@@ -231,6 +232,16 @@ You can now use all the color variables inside of the `config.rasi`.
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
 post_hook = 'pkill -SIGUSR2 dunst
+```
+
+### kvantum
+Change X to kvconfig and svg. (Tip: Use post_hook to set kvantum theme automatically)
+```toml
+[config]
+
+[templates.kvantum_X]
+input_path = './templates/kvantum-colors.X'
+output_path = '~/.config/kvantum/matugen/matugen.X'
 ```
 
 ### qt
