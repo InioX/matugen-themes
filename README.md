@@ -235,13 +235,17 @@ post_hook = 'pkill -SIGUSR2 dunst
 ```
 
 ### kvantum
-Change X to kvconfig and svg. (Tip: Use post_hook to set kvantum theme automatically)
 ```toml
 [config]
 
-[templates.kvantum_X]
-input_path = './templates/kvantum-colors.X'
-output_path = '~/.config/kvantum/matugen/matugen.X'
+[templates.kvantum_kvconfig]
+input_path = './templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = './templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'
+post_hook = 'kvantummanager --set matugen'
 ```
 
 ### qt
