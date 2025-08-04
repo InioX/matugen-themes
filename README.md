@@ -246,9 +246,8 @@ output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 input_path = './templates/kvantum-colors.svg'
 output_path = '~/.config/Kvantum/matugen/matugen.svg'
 ```
-
-Add the following in ```toml ~/.config/Kvantum/kvantum.kvconfig ```
-```toml
+Then, add the following in ` ~/.config/Kvantum/kvantum.kvconfig `
+```
 [General]
 theme=matugen
 ```
