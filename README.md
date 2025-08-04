@@ -245,7 +245,12 @@ output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 [templates.kvantum_svg]
 input_path = './templates/kvantum-colors.svg'
 output_path = '~/.config/Kvantum/matugen/matugen.svg'
-post_hook = 'kvantummanager --set matugen'
+```
+
+Add the following in ```toml ~/.config/Kvantum/kvantum.kvconfig ```
+```toml
+[General]
+theme=matugen
 ```
 
 ### qt
