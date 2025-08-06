@@ -259,6 +259,7 @@ input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
 ```
 Next, pick what style you would like to use `kde` or `Darkly` and ajust the code below.
+
 Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the same for qt6
 
 ```
