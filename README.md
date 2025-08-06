@@ -258,21 +258,34 @@ Note: the output path needs to be `~/.local/share/color-schemes/` in order for q
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
 ```
+Next, pick what style you would like to use `kde` or `Darkly` and ajust the code below.
 Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the same for qt6
 
 ```
 color_scheme_path=~/.local/share/color-schemes/Matugen.colors
 custom_palette=true
 icon_theme=breeze
-style=Breeze
+style=<breeze or Darkly>
 ```
+
 Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEME` set to `qt6ct`.
 
 > [!Note]
 > for the theme to work you need to install the following <br>
 > Arch Linux (AUR):
-> - `yay -S breeze breeze5 breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
+> - `yay -S breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
 
+For a kde style look download the following packages:
+
+```
+pacman -S breeze breeze5
+```
+
+For a cleaner style download the following packages:
+
+```
+yay -S darkly-qt5-git darkly-qt6-git
+```
 
 ### Alacritty
 ```toml
