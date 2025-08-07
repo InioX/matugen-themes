@@ -266,7 +266,7 @@ Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the
 color_scheme_path=~/.local/share/color-schemes/Matugen.colors
 custom_palette=true
 icon_theme=breeze
-style=<breeze or Darkly>
+style=<Breeze or Darkly>
 ```
 
 Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEME` set to `qt6ct`.
