@@ -1,6 +1,6 @@
 # : Manager [[[
 
-[manager]
+[mgr]
 cwd = { fg = "{{colors.on_surface.default.hex}}" }
 
 # Tab
