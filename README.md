@@ -24,13 +24,13 @@
 - [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
 - [Kitty](#kitty)
-- [GTK (3.0, 4.0)](#gtk)
+- [GTK](#gtk)
 - [Sway](#sway)
-- [Wlogout](#wlogout)
+- [wlogout](#wlogout)
 - [Rofi](#rofi)
-- [Dunst](#dunst)
-- [Qt (qt5, qt6)](#qt)
-- [Qt-Method-2(qt5, qt6)](#qt-method-2)
+- [dunst](#dunst)
+- [qt](#qt)
+- [Qt-Method-2](#qt-method-2)
 - [Alacritty](#alacritty)
 - [Starship](#starship)
 - [Midnight Discord](#midnight-discord)
@@ -42,6 +42,7 @@
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
+- [Micro](#micro)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -429,6 +430,19 @@ input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
 ```
 Then Choose `matugen` theme from btop settings.
+
+
+### Micro
+```toml
+[config]
+
+[templates.micro]
+input_path = 'path/to/template'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+```
+
+In micro editor, press `Ctrl+E` than enter `set colorscheme matugen`
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
