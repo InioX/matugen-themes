@@ -42,6 +42,8 @@
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
+- [Neovim](#neovim)
+- [Tmux](#tmux)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -429,6 +431,62 @@ input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
 ```
 Then Choose `matugen` theme from btop settings.
+
+### Tmux
+
+Copy the [tmux-colors.conf](./templates/tmux-colors.conf) and add it to your matugen config.
+
+```toml
+[templates.tmux]
+input_path = 'path/to/template'
+output_path = '~/.config/tmux/generated.conf'
+post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
+```
+
+Make sure you source the **output** of the template file, not the template file
+itself!! Additionally, note the following:
+
+1. Add a `tmux source-file <OUTPUT_PATH>` line at the end of your
+   `~/.config/tmux/tmux.conf` (entrypoint or adjacent) to source matugen's
+   generated colors upon every startup of `tmux`. If you don't do this, then
+   all new instances of `tmux` will be unstyled until matugen runs.
+
+2. Set reasonable defaults for all color variables set by matugen. Place these
+   initial color definitions in your `~/.config/tmux/tmux.conf`, but **before
+   you source matugen's generated file**. This ensures that `tmux` has default
+   colors to use in the case where matugen's generated file does not exist.
+
+Example `~/.config/tmux/tmux.conf`:
+
+```conf
+# Set color defaults
+set -g status-bg                          "#130d07"
+set -gq @thm_bar_bg                       "#130d07"
+
+set -gq @thm_bg                           "#19120c"
+set -gq @thm_fg                           "#eee0d5"
+set -gq @thm_primary                      "#fcb974"
+set -gq @thm_inverse_primary              "#855318"
+set -gq @thm_surface_low                  "#211a14"
+set -gq @thm_surface                      "#261e18"
+set -gq @thm_surface_variant              "#302921"
+set -gq @thm_outline                      "#50453a"
+set -gq @thm_text_variant                 "#d5c3b5"
+
+set -g status-style                       "bg=#{@thm_bg},fg=#{@thm_fg}"
+set -g window-active-style                "bg=#{@thm_bg},fg=#{@thm_fg}"
+
+# Source matugen after setting defaults
+source-file ~/.config/tmux/generated.conf
+
+# Style whatever you wish with the imported colors
+# ...
+```
+
+### Neovim
+
+Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For further info, see [here](./templates/neovim).
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
