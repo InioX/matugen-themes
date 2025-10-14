@@ -42,6 +42,7 @@
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
+- [Ghostty](#ghostty)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -429,6 +430,21 @@ input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
 ```
 Then Choose `matugen` theme from btop settings.
+
+
+### Ghostty
+```toml
+[config]
+
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+```
+Then, add this line to your `~/.config/ghostty/config`
+```
+theme = "Matugen"  
+```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
