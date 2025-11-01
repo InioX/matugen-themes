@@ -235,7 +235,7 @@ You can now use all the color variables inside of the `config.rasi`.
 [templates.dunst]
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
-post_hook = 'pkill -SIGUSR2 dunst
+post_hook = 'dunstctl reload'
 ```
 
 ### qt
