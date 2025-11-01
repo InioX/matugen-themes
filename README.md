@@ -44,6 +44,7 @@
 - [Btop](#btop)
 - [Neovim](#neovim)
 - [Tmux](#tmux)
+- [Ghostty](#ghostty)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -486,6 +487,20 @@ source-file ~/.config/tmux/generated.conf
 ### Neovim
 
 Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For further info, see [here](./templates/neovim).
+
+### Ghostty
+```toml
+[config]
+
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
+```
+Then, add this line to your `~/.config/ghostty/config`
+```
+theme = "Matugen"  
+```
 
 <h2 class="acknowledgements">
      <sub>
