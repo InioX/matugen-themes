@@ -42,6 +42,7 @@
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
+- [Micro](#micro)
 - [Zed](#zed)
 - [Neovim](#neovim)
 - [Tmux](#tmux)
@@ -433,6 +434,18 @@ input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
 ```
 Then Choose `matugen` theme from btop settings.
+
+
+### Micro
+```toml
+[config]
+
+[templates.micro]
+input_path = 'path/to/template'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+```
+
+In micro editor, press `Ctrl+E` and then enter `set colorscheme matugen`
 
 ### Zed
 ```toml
