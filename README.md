@@ -29,6 +29,7 @@
 - [Wlogout](#wlogout)
 - [Rofi](#rofi)
 - [Dunst](#dunst)
+- [Mako](#mako)
 - [Qt (qt5, qt6)](#qt)
 - [Qt-Method-2(qt5, qt6)](#qt-method-2)
 - [Alacritty](#alacritty)
@@ -236,6 +237,20 @@ You can now use all the color variables inside of the `config.rasi`.
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
 post_hook = 'dunstctl reload'
+```
+
+### mako
+```
+[config]
+
+[templates.mako]
+input_path = 'path/to/template'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
+```
+Then, add this line to the bottom of your `~/.config/mako/config`
+```
+import=~/.config/mako/mako-colors
 ```
 
 ### qt
