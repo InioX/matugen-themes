@@ -439,6 +439,7 @@ Then Choose `matugen` theme from btop settings.
 [templates.ghostty]
 input_path = 'path/to/template'
 output_path = '~/.config/ghostty/themes/Matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
 ```
 Then, add this line to your `~/.config/ghostty/config`
 ```
