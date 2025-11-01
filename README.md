@@ -7,7 +7,7 @@
      <br><br>
      <img alt="size" src="https://custom-icon-badges.demolab.com/github/repo-size/InioX/matugen-themes?color=3D3838&logo=file&style=for-the-badge&logoColor=370D10&labelColor=FEB3B3">
      <img alt="stars" src="https://custom-icon-badges.demolab.com/github/stars/InioX/matugen-themes?color=3D3838&logo=star&style=for-the-badge&logoColor=370D10&labelColor=FEB3B3">
-     <br> 
+     <br>
      <a href="#-------------------------description">Description</a>
     ·
     <a href="#-------------------------installation">Installation</a>
@@ -42,6 +42,7 @@
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
+- [Zed](#zed)
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
@@ -87,7 +88,7 @@ Configuration Example (`hyprlock.conf`):
 ```
 source = colors.conf
 background {
-    path = $image  # This variable contains the image you selected with matugen     
+    path = $image  # This variable contains the image you selected with matugen
 }
 
 label {
@@ -139,7 +140,7 @@ include colors.conf
 The theme will now be applied after you reload kitty.
 
 To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
-To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf` 
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf`
 
 Then append ```[templates.kitty]``` with
 ```
@@ -254,7 +255,7 @@ custom_palette=true
 
 ### Qt-Method-2
 
-Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme 
+Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme
 
 ```toml
 [templates.color-scheme]
@@ -433,6 +434,16 @@ output_path = '~/.config/btop/themes/matugen.theme'
 ```
 Then Choose `matugen` theme from btop settings.
 
+### Zed
+```toml
+[config]
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+```
+Then Choose `Matugen Dark` or `Matugen Light` theme from Zed settings.
+
 ### Tmux
 
 Copy the [tmux-colors.conf](./templates/tmux-colors.conf) and add it to your matugen config.
@@ -510,5 +521,4 @@ theme = "Matugen"
      </sub>
      Acknowledgements
 </h2>
-
 [Heus-Sueh](https://github.com/Heus-Sueh)
