@@ -1,0 +1,326 @@
+{
+  "human_version": "3.3",
+  "name": "ReColor",
+  "mod": 1754900444,
+  "min_point_version": 55,
+  "max_point_version": 250705,
+  "branch_index": 1,
+  "disabled": false,
+  "config": {
+    "colors": {
+      "ACCENT_CARD": [
+        "Card mode",
+        "{{colors.primary.default.hex}}",
+        "{{colors.primary.default.hex}}",
+        "--accent-card"
+      ],
+      "ACCENT_DANGER": [
+        "Danger",
+        "{{colors.error.default.hex}}",
+        "{{colors.error.default.hex}}",
+        "--accent-danger"
+      ],
+      "ACCENT_NOTE": [
+        "Note mode",
+        "{{colors.tertiary.default.hex}}",
+        "{{colors.tertiary.default.hex}}",
+        "--accent-note"
+      ],
+      "BORDER": [
+        "Border",
+        "{{colors.outline_variant.default.hex}}",
+        "{{colors.outline_variant.default.hex}}",
+        "--border"
+      ],
+      "BORDER_FOCUS": [
+        "Border (focused input)",
+        "{{colors.primary.default.hex}}",
+        "{{colors.primary.default.hex}}",
+        "--border-focus"
+      ],
+      "BORDER_STRONG": [
+        "Border (strong)",
+        "{{colors.outline.default.hex}}",
+        "{{colors.outline.default.hex}}",
+        "--border-strong"
+      ],
+      "BORDER_SUBTLE": [
+        "Border (subtle)",
+        "{{colors.primary_container.default.hex}}",
+        "{{colors.primary_container.default.hex}}",
+        "--border-subtle"
+      ],
+      "BUTTON_BG": [
+        "Button background",
+        "{{colors.primary_container.default.hex}}",
+        "{{colors.primary_container.default.hex}}",
+        "--button-bg"
+      ],
+      "BUTTON_DISABLED": [
+        "Button background (disabled)",
+        "{{colors.primary_container.default.hex | auto_lightness: 20.0}}",
+        "{{colors.primary_container.default.hex | auto_lightness: 20.0}}",
+        "--button-disabled"
+      ],
+      "BUTTON_HOVER": [
+        "Button background (hover)",
+        "{{colors.primary_container.default.hex | auto_lightness: 20.0}}",
+        "{{colors.primary_container.default.hex | auto_lightness: 20.0}}",
+        [
+          "--button-gradient-start",
+          "--button-gradient-end"
+        ]
+      ],
+      "BUTTON_HOVER_BORDER": [
+        "Button border (hover)",
+        "{{colors.surface_variant.default.hex}}",
+        "{{colors.surface_variant.default.hex}}",
+        "--button-hover-border"
+      ],
+      "BUTTON_PRIMARY_BG": [
+        "Button Primary Bg",
+        "{{colors.primary_container.default.hex}}",
+        "{{colors.primary_container.default.hex}}",
+        "--button-primary-bg"
+      ],
+      "BUTTON_PRIMARY_DISABLED": [
+        "Button Primary Disabled",
+        "{{colors.primary_container.default.hex}}",
+        "{{colors.primary_container.default.hex}}",
+        "--button-primary-disabled"
+      ],
+      "BUTTON_PRIMARY_GRADIENT_END": [
+        "Button Primary Gradient End",
+        "{{colors.primary_container.default.hex}}",
+        "{{colors.primary_container.default.hex}}",
+        "--button-primary-gradient-end"
+      ],
+      "BUTTON_PRIMARY_GRADIENT_START": [
+        "Button Primary Gradient Start",
+        "{{colors.primary_container.default.hex | auto_lightness: 10.0}}",
+        "{{colors.primary_container.default.hex | auto_lightness: 10.0}}",
+        "--button-primary-gradient-start"
+      ],
+      "CANVAS": [
+        "Background",
+        "{{colors.background.default.hex}}",
+        "{{colors.background.default.hex}}",
+        [
+          "--canvas",
+          "--bs-body-bg"
+        ]
+      ],
+      "CANVAS_CODE": [
+        "Code editor background",
+        "{{colors.surface_container.default.hex}}",
+        "{{colors.surface_container.default.hex}}",
+        "--canvas-code"
+      ],
+      "CANVAS_ELEVATED": [
+        "Background (elevated)",
+        "{{colors.surface_container.default.hex}}",
+        "{{colors.surface_container.default.hex}}",
+        "--canvas-elevated"
+      ],
+      "CANVAS_GLASS": [
+        "Background (transparent text surface)",
+        "{{colors.surface_container.default.hex}}b4",
+        "{{colors.surface_container.default.hex}}b4",
+        "--canvas-glass"
+      ],
+      "CANVAS_INSET": [
+        "Background (inset)",
+        "{{colors.background.default.hex}}",
+        "{{colors.background.default.hex}}",
+        "--canvas-inset"
+      ],
+      "CANVAS_OVERLAY": [
+        "Background (menu & tooltip)",
+        "{{colors.surface_container.default.hex}}",
+        "{{colors.surface_container.default.hex}}",
+        "--canvas-overlay"
+      ],
+      "FG": [
+        "Text",
+        "{{colors.on_surface.default.hex}}",
+        "{{colors.on_surface.default.hex}}",
+        [
+          "--fg",
+          "--bs-body-color"
+        ]
+      ],
+      "FG_DISABLED": [
+        "Text (disabled)",
+        "{{colors.on_primary_fixed.default.hex}}",
+        "{{colors.on_primary_fixed.default.hex}}",
+        "--fg-disabled"
+      ],
+      "FG_FAINT": [
+        "Text (faint)",
+        "{{colors.on_surface_variant.default.hex}}",
+        "{{colors.on_surface_variant.default.hex}}",
+        "--fg-faint"
+      ],
+      "FG_LINK": [
+        "Text (link)",
+        "{{colors.blue.default.hex}}",
+        "{{colors.blue.default.hex}}",
+        "--fg-link"
+      ],
+      "FG_SUBTLE": [
+        "Text (subtle)",
+        "{{colors.primary.default.hex}}",
+        "{{colors.primary.default.hex}}",
+        "--fg-subtle"
+      ],
+      "FLAG_1": [
+        "Flag 1",
+        "{{colors.red.default.hex}}",
+        "{{colors.red.default.hex}}",
+        "--flag-1"
+      ],
+      "FLAG_2": [
+        "Flag 2",
+        "{{colors.orange.default.hex}}",
+        "{{colors.orange.default.hex}}",
+        "--flag-2"
+      ],
+      "FLAG_3": [
+        "Flag 3",
+        "{{colors.green.default.hex}}",
+        "{{colors.green.default.hex}}",
+        "--flag-3"
+      ],
+      "FLAG_4": [
+        "Flag 4",
+        "{{colors.blue.default.hex}}",
+        "{{colors.blue.default.hex}}",
+        "--flag-4"
+      ],
+      "FLAG_5": [
+        "Flag 5",
+        "{{colors.magenta.default.hex}}",
+        "{{colors.magenta.default.hex}}",
+        "--flag-5"
+      ],
+      "FLAG_6": [
+        "Flag 6",
+        "{{colors.cyan.default.hex}}",
+        "{{colors.cyan.default.hex}}",
+        "--flag-6"
+      ],
+      "FLAG_7": [
+        "Flag 7",
+        "{{colors.purple.default.hex}}",
+        "{{colors.purple.default.hex}}",
+        "--flag-7"
+      ],
+      "HIGHLIGHT_BG": [
+        "Highdefault background",
+        "{{colors.tertiary_container.default.hex}}80",
+        "{{colors.tertiary_container.default.hex}}80",
+        "--highdefault-bg"
+      ],
+      "HIGHLIGHT_FG": [
+        "Highdefault text",
+        "{{colors.on_tertiary_container.default.hex}}",
+        "{{colors.on_tertiary_container.default.hex}}",
+        "--highdefault-fg"
+      ],
+      "SCROLLBAR_BG": [
+        "Scrollbar background",
+        "{{colors.on_surface_variant.default.hex}}",
+        "{{colors.on_surface_variant.default.hex}}",
+        "--scrollbar-bg"
+      ],
+      "SCROLLBAR_BG_ACTIVE": [
+        "Scrollbar background (active)",
+        "{{colors.outline.default.hex}}",
+        "{{colors.outline.default.hex}}",
+        "--scrollbar-bg-active"
+      ],
+      "SCROLLBAR_BG_HOVER": [
+        "Scrollbar background (hover)",
+        "{{colors.outline_variant.default.hex}}",
+        "{{colors.outline_variant.default.hex}}",
+        "--scrollbar-bg-hover"
+      ],
+      "SELECTED_BG": [
+        "Selected Bg",
+        "{{colors.tertiary_container.default.hex}}80",
+        "{{colors.tertiary_container.default.hex}}80",
+        "--selected-bg"
+      ],
+      "SELECTED_FG": [
+        "Selected Fg",
+        "{{colors.on_tertiary_container.default.hex}}",
+        "{{colors.on_tertiary_container.default.hex}}",
+        "--selected-fg"
+      ],
+      "SHADOW": [
+        "Shadow",
+        "{{colors.outline.default.hex}}",
+        "{{colors.outline.default.hex}}",
+        "--shadow"
+      ],
+      "SHADOW_FOCUS": [
+        "Shadow (focused input)",
+        "{{colors.outline_variant.default.hex}}",
+        "{{colors.outline_variant.default.hex}}",
+        "--shadow-focus"
+      ],
+      "SHADOW_INSET": [
+        "Shadow (inset)",
+        "{{colors.surface_container_high.default.hex}}",
+        "{{colors.surface_container_high.default.hex}}",
+        "--shadow-inset"
+      ],
+      "SHADOW_SUBTLE": [
+        "Shadow (subtle)",
+        "{{colors.outline_variant.default.hex}}",
+        "{{colors.outline_variant.default.hex}}",
+        "--shadow-subtle"
+      ],
+      "STATE_BURIED": [
+        "Buried",
+        "{{colors.orange.default.hex}}",
+        "{{colors.orange.default.hex}}",
+        "--state-buried"
+      ],
+      "STATE_LEARN": [
+        "Learn",
+        "{{colors.red.default.hex}}",
+        "{{colors.red.default.hex}}",
+        "--state-learn"
+      ],
+      "STATE_MARKED": [
+        "Marked",
+        "{{colors.purple.default.hex}}",
+        "{{colors.purple.default.hex}}",
+        "--state-marked"
+      ],
+      "STATE_NEW": [
+        "New",
+        "{{colors.blue.default.hex}}",
+        "{{colors.blue.default.hex}}",
+        "--state-new"
+      ],
+      "STATE_REVIEW": [
+        "Review",
+        "{{colors.lime.default.hex}}",
+        "{{colors.lime.default.hex}}",
+        "--state-review"
+      ],
+      "STATE_SUSPENDED": [
+        "Suspended",
+        "{{colors.yellow.default.hex}}",
+        "{{colors.yellow.default.hex}}",
+        "--state-suspended"
+      ]
+    },
+    "version": {
+      "major": 3,
+      "minor": 3
+    }
+  }
+}

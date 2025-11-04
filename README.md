@@ -48,6 +48,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Anki](#anki)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -554,6 +555,18 @@ Then, add this line to your `~/.config/ghostty/config`
 ```
 theme = "Matugen"  
 ```
+
+### Anki
+
+Install (reColor)[https://ankiweb.net/shared/info/688199788] addon.
+```toml
+[config]
+
+[templates.anki]
+input_path = '~/.config/matugen/templates/anki.json'
+output_path = '/PATH/TO/ANKI/addons21/688199788/meta.json'
+```
+Replace `output_path` with path to `meta.json` in reColor addons folder.
 
 <h2 class="acknowledgements">
      <sub>
