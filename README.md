@@ -48,6 +48,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Vivaldi](#vivaldi)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -551,9 +552,21 @@ output_path = '~/.config/ghostty/themes/Matugen'
 post_hook = 'pkill -SIGUSR2 ghostty'
 ```
 Then, add this line to your `~/.config/ghostty/config`
+
+g
+### Vivaldi
+
+```toml
+[config]
+
+[templates.vivaldi]
+input_path = 'path/to/template'
+output_path = 'path/to/vivaldi_css/vivaldi.css' 
 ```
-theme = "Matugen"  
-```
+
+1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
+2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
+Note that you can store vivaldi.css anywhere in a separate folder.
 
 <h2 class="acknowledgements">
      <sub>
