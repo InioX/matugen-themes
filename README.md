@@ -553,7 +553,9 @@ post_hook = 'pkill -SIGUSR2 ghostty'
 ```
 Then, add this line to your `~/.config/ghostty/config`
 
-g
+theme = "Matugen"  
+```
+
 ### Vivaldi
 
 ```toml
