@@ -250,7 +250,7 @@ post_hook = 'makoctl reload'
 ```
 Then, add this line to the bottom of your `~/.config/mako/config`
 ```
-import=~/.config/mako/mako-colors
+include=~/.config/mako/mako-colors
 ```
 
 ### qt
