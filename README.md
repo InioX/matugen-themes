@@ -430,7 +430,7 @@ Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/tem
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/your-theme'
-post_hook = "pkill -USR1 cava"
+post_hook = 'pkill -USR1 cava'
 ```
 
 Update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename.
