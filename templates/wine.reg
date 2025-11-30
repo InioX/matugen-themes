@@ -1,5 +1,8 @@
 Windows Registry Editor Version 5.00
 
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"Decorated"="N"
+
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes]
 "AppsUseClassicTheme"=dword:00000001
 
@@ -24,7 +27,7 @@ Windows Registry Editor Version 5.00
 "GrayText"="{{ colors.on_surface.default.red }} {{ colors.on_surface.default.green }} {{ colors.on_surface.default.blue }}"
 
 "Hilight"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
-"HilightText"="{{ colors.on_primary.default.red }} {{ colors.on_primary.default.green }} {{ colors.on_primary.default.blue }}"
+"HilightText"="{{ colors.primary.default.red }} {{ colors.primary.default.green }} {{ colors.primary.default.blue }}"
 
 "InactiveBorder"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
 "InactiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
@@ -41,6 +44,6 @@ Windows Registry Editor Version 5.00
 "Scrollbar"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
 "TitleText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
 
-"Window"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"Window"="{{ colors.surface_container_low.default.red }} {{ colors.surface_container_low.default.green }} {{ colors.surface_container_low.default.blue }}"
 "WindowFrame"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
 "WindowText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
