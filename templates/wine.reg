@@ -24,9 +24,9 @@ Windows Registry Editor Version 5.00
 
 "GradientActiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
 "GradientInactiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
-"GrayText"="{{ colors.on_surface.default.red }} {{ colors.on_surface.default.green }} {{ colors.on_surface.default.blue }}"
+"GrayText"="{{ colors.secondary_container.default.red }} {{ colors.secondary_container.default.green }} {{ colors.secondary_container.default.blue }}"
 
-"Hilight"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"Hilight"="{{ colors.primary_container.default.red }} {{ colors.primary_container.default.green }} {{ colors.primary_container.default.blue }}"
 "HilightText"="{{ colors.primary.default.red }} {{ colors.primary.default.green }} {{ colors.primary.default.blue }}"
 
 "InactiveBorder"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
@@ -36,12 +36,12 @@ Windows Registry Editor Version 5.00
 "InfoText"="{{ colors.on_surface.default.red }} {{ colors.on_surface.default.green }} {{ colors.on_surface.default.blue }}"
 "InfoWindow"="{{ colors.surface.default.red }} {{ colors.surface.default.green }} {{ colors.surface.default.blue }}"
 
-"Menu"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
+"Menu"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
 "MenuBar"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
 "MenuHilight"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
 "MenuText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
 
-"Scrollbar"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"Scrollbar"="{{ colors.surface_container_low.default.red }} {{ colors.surface_container_low.default.green }} {{ colors.surface_container_low.default.blue }}"
 "TitleText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
 
 "Window"="{{ colors.surface_container_low.default.red }} {{ colors.surface_container_low.default.green }} {{ colors.surface_container_low.default.blue }}"
