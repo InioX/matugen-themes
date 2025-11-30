@@ -555,6 +555,20 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### Wine
+```toml
+[config]
+
+[templates.wine]
+input_path = 'path/to/template'
+output_path = '/tmp/wine.reg'
+post_hook = 'wine regedit /tmp/wine.reg'
+```
+If you want to apply the theme to a specific Wine prefix, run:
+```
+WINEPREFIX=~/path/to/your/prefix matugen <your arguments>
+```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
