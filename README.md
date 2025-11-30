@@ -48,6 +48,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Wine](#wine)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
