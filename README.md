@@ -98,6 +98,28 @@ label {
 }
 ```
 
+### Niri
+Copy the [niri.kdl]() template and add it to the matugen config.
+```toml
+[config]
+# ...
+
+[templates.niri]
+input_path = 'path/to/template'
+output_path = '~/.config/niri/colors.kdl'
+post_hook = '' # Niri reloads on file write automatically
+```
+
+Then, add this line to the top of your `~/.config/niri/config.kdl` file
+```kdl
+include "colors.kdl"
+```
+
+> [!NOTE]
+> Make sure to set border or focus ring to on in your config.kdl.
+> Any color setting already defined in [colors.kdl]() will be overwritten if you modify it in config.kdl, so make sure to erase all color settings or move them into your own kdl theme.
+> Also, this template includes styling for cast targets (windows being casted by the niri dynamic cast target)
+
 ### Waybar
 Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
 ```toml
