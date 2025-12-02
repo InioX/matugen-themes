@@ -119,7 +119,12 @@ include "colors.kdl"
 > [!NOTE]
 > Make sure to set border or focus ring to on in your config.kdl.
 > Any color setting already defined in [colors.kdl]() will be overwritten if you modify it in config.kdl, so make sure to erase all color settings or move them into your own kdl theme.
+
+> [!NOTE]
 > Also, this template includes styling for cast targets (windows being casted by the niri dynamic cast target)
+
+> [!NOTE]
+> niri 25.11 is needed for this to work
 
 ### Waybar
 Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
