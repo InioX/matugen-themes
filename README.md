@@ -21,6 +21,7 @@
 
 #### List of all templates
 - [Hyprland](#hyprland)
+- [Niri](#niri)
 - [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
 - [Kitty](#kitty)
