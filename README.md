@@ -48,6 +48,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [MangoWC](#mangowc)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -553,6 +554,20 @@ post_hook = 'pkill -SIGUSR2 ghostty'
 Then, add this line to your `~/.config/ghostty/config`
 ```
 theme = "Matugen"  
+```
+
+### MangoWC
+Copy the [mango.conf](./templates/mango.conf) template and add it to your matugen config.
+```toml
+[config]
+
+[templates.mango]
+input_path = 'path/to/template'
+output_path = '~/.config/mango/colors.conf'
+```
+Then add this line to '~/.config/mango/config.conf'
+```conf
+source = ./colors.conf
 ```
 
 <h2 class="acknowledgements">
