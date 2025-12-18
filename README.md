@@ -565,7 +565,7 @@ Copy the [mango.conf](./templates/mango.conf) template and add it to your matuge
 input_path = 'path/to/template'
 output_path = '~/.config/mango/colors.conf'
 ```
-Then add this line to '~/.config/mango/config.conf'
+Then add this line to `~/.config/mango/config.conf`
 ```conf
 source = ./colors.conf
 ```
