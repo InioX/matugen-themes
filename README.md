@@ -48,6 +48,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Spicetify Sleek (Spotify)](#spicetify-sleek)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -555,6 +556,37 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### Spicetify Sleek
+```toml
+[config]
+
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+# post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"' # read the note
+```
+Then, add this line to your `~/.config/spicetify/config-xpui.ini`
+```
+color_scheme = matugen
+current_theme = Sleek
+```
+Then, download the Sleek theme from `spicetify-thems` github
+```bash
+curl -L --create-dirs \
+	-o ~/.config/spicetify/Themes/Sleek/user.css \
+	https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Sleek/user.css
+```
+Now, start spotify using spicetify command
+```bash
+spicetify watch -s
+```
+> Note: `spicetify watch -s` might fails to start flatpak version of spotify. In
+> that case uncomment the `post_hook` and start spotify using following command
+>
+> ```bash
+> flatpak run com.spotify.Client  --remote-debugging-port=9222 --remote-allow-origins='*'
+> ```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
@@ -564,3 +596,4 @@ theme = "Matugen"
      Acknowledgements
 </h2>
 [Heus-Sueh](https://github.com/Heus-Sueh)
+```
