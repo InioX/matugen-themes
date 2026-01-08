@@ -48,6 +48,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [WezTerm](#wezterm)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -555,6 +556,23 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### WezTerm
+```toml
+[config]
+
+[templates.wezterm]
+input_path = 'path/to/template'
+output_path = '~/.config/wezterm/colors/matugen_theme.toml'
+post_hook = 'touch ~/.config/wezterm/wezterm.lua'
+```
+Then, add this line to your `~/.config/wezterm/wezterm.lua`
+```lua
+local wezterm = require("wezterm")
+local config = wezterm.config_builder()
+
+config.color_scheme = "matugen_theme"
+```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
@@ -563,4 +581,5 @@ theme = "Matugen"
      </sub>
      Acknowledgements
 </h2>
+
 [Heus-Sueh](https://github.com/Heus-Sueh)
