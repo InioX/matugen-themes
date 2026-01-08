@@ -565,7 +565,7 @@ input_path = 'path/to/template'
 output_path = '~/.config/wezterm/colors/matugen_theme.toml'
 post_hook = 'touch ~/.config/wezterm/wezterm.lua'
 ```
-Then, add this line to your `~/.config/wezterm/wezterm.lua`
+Then, add these lines to your `~/.config/wezterm/wezterm.lua`
 ```lua
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
