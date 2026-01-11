@@ -555,6 +555,25 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### Quickshell
+```toml
+[config]
+
+[templates.quickshell]
+input_path = 'path/to/template'
+output_path = '~/.config/quickshell/Colors.qml'
+```
+You can now add this to your quickshell shell.qml file
+```qml
+Colors{
+    id: colors
+}
+```
+You can then use colors anywhere in your config like this
+```qml
+color: colors.background
+```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
