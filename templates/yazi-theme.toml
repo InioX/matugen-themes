@@ -1,6 +1,6 @@
 # : Manager [[[
 
-[manager]
+[mgr]
 cwd = { fg = "{{colors.on_surface.default.hex}}" }
 
 # Tab
@@ -24,7 +24,7 @@ count_cut = { fg = "{{colors.on_tertiary_fixed.default.hex}}", bg = "{{colors.te
 count_selected = { fg = "{{colors.on_primary.default.hex}}", bg = "{{colors.tertiary.default.hex}}" }
 
 # Border
-border_symbol = "│"
+border_symbol = " "
 border_style  = { fg = "{{colors.surface_tint.default.hex}}" }
 
 # : ]]]
@@ -70,7 +70,6 @@ permissions_s = { fg = "{{colors.primary_fixed.default.hex | auto_lightness: 30.
 [select]
 border = { fg = "{{colors.primary.default.hex}}" }
 active = { fg = "{{colors.tertiary.default.hex}}", bold = true }
-inactive = {}
 
 # : ]]]
 
@@ -80,6 +79,15 @@ inactive = {}
 [input]
 border = { fg = "{{colors.primary.default.hex}}" }
 value = { fg = "{{colors.on_surface.default.hex}}" }
+
+# : ]]]
+
+# : Tabs [[[
+
+[tabs]
+active = { fg = "{{colors.primary.default.hex}}", bold = true, bg = "{{colors.surface.default.hex}}" }
+inactive = { fg = "{{colors.secondary.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+sep_inner = { open = "[", close = "]" }
 
 # : ]]]
 

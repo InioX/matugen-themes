@@ -7,7 +7,7 @@
      <br><br>
      <img alt="size" src="https://custom-icon-badges.demolab.com/github/repo-size/InioX/matugen-themes?color=3D3838&logo=file&style=for-the-badge&logoColor=370D10&labelColor=FEB3B3">
      <img alt="stars" src="https://custom-icon-badges.demolab.com/github/stars/InioX/matugen-themes?color=3D3838&logo=star&style=for-the-badge&logoColor=370D10&labelColor=FEB3B3">
-     <br> 
+     <br>
      <a href="#-------------------------description">Description</a>
     ·
     <a href="#-------------------------installation">Installation</a>
@@ -30,6 +30,7 @@
 - [Rofi](#rofi)
 - [Dunst](#dunst)
 - [Kvantum](#kvantum)
+- [Mako](#mako)
 - [Qt (qt5, qt6)](#qt)
 - [Qt-Method-2(qt5, qt6)](#qt-method-2)
 - [Alacritty](#alacritty)
@@ -43,6 +44,11 @@
 - [Cava](#cava)
 - [Helix](#helix)
 - [Btop](#btop)
+- [Micro](#micro)
+- [Zed](#zed)
+- [Neovim](#neovim)
+- [Tmux](#tmux)
+- [Ghostty](#ghostty)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -85,7 +91,7 @@ Configuration Example (`hyprlock.conf`):
 ```
 source = colors.conf
 background {
-    path = $image  # This variable contains the image you selected with matugen     
+    path = $image  # This variable contains the image you selected with matugen
 }
 
 label {
@@ -137,7 +143,7 @@ include colors.conf
 The theme will now be applied after you reload kitty.
 
 To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
-To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf` 
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf`
 
 Then append ```[templates.kitty]``` with
 ```
@@ -231,7 +237,21 @@ You can now use all the color variables inside of the `config.rasi`.
 [templates.dunst]
 input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
-post_hook = 'pkill -SIGUSR2 dunst
+post_hook = 'dunstctl reload'
+```
+
+### mako
+```
+[config]
+
+[templates.mako]
+input_path = 'path/to/template'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
+```
+Then, add this line to the bottom of your `~/.config/mako/config`
+```
+import=~/.config/mako/mako-colors
 ```
 
 ### kvantum
@@ -270,28 +290,42 @@ custom_palette=true
 
 ### Qt-Method-2
 
-Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme 
+Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme
 
 ```toml
 [templates.color-scheme]
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
 ```
+Next, pick what style you would like to use `kde` or `Darkly` and ajust the code below.
+
 Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the same for qt6
 
 ```
 color_scheme_path=~/.local/share/color-schemes/Matugen.colors
 custom_palette=true
 icon_theme=breeze
-style=Breeze
+style=<Breeze or Darkly>
 ```
+
 Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEME` set to `qt6ct`.
 
 > [!Note]
 > for the theme to work you need to install the following <br>
 > Arch Linux (AUR):
-> - `yay -S breeze breeze5 breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
+> - `yay -S breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
 
+For a kde style look download the following packages:
+
+```
+pacman -S breeze breeze5
+```
+
+For a cleaner style download the following packages:
+
+```
+yay -S darkly-qt5-git darkly-qt6-git
+```
 
 ### Alacritty
 ```toml
@@ -448,6 +482,98 @@ input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
 ```
 Then Choose `matugen` theme from btop settings.
+
+
+### Micro
+```toml
+[config]
+
+[templates.micro]
+input_path = 'path/to/template'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+```
+
+In micro editor, press `Ctrl+E` and then enter `set colorscheme matugen`
+
+### Zed
+```toml
+[config]
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+```
+Then Choose `Matugen Dark` or `Matugen Light` theme from Zed settings.
+
+### Tmux
+
+Copy the [tmux-colors.conf](./templates/tmux-colors.conf) and add it to your matugen config.
+
+```toml
+[templates.tmux]
+input_path = 'path/to/template'
+output_path = '~/.config/tmux/generated.conf'
+post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
+```
+
+Make sure you source the **output** of the template file, not the template file
+itself!! Additionally, note the following:
+
+1. Add a `tmux source-file <OUTPUT_PATH>` line at the end of your
+   `~/.config/tmux/tmux.conf` (entrypoint or adjacent) to source matugen's
+   generated colors upon every startup of `tmux`. If you don't do this, then
+   all new instances of `tmux` will be unstyled until matugen runs.
+
+2. Set reasonable defaults for all color variables set by matugen. Place these
+   initial color definitions in your `~/.config/tmux/tmux.conf`, but **before
+   you source matugen's generated file**. This ensures that `tmux` has default
+   colors to use in the case where matugen's generated file does not exist.
+
+Example `~/.config/tmux/tmux.conf`:
+
+```conf
+# Set color defaults
+set -g status-bg                          "#130d07"
+set -gq @thm_bar_bg                       "#130d07"
+
+set -gq @thm_bg                           "#19120c"
+set -gq @thm_fg                           "#eee0d5"
+set -gq @thm_primary                      "#fcb974"
+set -gq @thm_inverse_primary              "#855318"
+set -gq @thm_surface_low                  "#211a14"
+set -gq @thm_surface                      "#261e18"
+set -gq @thm_surface_variant              "#302921"
+set -gq @thm_outline                      "#50453a"
+set -gq @thm_text_variant                 "#d5c3b5"
+
+set -g status-style                       "bg=#{@thm_bg},fg=#{@thm_fg}"
+set -g window-active-style                "bg=#{@thm_bg},fg=#{@thm_fg}"
+
+# Source matugen after setting defaults
+source-file ~/.config/tmux/generated.conf
+
+# Style whatever you wish with the imported colors
+# ...
+```
+
+### Neovim
+
+Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For further info, see [here](./templates/neovim).
+
+### Ghostty
+```toml
+[config]
+
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
+```
+Then, add this line to your `~/.config/ghostty/config`
+```
+theme = "Matugen"  
+```
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
@@ -456,5 +582,4 @@ Then Choose `matugen` theme from btop settings.
      </sub>
      Acknowledgements
 </h2>
-
 [Heus-Sueh](https://github.com/Heus-Sueh)
