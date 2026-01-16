@@ -55,6 +55,7 @@
 - [MangoWC](#mangowc)
 - [Niri](#niri)
 - [Vivaldi](#vivaldi)
+- [Quickshell](#quickshell)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -580,6 +581,25 @@ Then, add this line to your `~/.config/ghostty/config`
 
 ```
 theme = "Matugen"  
+```
+
+### Quickshell
+```toml
+[config]
+
+[templates.quickshell]
+input_path = 'path/to/template'
+output_path = '~/.config/quickshell/Colors.qml'
+```
+You can now add this to your quickshell shell.qml file
+```qml
+Colors{
+    id: colors
+}
+```
+You can then use colors anywhere in your config like this
+```qml
+color: colors.background
 ```
 
 ### Wine
