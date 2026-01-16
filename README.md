@@ -29,6 +29,7 @@
 - [Wlogout](#wlogout)
 - [Rofi](#rofi)
 - [Dunst](#dunst)
+- [Kvantum](#kvantum)
 - [Mako](#mako)
 - [Qt (qt5, qt6)](#qt)
 - [Qt-Method-2(qt5, qt6)](#qt-method-2)
@@ -49,6 +50,8 @@
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
 - [MangoWC](#mangowc)
+- [Niri](#niri)
+- [Vivaldi](#vivaldi)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -251,7 +254,25 @@ post_hook = 'makoctl reload'
 ```
 Then, add this line to the bottom of your `~/.config/mako/config`
 ```
-import=~/.config/mako/mako-colors
+include=~/.config/mako/mako-colors
+```
+
+### kvantum
+```toml
+[config]
+
+[templates.kvantum_kvconfig]
+input_path = './templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = './templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'
+```
+Then, add the following in ` ~/.config/Kvantum/kvantum.kvconfig `
+```
+[General]
+theme=matugen
 ```
 
 ### qt
@@ -431,7 +452,7 @@ Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/tem
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/your-theme'
-post_hook = "pkill -USR1 cava"
+post_hook = 'pkill -USR1 cava'
 ```
 
 Update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename.
@@ -462,6 +483,7 @@ theme = "matugen"
 [templates.btop]
 input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop'
 ```
 Then Choose `matugen` theme from btop settings.
 
@@ -552,6 +574,7 @@ output_path = '~/.config/ghostty/themes/Matugen'
 post_hook = 'pkill -SIGUSR2 ghostty'
 ```
 Then, add this line to your `~/.config/ghostty/config`
+
 ```
 theme = "Matugen"  
 ```
@@ -570,6 +593,49 @@ Then, add this line to your `~/.config/mango/config.conf`
 source=~/.config/mango/colors.conf
 ```
 
+### Niri
+```toml
+[config]
+
+
+[templates.niri]
+input_path = 'path/to/templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
+post_hook = 'niri msg action load-config-file'
+```
+Then, update your `~/.config/niri/config.kdl` file as follows:
+```kdl
+layout {
+    // other values
+
+    focus-ring{
+      off
+    }
+
+    background-color "transparent"
+    border {
+        width 3
+    }
+  shadow {} // border and shadow need to at least be initialized inorder to recieve the include values
+}
+
+include "./colors.kdl"
+```
+
+### Vivaldi
+
+```toml
+[config]
+
+[templates.vivaldi]
+input_path = 'path/to/template'
+output_path = 'path/to/vivaldi_css/vivaldi.css' 
+```
+
+1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
+2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
+Note that you can store vivaldi.css anywhere in a separate folder.
+
 <h2 class="acknowledgements">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
@@ -579,3 +645,5 @@ source=~/.config/mango/colors.conf
      Acknowledgements
 </h2>
 [Heus-Sueh](https://github.com/Heus-Sueh)
+
+

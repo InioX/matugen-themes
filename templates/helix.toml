@@ -101,7 +101,7 @@
 "ui.virtual.inlay-hint" = { fg = "{{ colors.on_surface_variant.default.hex }}", bg = "none" }
 "ui.virtual.jump-label" = { fg = "{{ colors.primary_container.default.hex }}", modifiers = ["bold"] }
 
-"ui.selection" = { bg = "none" }
+"ui.selection" = { bg = "{{ colors.outline_variant.default.hex }}" }
 
 "ui.cursor" = { fg = "{{ colors.background.default.hex }}", bg = "{{ colors.on_primary_container.default.hex }}" }
 "ui.cursor.primary" = { fg = "{{ colors.background.default.hex }}", bg = "{{ colors.primary_fixed.default.hex }}" }
@@ -123,6 +123,6 @@
 # --- Fallbacks (non-template usage) ---
 
 error = "{{ colors.error.default.hex }}"
-warning = "{{ colors.yellow.default.hex }}"
+warning = "{{ colors.tertiary.default.hex }}"
 info = "{{ colors.primary.default.hex }}"
 hint = "{{ colors.secondary.default.hex }}"
