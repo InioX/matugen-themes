@@ -49,6 +49,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Wine](#wine)
 - [WezTerm](#wezterm)
 - [Spicetify Sleek (Spotify)](#spicetify-sleek)
 - [MangoWC](#mangowc)
@@ -579,6 +580,20 @@ Then, add this line to your `~/.config/ghostty/config`
 
 ```
 theme = "Matugen"  
+```
+
+### Wine
+```toml
+[config]
+
+[templates.wine]
+input_path = 'path/to/template'
+output_path = '/tmp/wine.reg'
+post_hook = 'wine regedit /tmp/wine.reg'
+```
+If you want to apply the theme to a specific Wine prefix, run:
+```
+WINEPREFIX=~/path/to/your/prefix matugen <your arguments>
 ```
 
 ### WezTerm
