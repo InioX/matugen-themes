@@ -49,6 +49,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Cosmic](#cosmic)
 - [Wine](#wine)
 - [WezTerm](#wezterm)
 - [Spicetify Sleek (Spotify)](#spicetify-sleek)
@@ -582,6 +583,19 @@ Then, add this line to your `~/.config/ghostty/config`
 ```
 theme = "Matugen"  
 ```
+
+### Cosmic
+```toml
+[config]
+
+[templates.cosmic]
+input_path = './templates/cosmic_theme.ron'
+output_path = '~/.config/matugen/themes/matugen_cosmic.theme.ron'
+post_hook = "~/.config/matugen/templates/cosmic_postprocess.py ~/.config/matugen/themes/matugen_cosmic.theme.ron"
+```
+Then in the Cosmic Settings app, under Desktop -> Appearance, click import and select the theme located at `~/.config/matugen/themes/matugen_cosmic.theme.ron` It will build several config files derived from the matugen colors. Cosmic is new and still in development, so updates may break things throughout the beta. Opacity is not yet in the Cosmic gui, but you can set it in the matugen template file and the theme builder will apply it.
+
+![Cosmic Screenshot](./cosmic-screenshot.png)
 
 ### Quickshell
 ```toml
