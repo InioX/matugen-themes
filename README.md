@@ -49,6 +49,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [WezTerm](#wezterm)
 - [Spicetify Sleek (Spotify)](#spicetify-sleek)
 - [MangoWC](#mangowc)
 - [Niri](#niri)
@@ -580,6 +581,23 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### WezTerm
+```toml
+[config]
+
+[templates.wezterm]
+input_path = 'path/to/template'
+output_path = '~/.config/wezterm/colors/matugen_theme.toml'
+post_hook = 'touch ~/.config/wezterm/wezterm.lua'
+```
+Then, add these lines to your `~/.config/wezterm/wezterm.lua`
+```lua
+local wezterm = require("wezterm")
+local config = wezterm.config_builder()
+
+config.color_scheme = "matugen_theme"
+```
+
 ### Spicetify Sleek
 ```toml
 [config]
@@ -676,4 +694,5 @@ Note that you can store vivaldi.css anywhere in a separate folder.
      </sub>
      Acknowledgements
 </h2>
+
 [Heus-Sueh](https://github.com/Heus-Sueh)
