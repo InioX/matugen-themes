@@ -29,6 +29,7 @@
 - [Wlogout](#wlogout)
 - [Rofi](#rofi)
 - [Dunst](#dunst)
+- [Kvantum](#kvantum)
 - [Mako](#mako)
 - [Qt (qt5, qt6)](#qt)
 - [Qt-Method-2(qt5, qt6)](#qt-method-2)
@@ -251,6 +252,24 @@ post_hook = 'makoctl reload'
 Then, add this line to the bottom of your `~/.config/mako/config`
 ```
 import=~/.config/mako/mako-colors
+```
+
+### kvantum
+```toml
+[config]
+
+[templates.kvantum_kvconfig]
+input_path = './templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = './templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'
+```
+Then, add the following in ` ~/.config/Kvantum/kvantum.kvconfig `
+```
+[General]
+theme=matugen
 ```
 
 ### qt
