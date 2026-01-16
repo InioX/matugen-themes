@@ -1,0 +1,32 @@
+[colors]
+background = "{{colors.background.default.hex}}"
+foreground = "{{colors.on_surface.default.hex}}"
+cursor_bg = "{{colors.on_surface.default.hex}}"
+cursor_border = "{{colors.on_surface.default.hex}}"
+cursor_fg = "{{colors.on_surface_variant.default.hex}}"
+selection_bg = "{{colors.secondary_fixed_dim.default.hex}}"
+selection_fg = "{{colors.on_secondary.default.hex}}"
+
+split = "{{colors.secondary_fixed_dim.default.hex}}"
+
+ansi = [
+    "#191919",
+    "#D90202",
+    "#7FB11B",
+    "#FFD739",
+    "#3570D7",
+    "#BE84FF",
+    "#66D9EF",
+    "#F8F8F8"
+]
+
+brights = [
+    "#4D4D4D",
+    "#FF4747",
+    "#A0D04D",
+    "#FFEB4D",
+    "#6A9FF7",
+    "#D9A6FF",
+    "#80F5FF",
+    "#FFFFFF"
+]
