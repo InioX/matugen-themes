@@ -49,6 +49,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Spicetify Sleek (Spotify)](#spicetify-sleek)
 - [MangoWC](#mangowc)
 - [Niri](#niri)
 - [Vivaldi](#vivaldi)
@@ -579,6 +580,37 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### Spicetify Sleek
+```toml
+[config]
+
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+# post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"' # read the note
+```
+Then, add this line to your `~/.config/spicetify/config-xpui.ini`
+```
+color_scheme = matugen
+current_theme = Sleek
+```
+Then, download the Sleek theme from `spicetify-thems` github
+```bash
+curl -L --create-dirs \
+	-o ~/.config/spicetify/Themes/Sleek/user.css \
+	https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Sleek/user.css
+```
+Now, start spotify using spicetify command
+```bash
+spicetify watch -s
+```
+> Note: `spicetify watch -s` might fails to start flatpak version of spotify. In
+> that case uncomment the `post_hook` and start spotify using following command
+>
+> ```bash
+> flatpak run com.spotify.Client  --remote-debugging-port=9222 --remote-allow-origins='*'
+> ```
+
 ### MangoWC
 ```toml
 [config]
@@ -645,5 +677,3 @@ Note that you can store vivaldi.css anywhere in a separate folder.
      Acknowledgements
 </h2>
 [Heus-Sueh](https://github.com/Heus-Sueh)
-
-
