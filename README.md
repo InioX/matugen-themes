@@ -49,6 +49,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [Niri](#niri)
 - [Vivaldi](#vivaldi)
 
 ### Hyprland
@@ -576,6 +577,35 @@ Then, add this line to your `~/.config/ghostty/config`
 theme = "Matugen"  
 ```
 
+### Niri
+```toml
+[config]
+
+
+[templates.niri]
+input_path = 'path/to/templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
+post_hook = 'niri msg action load-config-file'
+```
+Then, update your `~/.config/niri/config.kdl` file as follows:
+```kdl
+layout {
+    // other values
+
+    focus-ring{
+      off
+    }
+
+    background-color "transparent"
+    border {
+        width 3
+    }
+  shadow {} // border and shadow need to at least be initialized inorder to recieve the include values
+}
+
+include "./colors.kdl"
+```
+
 ### Vivaldi
 
 ```toml
@@ -599,3 +629,5 @@ Note that you can store vivaldi.css anywhere in a separate folder.
      Acknowledgements
 </h2>
 [Heus-Sueh](https://github.com/Heus-Sueh)
+
+
