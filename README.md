@@ -29,6 +29,7 @@
 - [Wlogout](#wlogout)
 - [Rofi](#rofi)
 - [Dunst](#dunst)
+- [Kvantum](#kvantum)
 - [Mako](#mako)
 - [Qt (qt5, qt6)](#qt)
 - [Qt-Method-2(qt5, qt6)](#qt-method-2)
@@ -49,6 +50,10 @@
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
 - [WezTerm](#wezterm)
+- [Spicetify Sleek (Spotify)](#spicetify-sleek)
+- [MangoWC](#mangowc)
+- [Niri](#niri)
+- [Vivaldi](#vivaldi)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -143,7 +148,7 @@ include colors.conf
 The theme will now be applied after you reload kitty.
 
 To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
-To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf`
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/themes/your-theme.conf`
 
 Then append ```[templates.kitty]``` with
 ```
@@ -251,7 +256,25 @@ post_hook = 'makoctl reload'
 ```
 Then, add this line to the bottom of your `~/.config/mako/config`
 ```
-import=~/.config/mako/mako-colors
+include=~/.config/mako/mako-colors
+```
+
+### kvantum
+```toml
+[config]
+
+[templates.kvantum_kvconfig]
+input_path = './templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = './templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'
+```
+Then, add the following in ` ~/.config/Kvantum/kvantum.kvconfig `
+```
+[General]
+theme=matugen
 ```
 
 ### qt
@@ -431,7 +454,7 @@ Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/tem
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/your-theme'
-post_hook = "pkill -USR1 cava"
+post_hook = 'pkill -USR1 cava'
 ```
 
 Update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename.
@@ -462,6 +485,7 @@ theme = "matugen"
 [templates.btop]
 input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop'
 ```
 Then Choose `matugen` theme from btop settings.
 
@@ -552,6 +576,7 @@ output_path = '~/.config/ghostty/themes/Matugen'
 post_hook = 'pkill -SIGUSR2 ghostty'
 ```
 Then, add this line to your `~/.config/ghostty/config`
+
 ```
 theme = "Matugen"  
 ```
@@ -572,6 +597,94 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "matugen_theme"
 ```
+
+### Spicetify Sleek
+```toml
+[config]
+
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+# post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"' # read the note
+```
+Then, add this line to your `~/.config/spicetify/config-xpui.ini`
+```
+color_scheme = matugen
+current_theme = Sleek
+```
+Then, download the Sleek theme from `spicetify-thems` github
+```bash
+curl -L --create-dirs \
+	-o ~/.config/spicetify/Themes/Sleek/user.css \
+	https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Sleek/user.css
+```
+Now, start spotify using spicetify command
+```bash
+spicetify watch -s
+```
+> Note: `spicetify watch -s` might fails to start flatpak version of spotify. In
+> that case uncomment the `post_hook` and start spotify using following command
+>
+> ```bash
+> flatpak run com.spotify.Client  --remote-debugging-port=9222 --remote-allow-origins='*'
+> ```
+
+### MangoWC
+```toml
+[config]
+
+[templates.mango]
+input_path = 'path/to/template'
+output_path = '~/.config/mango/colors.conf'
+post_hook = 'mmsg -d reload_config' 
+```
+Then, add this line to your `~/.config/mango/config.conf`
+```
+source=~/.config/mango/colors.conf
+```
+
+### Niri
+```toml
+[config]
+
+
+[templates.niri]
+input_path = 'path/to/templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
+post_hook = 'niri msg action load-config-file'
+```
+Then, update your `~/.config/niri/config.kdl` file as follows:
+```kdl
+layout {
+    // other values
+
+    focus-ring{
+      off
+    }
+
+    background-color "transparent"
+    border {
+        width 3
+    }
+  shadow {} // border and shadow need to at least be initialized inorder to recieve the include values
+}
+
+include "./colors.kdl"
+```
+
+### Vivaldi
+
+```toml
+[config]
+
+[templates.vivaldi]
+input_path = 'path/to/template'
+output_path = 'path/to/vivaldi_css/vivaldi.css' 
+```
+
+1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
+2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
+Note that you can store vivaldi.css anywhere in a separate folder.
 
 <h2 class="acknowledgements">
      <sub>
