@@ -331,7 +331,7 @@ pacman -S breeze breeze5
 For a cleaner style download the following packages:
 
 ```
-yay -S darkly-qt5-git darkly-qt6-git
+yay -S darkly-bin
 ```
 
 ### Alacritty
