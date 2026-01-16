@@ -49,6 +49,7 @@
 - [Neovim](#neovim)
 - [Tmux](#tmux)
 - [Ghostty](#ghostty)
+- [MangoWC](#mangowc)
 - [Niri](#niri)
 - [Vivaldi](#vivaldi)
 
@@ -574,7 +575,22 @@ post_hook = 'pkill -SIGUSR2 ghostty'
 ```
 Then, add this line to your `~/.config/ghostty/config`
 
+```
 theme = "Matugen"  
+```
+
+### MangoWC
+```toml
+[config]
+
+[templates.mango]
+input_path = 'path/to/template'
+output_path = '~/.config/mango/colors.conf'
+post_hook = 'mmsg -d reload_config' 
+```
+Then, add this line to your `~/.config/mango/config.conf`
+```
+source=~/.config/mango/colors.conf
 ```
 
 ### Niri
