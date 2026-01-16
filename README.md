@@ -146,7 +146,7 @@ include colors.conf
 The theme will now be applied after you reload kitty.
 
 To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
-To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/theme/your-theme.conf`
+To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/themes/your-theme.conf`
 
 Then append ```[templates.kitty]``` with
 ```
