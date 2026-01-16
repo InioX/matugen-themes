@@ -481,6 +481,7 @@ theme = "matugen"
 [templates.btop]
 input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop'
 ```
 Then Choose `matugen` theme from btop settings.
 
