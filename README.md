@@ -651,9 +651,9 @@ config.color_scheme = "matugen_theme"
 ```toml
 [config]
 
-[templates.ghostty]
+[templates.spotify]
 input_path = 'path/to/template'
-output_path = '~/.config/ghostty/themes/Matugen'
+output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
 # post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"' # read the note
 ```
 Then, add this line to your `~/.config/spicetify/config-xpui.ini`
