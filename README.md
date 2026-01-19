@@ -57,6 +57,7 @@
 - [Niri](#niri)
 - [Vivaldi](#vivaldi)
 - [Quickshell](#quickshell)
+- [OpenCode](#opencode)
 
 ### Hyprland
 Copy the [hyprland-colors.conf]() template and add it to the matugen config.
@@ -720,6 +721,18 @@ layout {
 
 include "./colors.kdl"
 ```
+
+### OpenCode
+
+```toml
+[config]
+
+[templates.opencode]
+input_path = '~/.config/matugen/templates/opencode.json'
+output_path = '~/.config/opencode/themes/matugen.json'
+```
+
+In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme. 
 
 ### Vivaldi
 
