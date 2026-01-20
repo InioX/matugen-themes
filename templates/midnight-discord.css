@@ -46,7 +46,7 @@
 	--text-5: {{colors.outline.default.hex}};               /* muted channels/chats and timestamps */
 
 	/* background and dark colors */
-    --bg-1: {{colors.primary.default.hex}};                             /* dark buttons when clicked */
+    --bg-1: {{colors.surface_variant.default.hex}};                             /* dark buttons when clicked */
 	--bg-2: {{colors.surface_container_high.default.hex}};              /* dark buttons */
 	--bg-3: {{colors.surface_container_low.default.hex}};               /* spacing, secondary elements */
 	--bg-4: {{colors.surface.default.hex}};                             /* main background color */
