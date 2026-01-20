@@ -175,8 +175,8 @@ rules = [
     { name = "*", is = "exec", fg = "{{colors.on_error_container.default.hex}}" },
 
     # Fallback
-    { name = "*", fg = "{{colors.on_surface.default.hex}}" },
-    { name = "*/", fg = "{{colors.surface_tint.default.hex}}" },
+    { url = "*", fg = "{{colors.on_surface.default.hex}}" },
+    { url = "*/", fg = "{{colors.surface_tint.default.hex}}" },
 ]
 
 # : ]]]
