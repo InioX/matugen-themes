@@ -38,6 +38,7 @@
 - [Midnight Discord](#midnight-discord)
 - [Neovim](#neovim)
 - [Niri](#niri)
+- [Opencode](#opencode)
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
 - [Quickshell](#quickshell)
@@ -330,6 +331,17 @@ layout {
 
 include "./colors.kdl"
 ```
+
+### OpenCode
+```toml
+[config]
+# ...
+[templates.opencode]
+input_path = '~/.config/matugen/templates/opencode.json'
+output_path = '~/.config/opencode/themes/matugen.json'
+# ...
+```
+In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme. 
 
 ### Pywalfox
 ```toml
