@@ -20,151 +20,147 @@
 </div>
 
 #### List of all templates
-- [Hyprland](#hyprland)
-- [Hyprlock](#hyprlock)
-- [Waybar](#waybar)
-- [Kitty](#kitty)
-- [GTK (3.0, 4.0)](#gtk)
-- [Sway](#sway)
-- [Wlogout](#wlogout)
-- [Rofi](#rofi)
+- [Alacritty](#alacritty)
+- [Btop](#btop)
+- [Cava](#cava)
+- [Cosmic](#cosmic)
 - [Dunst](#dunst)
+- [Fuzzel](#fuzzel)
+- [Ghostty](#ghostty)
+- [GTK (3.0, 4.0)](#gtk)
+- [Helix](#helix)
+- [Hyprland & Hyprlock](#hyprland)
+- [Kitty](#kitty)
 - [Kvantum](#kvantum)
 - [Mako](#mako)
-- [Qt (qt5, qt6)](#qt)
-- [Qt-Method-2(qt5, qt6)](#qt-method-2)
-- [Alacritty](#alacritty)
-- [Starship](#starship)
+- [MangoWC](#mangowc)
+- [Micro](#micro)
 - [Midnight Discord](#midnight-discord)
+- [Neovim](#neovim)
+- [Niri](#niri)
+- [Opencode](#opencode)
 - [Pywalfox](#pywalfox)
+- [Qt (qt5, qt6)](#qt)
+- [Quickshell](#quickshell)
+- [Rofi](#rofi)
+- [Spicetify Sleek (Spotify)](#spicetify-sleek)
+- [Starship](#starship)
+- [Sway](#sway)
+- [Television](#television)
+- [Tmux](#tmux)
+- [Vivaldi](#vivaldi)
+- [Waybar](#waybar)
+- [WezTerm](#wezterm)
+- [Wine](#wine)
+- [Wlogout](#wlogout)
 - [Yazi](#yazi)
 - [Zathura](#zathura)
-- [Fuzzel](#fuzzel)
-- [Television](#television)
-- [Cava](#cava)
-- [Helix](#helix)
-- [Btop](#btop)
-- [Micro](#micro)
 - [Zed](#zed)
-- [Neovim](#neovim)
-- [Tmux](#tmux)
-- [Ghostty](#ghostty)
-- [Cosmic](#cosmic)
-- [Wine](#wine)
-- [WezTerm](#wezterm)
-- [Spicetify Sleek (Spotify)](#spicetify-sleek)
-- [MangoWC](#mangowc)
-- [Niri](#niri)
-- [Vivaldi](#vivaldi)
-- [Quickshell](#quickshell)
-- [OpenCode](#opencode)
 
-### Hyprland
-Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+### Alacritty
 ```toml
 [config]
 # ...
-
-[templates.hyprland]
+[templates.alacritty]
 input_path = 'path/to/template'
-output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+output_path = '~/.config/alacritty/colors.toml'
+# ...
+```
+Then, add this line to your `~/.config/alacritty/alacritty.toml`
+
+```toml
+import = ["colors.toml"]
 ```
 
-Then, add this line to the top of your `~/.config/hypr/hyprland.conf` file
-```
-source = colors.conf
-```
-
-The theme will now be applied after you reload hyprland.
-> [!NOTE]
-> To reload hyprland you can either quit the current session and enter it again, or you can run `hyprctl reload` which instantly reloads your config.
-
-### Hyprlock
-Hyprlock uses the same color format as Hyprland so we can use `hyprland-colors.css`, if you didn't make the template above, Copy the [hyprland-colors.conf]() template and add it to the matugen config.
+### Btop
 ```toml
 [config]
 # ...
-
-[templates.hyprland]
+[templates.btop]
 input_path = 'path/to/template'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop'
+# ...
 ```
+Then, choose `matugen` theme from btop settings.
 
-Then, add this line to the top of your `~/.config/hypr/hyprlock.conf` file
-```
-source = colors.conf
-```
-
-Configuration Example (`hyprlock.conf`):
-```
-source = colors.conf
-background {
-    path = $image  # This variable contains the image you selected with matugen
-}
-
-label {
-    color = $primary
-}
-```
-
-### Waybar
-Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config.
+### Cava
 ```toml
 [config]
 # ...
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/your-theme'
+post_hook = 'pkill -USR1 cava'
+# ...
+```
+Then, update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename:
 
-[templates.waybar]
-input_path = 'path/to/template'
-output_path = '~/.config/waybar/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
+```toml
+theme = 'your-theme'
 ```
 
-Then, add this line to the top of your `~/.config/waybar/style.css` file
-```
-@import "colors.css";
-```
-
-You can now use all the color variables inside the file.
-```css
-* {
-     background-color: @primary_container;
-}
-```
-
-### Kitty
-Copy the [kitty-colors.conf](https://github.com/InioX/matugen-themes/blob/main/templates/kitty-colors.conf) template and add it to the matugen config.
+### Cosmic
 ```toml
 [config]
 # ...
+[templates.cosmic]
+input_path = './templates/cosmic_theme.ron'
+output_path = '~/.config/matugen/themes/matugen_cosmic.theme.ron'
+post_hook = "~/.config/matugen/templates/cosmic_postprocess.py ~/.config/matugen/themes/matugen_cosmic.theme.ron"
+# ...
+```
+Then, in Cosmic Settings app, under Desktop -> Appearance, click import and select the theme located at `~/.config/matugen/themes/matugen_cosmic.theme.ron` It will build several config files derived from the matugen colors. Cosmic is new and still in development, so updates may break things throughout the beta. Opacity is not yet in the Cosmic gui, but you can set it in the matugen template file and the theme builder will apply it.
 
-[templates.kitty]
+![Cosmic Screenshot](./cosmic-screenshot.png)
+
+### Dunst
+```toml
+[config]
+# ...
+[templates.dunst]
 input_path = 'path/to/template'
-output_path = '~/.config/kitty/colors.conf'
-post_hook = 'pkill -SIGUSR1 kitty'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = 'dunstctl reload'
+# ...
 ```
 
-Then, add this line to the bottom of your `~/.config/kitty/kitty.conf`
+### Fuzzel
+```toml
+[config]
+# ...
+[templates.fuzzel]
+input_path = 'path/to/template'
+output_path = '~/.config/fuzzel/colors.ini'
+# ...
 ```
-include colors.conf
+Then, add this line to the top of your `~/.config/fuzzel/fuzzel.ini` file:
+
+```ini
+[main]
+include = "~/.config/fuzzel/colors.ini"
 ```
 
-The theme will now be applied after you reload kitty.
-
-To reload all the kitty instances automatically you can use kitty's own built-in theme manager through a kitten.
-To accomplish this we need to set the output_path of `[templates.kitty]` to `~/.config/kitty/themes/your-theme.conf`
-
-Then append ```[templates.kitty]``` with
+### Ghostty
+```toml
+[config]
+# ...
+[templates.ghostty]
+input_path = 'path/to/template'
+output_path = '~/.config/ghostty/themes/Matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
+# ...
 ```
-post_hook = "kitty +kitten themes --reload-in=all your-theme"
+Then, add this line to your `~/.config/ghostty/config`:
+
+```ini
+theme = "Matugen"  
 ```
-[Kitty Themes Wiki](https://sw.kovidgoyal.net/kitty/kittens/themes/)
 
 ### GTK
 ```toml
 [config]
 # ...
-
 [templates.gtk3]
 input_path = 'path/to/template'
 output_path = '~/.config/gtk-3.0/colors.css'
@@ -173,100 +169,61 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 [templates.gtk4]
 input_path = 'path/to/template'
 output_path = '~/.config/gtk-4.0/colors.css'
+# ...
 ```
+Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`:
 
-Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`
 ```css
 @import 'colors.css';
 ```
 
-### Sway
+### Helix
 ```toml
 [config]
 # ...
-
-[templates.sway]
+[templates.helix]
 input_path = 'path/to/template'
-output_path = '~/.config/sway/colors.conf'
-post_hook = 'swaymsg reload'
+output_path = '~/.config/helix/themes/matugen.toml'
+# ...
+```
+Then, add this line to your `~/.config/helix/config.toml`:
+
+```toml
+theme = "matugen"
 ```
 
-Then, add this line to your `~/.config/sway/config`
-```
-include colors.conf
-```
-
-### wlogout
+### Hyprland
 ```toml
 [config]
 # ...
-
-[templates.wlogout]
+[templates.hyprland]
 input_path = 'path/to/template'
-output_path = '~/.config/wlogout/colors.css'
+output_path = '~/.config/hypr/colors.conf'
+# ...
+```
+Then, add this line to the top of your `~/.config/hypr/hyprland.conf` and/or `~/.config/hypr/hyprlock.conf` file:
+
+```hyprlang
+source = colors.conf
 ```
 
-Then, add this line to the top of your `~/.config/wlogout/style.css`
-```
-@import "colors.css";
-```
-
-You can now use all the color variables inside the file.
-```css
-* {
-     background-color: @primary_container;
-}
-```
-
-### Rofi
+### Kitty
 ```toml
 [config]
-
-[templates.rofi]
+# ...
+[templates.kitty]
 input_path = 'path/to/template'
-output_path = '~/.config/rofi/colors.rasi'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all Matugen"
+# ...
 ```
 
-Then, add this line to the top of your `~/.config/rofi/config.rasi`
-```
-@import "colors.rasi"
-```
+Then, you just need to apply the theme once. Run `kitten themes` and select Matugen under the User section, finally just set it to update your `kitty.conf`.
 
-You can now use all the color variables inside of the `config.rasi`.
-```css
-* {
-     background-color: @primary-container;
-}
-```
-
-### dunst
+### Kvantum
 ```toml
 [config]
-
-[templates.dunst]
-input_path = 'path/to/template'
-output_path = '~/.config/dunst/dunstrc'
-post_hook = 'dunstctl reload'
-```
-
-### mako
-```
-[config]
-
-[templates.mako]
-input_path = 'path/to/template'
-output_path = '~/.config/mako/mako-colors'
-post_hook = 'makoctl reload'
-```
-Then, add this line to the bottom of your `~/.config/mako/config`
-```
-include=~/.config/mako/mako-colors
-```
-
-### kvantum
-```toml
-[config]
-
+# ...
 [templates.kvantum_kvconfig]
 input_path = './templates/kvantum-colors.kvconfig'
 output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
@@ -274,43 +231,167 @@ output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 [templates.kvantum_svg]
 input_path = './templates/kvantum-colors.svg'
 output_path = '~/.config/Kvantum/matugen/matugen.svg'
+# ...
 ```
-Then, add the following in ` ~/.config/Kvantum/kvantum.kvconfig `
-```
+Then, add the following in your ` ~/.config/Kvantum/kvantum.kvconfig` file:
+
+```kvconfig
 [General]
 theme=matugen
 ```
 
-### qt
-Change `5` to `6` for qt6ct
+### Mako
 ```toml
 [config]
+# ...
+[templates.mako]
+input_path = 'path/to/template'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
+# ...
+```
+Then, add this line to the bottom of your `~/.config/mako/config` file:
 
+```ini
+include=~/.config/mako/mako-colors
+```
+
+### MangoWC
+```toml
+[config]
+# ...
+[templates.mango]
+input_path = 'path/to/template'
+output_path = '~/.config/mango/colors.conf'
+post_hook = 'mmsg -d reload_config' 
+# ...
+```
+Then, add this line to your `~/.config/mango/config.conf` file:
+
+```conf
+source=~/.config/mango/colors.conf
+```
+
+### Micro
+```toml
+[config]
+# ...
+[templates.micro]
+input_path = 'path/to/template'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+# ...
+```
+
+Then, prss `Ctrl+E` in micro editor and enter `set colorscheme matugen`
+
+### Midnight Discord
+```toml
+[config]
+# ...
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
+
+### Neovim
+
+Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For further info, see [here](./templates/neovim).
+
+### Niri
+```toml
+[config]
+# ...
+[templates.niri]
+input_path = 'path/to/templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
+post_hook = 'niri msg action load-config-file'
+# ...
+```
+Then, update your `~/.config/niri/config.kdl` file:
+
+```kdl
+layout {
+    // other values
+
+    focus-ring{
+      off
+    }
+
+    background-color "transparent"
+    border {
+        width 3
+    }
+  shadow {} // border and shadow need to at least be initialized inorder to recieve the include values
+}
+
+include "./colors.kdl"
+```
+
+### OpenCode
+```toml
+[config]
+# ...
+[templates.opencode]
+input_path = '~/.config/matugen/templates/opencode.json'
+output_path = '~/.config/opencode/themes/matugen.json'
+# ...
+```
+In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme. 
+
+### Pywalfox
+```toml
+[config]
+# ...
+[templates.pywalfox]
+input_path = 'path/to/template'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+# ...
+```
+
+> [!NOTE]
+> Add the [Pywalfox plugin](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/) to firefox / thunderbird. <br>
+> Dependencies: [pywalfox](https://github.com/frewacom/pywalfox) <br>
+
+### Qt 
+```toml
+[config]
+# ...
 [templates.qt5ct]
 input_path = 'path/to/template'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = 'path/to/template'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+# ...
 ```
-Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf`
-```
+Then, add these two lines to the top of your `~/.config/qt5ct/qt5ct.conf` file:
+
+```conf
 [Appearance]
 color_scheme_path=yourusername/.config/qt5ct/colors/matugen.conf
 custom_palette=true
 ```
 
-### Qt-Method-2
-
-Note: the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme
+For another method, the output path needs to be `~/.local/share/color-schemes/` in order for qt*ct to be able to find the color sheme
 
 ```toml
+[config]
+# ...
 [templates.color-scheme]
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
+# ...
 ```
-Next, pick what style you would like to use `kde` or `Darkly` and ajust the code below.
+Then, pick a style you would like to use like `kde` or `Darkly` and ajust the code below, adding those lines to the top of `~/.config/qt5ct/qt5ct.conf` and `~/.config/qt6ct/qt6ct.conf`:
 
-Then, add these four lines to the top of `~/.config/qt5ct/qt5ct.conf` and do the same for qt6
-
-```
+```ini
 color_scheme_path=~/.local/share/color-schemes/Matugen.colors
 custom_palette=true
 icon_theme=breeze
@@ -324,211 +405,148 @@ Finally, make sure you have this environment variable `QT_QPA_PLATFORMTHEME` set
 > Arch Linux (AUR):
 > - `yay -S breeze-icons breeze-gtk qt6ct-kde qt5ct-kde` <br>
 
-For a kde style look download the following packages:
-
+For a kde style look download the following packages (Arch):
 ```
 pacman -S breeze breeze5
 ```
 
-For a cleaner style download the following packages:
-
+For a cleaner style download the following packages (Arch):
 ```
 yay -S darkly-bin
 ```
 
-### Alacritty
+### Quickshell
 ```toml
 [config]
-
-[templates.alacritty]
+# ...
+[templates.quickshell]
 input_path = 'path/to/template'
-output_path = '~/.config/alacritty/colors.toml'
+output_path = '~/.config/quickshell/Colors.qml'
+# ...
 ```
-Then, add this line to your `~/.config/alacritty/alacritty.toml`
+You can now add this to your quickshell shell.qml file
+
+```qml
+Colors{
+    id: colors
+}
 ```
-import = ["colors.toml"]
+You can then use colors anywhere in your config like this
+
+```qml
+color: colors.background
 ```
+
+### Rofi
+```toml
+[config]
+# ...
+[templates.rofi]
+input_path = 'path/to/template'
+output_path = '~/.config/rofi/colors.rasi'
+# ...
+```
+Then, add this line to the top of your `~/.config/rofi/config.rasi` file:
+
+```css
+@import "colors.rasi"
+```
+
+You can now use all the color variables inside of the `config.rasi`, for example:
+```css
+* {
+     background-color: @primary-container;
+}
+```
+
+### Spicetify Sleek
+```toml
+[config]
+# ...
+[templates.spotify]
+input_path = 'path/to/template'
+output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
+post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
+# ...
+```
+Then, add this line to your `~/.config/spicetify/config-xpui.ini` file:
+
+```ini
+color_scheme = matugen
+current_theme = Sleek
+```
+Then, download the Sleek theme from `spicetify-thems` github:
+
+```bash
+curl -L --create-dirs \
+	-o ~/.config/spicetify/Themes/Sleek/user.css \
+	https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Sleek/user.css
+```
+Now, start spotify using spicetify command:
+
+```bash
+spicetify watch -s
+```
+> [!NOTE]
+>> `spicetify watch -s` might fails to start flatpak version of spotify. In
+>> that case uncomment the `post_hook` and start spotify using following command:
+>>
+>> ```bash
+>> flatpak run com.spotify.Client  --remote-debugging-port=9222 --remote-allow-origins='*'
+>> ```
 
 ### Starship
 ```toml
 [config]
-
+# ...
 [templates.starship]
 input_path = 'path/to/template'
 output_path = '~/.config/starship.toml'
+# ...
 ```
 
-### Midnight Discord
-
-Copy the [midnight-discord.css](https://github.com/InioX/matugen-themes/blob/main/templates/midnight-discord.css) template and add it to the matugen config.
-
+### Sway
 ```toml
 [config]
-
-[templates.vesktop]
+# ...
+[templates.sway]
 input_path = 'path/to/template'
-output_path = '~/.config/vesktop/themes/midnight-discord.css'
+output_path = '~/.config/sway/colors.conf'
+post_hook = 'swaymsg reload'
+# ...
 ```
+Then, add this line to your `~/.config/sway/config` file:
 
-> [!NOTE]
-> ``output_path`` may be different if you are using Flatpak version of Vesktop.
-
-Then, activate the theme from vencord themes.
-
-### Pywalfox
-```toml
-[config]
-
-[templates.pywalfox]
-input_path = 'path/to/template'
-output_path = '~/.cache/wal/colors.json'
-post_hook = 'pywalfox update'
-```
-
-> [!NOTE]
-> Add the [Pywalfox plugin](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/) to firefox / thunderbird. <br>
-> Dependencies: [pywalfox](https://github.com/frewacom/pywalfox) <br>
-> Install:
-> - Arch (AUR): `yay -S python-pywalfox`
-> - GNU/Linux, MacOS, Windows: [Follow Instructions](https://github.com/frewacom/pywalfox?tab=readme-ov-file#-installation)
-
-
-That's it!
-
-### Yazi
-```toml
-[config]
-
-[templates.yazi]
-input_path = 'path/to/template'
-output_path = '~/.config/yazi/theme.toml'
-```
-### Zathura
-```toml
-[config]
-
-[templates.zathura]
-input_path = 'path/to/template'
-output_path = '~/.config/zathura/zathurarc'
-```
-Then, if transparency is needed just change the alpha value in:
-```
-set default-bg              "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
-set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
-```
-And to change the font family and size just write it to:
-```
-set font "FiraCode Nerd Font 12"
-```
-
-### Fuzzel
-```toml
-[config]
-
-[templates.fuzzel]
-input_path = 'path/to/template'
-output_path = '~/.config/fuzzel/colors.ini'
-```
-Then, add this line to the top of your `~/.config/fuzzel/fuzzel.ini` file
-```ini
-[main]
-include = "~/.config/fuzzel/colors.ini"
+```conf
+include colors.conf
 ```
 
 ### Television
 ```toml
 [config]
-
+# ...
 [templates.television]
 input_path = 'templates/television.toml'
 output_path = '~/.config/television/themes/matugen.toml'
+# ...
 ```
-Then, add this line to the `ui` section of your `~/.config/television/config.toml` file
+Then, add this line to the `ui` section of your `~/.config/television/config.toml` file:
+
 ```toml
 [ui]
 theme = "matugen"
 ```
 
-### Cava
-Copy the [cava-colors.ini](https://github.com/InioX/matugen-themes/blob/main/templates/cava-colors.ini) template and add it to the matugen config.
+### Tmux
 ```toml
 [config]
 # ...
-
-[templates.cava]
-input_path = '~/.config/matugen/templates/cava-colors.ini'
-output_path = '~/.config/cava/themes/your-theme'
-post_hook = 'pkill -USR1 cava'
-```
-
-Update the theme variable `theme = 'none'` in the cava configuration file `~/.config/cava/config` with the output_path filename.
-```toml
-theme = 'your-theme'
-```
-And that's it, by default the vertical gradient effect is activated, to disable it comment the line `gradient = 1` and uncomment `; gradient = 0` inside the `cava-colors.ini` template.
-> [!NOTE]
->> Cava's current support for loading themes externally is only available in the git version, you will have to compile from source for it to work.
-
-### Helix
-```
-[templates.helix]
-input_path = 'path/to/template'
-output_path = '~/.config/helix/themes/matugen.toml'
-```
-
-Then, add this line to your `~/.config/helix/config.toml`
-
-```
-theme = "matugen"
-```
-
-### Btop
-```toml
-[config]
-
-[templates.btop]
-input_path = 'path/to/template'
-output_path = '~/.config/btop/themes/matugen.theme'
-post_hook = 'pkill -USR2 btop'
-```
-Then Choose `matugen` theme from btop settings.
-
-
-### Micro
-```toml
-[config]
-
-[templates.micro]
-input_path = 'path/to/template'
-output_path = '~/.config/micro/colorschemes/matugen.micro'
-```
-
-In micro editor, press `Ctrl+E` and then enter `set colorscheme matugen`
-
-### Zed
-```toml
-[config]
-
-[templates.zed]
-input_path = '~/.config/matugen/templates/zed-colors.json'
-output_path = '~/.config/zed/themes/matugen.json'
-```
-Then Choose `Matugen Dark` or `Matugen Light` theme from Zed settings.
-
-### Tmux
-
-Copy the [tmux-colors.conf](./templates/tmux-colors.conf) and add it to your matugen config.
-
-```toml
 [templates.tmux]
 input_path = 'path/to/template'
 output_path = '~/.config/tmux/generated.conf'
 post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
+# ...
 ```
-
-Make sure you source the **output** of the template file, not the template file
-itself!! Additionally, note the following:
-
 1. Add a `tmux source-file <OUTPUT_PATH>` line at the end of your
    `~/.config/tmux/tmux.conf` (entrypoint or adjacent) to source matugen's
    generated colors upon every startup of `tmux`. If you don't do this, then
@@ -566,81 +584,55 @@ source-file ~/.config/tmux/generated.conf
 # ...
 ```
 
-### Neovim
-
-Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For further info, see [here](./templates/neovim).
-
-### Ghostty
+### Vivaldi
 ```toml
 [config]
-
-[templates.ghostty]
+# ...
+[templates.vivaldi]
 input_path = 'path/to/template'
-output_path = '~/.config/ghostty/themes/Matugen'
-post_hook = 'pkill -SIGUSR2 ghostty'
+output_path = 'path/to/vivaldi_css/vivaldi.css' 
+# ...
 ```
-Then, add this line to your `~/.config/ghostty/config`
+1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
+2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
+Note that you can store vivaldi.css anywhere in a separate folder.
 
-```
-theme = "Matugen"  
-```
-
-### Cosmic
+### Waybar
 ```toml
 [config]
-
-[templates.cosmic]
-input_path = './templates/cosmic_theme.ron'
-output_path = '~/.config/matugen/themes/matugen_cosmic.theme.ron'
-post_hook = "~/.config/matugen/templates/cosmic_postprocess.py ~/.config/matugen/themes/matugen_cosmic.theme.ron"
-```
-Then in the Cosmic Settings app, under Desktop -> Appearance, click import and select the theme located at `~/.config/matugen/themes/matugen_cosmic.theme.ron` It will build several config files derived from the matugen colors. Cosmic is new and still in development, so updates may break things throughout the beta. Opacity is not yet in the Cosmic gui, but you can set it in the matugen template file and the theme builder will apply it.
-
-![Cosmic Screenshot](./cosmic-screenshot.png)
-
-### Quickshell
-```toml
-[config]
-
-[templates.quickshell]
+# ...
+[templates.waybar]
 input_path = 'path/to/template'
-output_path = '~/.config/quickshell/Colors.qml'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+# ...
 ```
-You can now add this to your quickshell shell.qml file
-```qml
-Colors{
-    id: colors
+
+Then, add this line to the top of your `~/.config/waybar/style.css` file:
+
+```css
+@import "colors.css";
+```
+You can now use all the color variables inside the file:
+
+```css
+* {
+     background-color: @primary_container;
 }
-```
-You can then use colors anywhere in your config like this
-```qml
-color: colors.background
-```
-
-### Wine
-```toml
-[config]
-
-[templates.wine]
-input_path = 'path/to/template'
-output_path = '/tmp/wine.reg'
-post_hook = 'wine regedit /tmp/wine.reg'
-```
-If you want to apply the theme to a specific Wine prefix, run:
-```
-WINEPREFIX=~/path/to/your/prefix matugen <your arguments>
 ```
 
 ### WezTerm
 ```toml
 [config]
-
+# ...
 [templates.wezterm]
 input_path = 'path/to/template'
 output_path = '~/.config/wezterm/colors/matugen_theme.toml'
 post_hook = 'touch ~/.config/wezterm/wezterm.lua'
+# ...
 ```
-Then, add these lines to your `~/.config/wezterm/wezterm.lua`
+Then, add these lines to your `~/.config/wezterm/wezterm.lua` file:
+
 ```lua
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
@@ -648,105 +640,85 @@ local config = wezterm.config_builder()
 config.color_scheme = "matugen_theme"
 ```
 
-### Spicetify Sleek
+### Wine
 ```toml
 [config]
-
-[templates.spotify]
+# ...
+[templates.wine]
 input_path = 'path/to/template'
-output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
-# post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"' # read the note
+output_path = '/tmp/wine.reg'
+post_hook = 'wine regedit /tmp/wine.reg'
+# ...
 ```
-Then, add this line to your `~/.config/spicetify/config-xpui.ini`
-```
-color_scheme = matugen
-current_theme = Sleek
-```
-Then, download the Sleek theme from `spicetify-thems` github
-```bash
-curl -L --create-dirs \
-	-o ~/.config/spicetify/Themes/Sleek/user.css \
-	https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Sleek/user.css
-```
-Now, start spotify using spicetify command
-```bash
-spicetify watch -s
-```
-> Note: `spicetify watch -s` might fails to start flatpak version of spotify. In
-> that case uncomment the `post_hook` and start spotify using following command
->
-> ```bash
-> flatpak run com.spotify.Client  --remote-debugging-port=9222 --remote-allow-origins='*'
-> ```
+If you want to apply the theme to a specific Wine prefix, run:
 
-### MangoWC
+```bash
+WINEPREFIX=~/path/to/your/prefix matugen <your arguments>
+```
+
+### Wlogout
 ```toml
 [config]
-
-[templates.mango]
+# ...
+[templates.wlogout]
 input_path = 'path/to/template'
-output_path = '~/.config/mango/colors.conf'
-post_hook = 'mmsg -d reload_config' 
+output_path = '~/.config/wlogout/colors.css'
+# ...
 ```
-Then, add this line to your `~/.config/mango/config.conf`
+Then, add this line to the top of your `~/.config/wlogout/style.css` file:
+
+```css
+@import "colors.css";
 ```
-source=~/.config/mango/colors.conf
-```
+You can now use all the color variables inside the file:
 
-### Niri
-```toml
-[config]
-
-
-[templates.niri]
-input_path = 'path/to/templates/niri-colors.kdl'
-output_path = '~/.config/niri/colors.kdl'
-post_hook = 'niri msg action load-config-file'
-```
-Then, update your `~/.config/niri/config.kdl` file as follows:
-```kdl
-layout {
-    // other values
-
-    focus-ring{
-      off
-    }
-
-    background-color "transparent"
-    border {
-        width 3
-    }
-  shadow {} // border and shadow need to at least be initialized inorder to recieve the include values
+```css
+* {
+     background-color: @primary_container;
 }
-
-include "./colors.kdl"
 ```
 
-### OpenCode
-
+### Yazi
 ```toml
 [config]
-
-[templates.opencode]
-input_path = '~/.config/matugen/templates/opencode.json'
-output_path = '~/.config/opencode/themes/matugen.json'
-```
-
-In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme. 
-
-### Vivaldi
-
-```toml
-[config]
-
-[templates.vivaldi]
+# ...
+[templates.yazi]
 input_path = 'path/to/template'
-output_path = 'path/to/vivaldi_css/vivaldi.css' 
+output_path = '~/.config/yazi/theme.toml'
+# ...
 ```
 
-1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
-2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
-Note that you can store vivaldi.css anywhere in a separate folder.
+### Zathura
+```toml
+[config]
+# ...
+[templates.zathura]
+input_path = 'path/to/template'
+output_path = '~/.config/zathura/zathurarc'
+# ...
+```
+Then, if transparency is needed just change the alpha value in:
+
+```
+set default-bg              "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
+set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
+```
+Finally, to change the font family and size just write it to (or use a {{custom}} filter on your matugen `config.toml`):
+
+```
+set font "FiraCode Nerd Font 12"
+```
+
+### Zed
+```toml
+[config]
+# ...
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+# ...
+```
+Then, choose `Matugen Dark` or `Matugen Light` theme from Zed settings.
 
 <h2 class="acknowledgements">
      <sub>
