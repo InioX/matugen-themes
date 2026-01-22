@@ -23,6 +23,7 @@
 - [Hyprland](#hyprland)
 - [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
+- [AGS](#ags)
 - [Kitty](#kitty)
 - [GTK (3.0, 4.0)](#gtk)
 - [Sway](#sway)
@@ -124,6 +125,71 @@ Then, add this line to the top of your `~/.config/waybar/style.css` file
 ```
 @import "colors.css";
 ```
+
+You can now use all the color variables inside the file.
+```css
+* {
+     background-color: @primary_container;
+}
+```
+
+### AGS (aka Aylur's GTK Shell)
+
+> [!Note]
+> For the theme to work you need to install and execute the following BEFORE running matugen <br>
+> Arch Linux (AUR):
+> - `yay -S aylurs-gtk-shell-git && ags init` <br>
+> LFS:
+> - Good luck compiling all of ags requirements.
+
+### SCSS method
+Copy the [ags.scss](https://github.com/InioX/matugen-themes/blob/main/templates/ags.scss) template and add it to the matugen config. It's kinda similar to the waybar template
+```toml
+[config]
+# ...
+
+[templates.ags]
+input_path = 'path/to/template'
+output_path = '~/.config/ags/<path_you_want>/colors.scss'
+post_hook = 'pkill -SIGUSR2 ags'
+```
+
+You can delete path_you_want and the slash near to it.
+
+Then, add this line to the top of your `~/.config/ags/style.scss` file
+```
+@use "<path_to_scss>/colors.scss" as *;
+```
+
+Same with this code.
+
+You can now use all the color variables inside the file.
+```scss
+* {
+     background-color: $primaryContainer;
+}
+```
+
+### CSS method:
+Copy the [colors.css](https://github.com/InioX/matugen-themes/blob/main/templates/colors.css) template and add it to the matugen config. It's kinda similar to the waybar template, but this template is 100% compatible to the waybar template
+```toml
+[config]
+# ...
+
+[templates.ags]
+input_path = 'path/to/template'
+output_path = '~/.config/ags/<path_you_want>/colors.css'
+post_hook = 'pkill -SIGUSR2 ags'
+```
+
+You can delete path_you_want and the slash near to it.
+
+Then, add this line to the top of your `~/.config/ags/style.css` file
+```
+@use "<path_to_css>/colors.css" as *;
+```
+
+Same with this code.
 
 You can now use all the color variables inside the file.
 ```css
