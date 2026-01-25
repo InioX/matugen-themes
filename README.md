@@ -79,7 +79,7 @@ import = ["colors.toml"]
 [templates.btop]
 input_path = 'path/to/template'
 output_path = '~/.config/btop/themes/matugen.theme'
-post_hook = 'pkill -USR2 btop'
+post_hook = 'pkill -USR2 btop || true'
 # ...
 ```
 Then, choose `matugen` theme from btop settings.
