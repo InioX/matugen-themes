@@ -42,6 +42,7 @@
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
 - [Quickshell](#quickshell)
+- [Rmpc](#rmpc)
 - [Rofi](#rofi)
 - [Spicetify Sleek (Spotify)](#spicetify-sleek)
 - [Starship](#starship)
@@ -436,6 +437,27 @@ You can then use colors anywhere in your config like this
 ```qml
 color: colors.background
 ```
+
+### Rmpc
+```toml
+[config]
+# ...
+[templates.rmpc]
+input_path = 'path/to/template'
+output_path = '~/.config/rmpc/themes/matugen.ron'
+# ...
+```
+Then, edit your `~/.config/rmpc/config.ron` to switch to the matugen theme:
+
+```ron
+(
+    ...
+    theme: Some("matugen"),
+    ...
+)
+```
+> [!NOTE]
+> See [nix-hm-example](./templates/rmpc/nix-hm-example/) for an example of how to use with Nix Home Manager.
 
 ### Rofi
 ```toml

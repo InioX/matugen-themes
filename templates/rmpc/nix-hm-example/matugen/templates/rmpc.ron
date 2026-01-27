@@ -1,0 +1,207 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    default_album_art_path: None,
+    show_song_table_header: true,
+    draw_borders: true,
+    format_tag_separator: " | ",
+    browser_column_widths: [20, 38, 42],
+    background_color: None,
+    text_color: Some("{{ colors.secondary.default.hex }}"),
+    header_background_color: None,
+    modal_background_color: None,
+    modal_backdrop: false,
+    preview_label_style: (fg: "{{ colors.primary.default.hex }}"),
+    preview_metadata_group_style: (fg: "{{ colors.tertiary.default.hex }}", modifiers: "Bold"),
+    tab_bar: (
+        active_style: (fg: "{{ colors.on_secondary.default.hex }}", bg: "{{ colors.secondary.default.hex }}", modifiers: "Bold"),
+        inactive_style: (fg: "{{ colors.secondary.default.hex }}", modifiers: "Bold"),
+    ),
+    highlighted_item_style: (fg: "{{ colors.secondary.default.hex }}", modifiers: "Bold"),
+    current_item_style: (fg: "{{ colors.secondary.default.hex }}", bg: "{{ colors.inverse_primary.default.hex }}", modifiers: "Bold"),
+    borders_style: (fg: "{{ colors.secondary.default.hex }}"),
+    highlight_border_style: (fg: "{{ colors.secondary.default.hex }}"),
+    symbols: (
+        song: "S",
+        dir: "D",
+        playlist: "P",
+        marker: "M",
+        ellipsis: "...",
+        song_style: None,
+        dir_style: None,
+        playlist_style: None,
+    ),
+    level_styles: (
+        info: (fg: "blue", bg: "black"),
+        warn: (fg: "yellow", bg: "black"),
+        error: (fg: "red", bg: "black"),
+        debug: (fg: "light_green", bg: "black"),
+        trace: (fg: "magenta", bg: "black"),
+    ),
+    progress_bar: (
+        symbols: ["[", "-", ">", " ", "]"],
+        track_style: (
+            fg: "{{ colors.on_secondary.default.hex }}",
+        ),
+        elapsed_style: (
+            fg: "{{ colors.secondary.default.hex }}",
+        ),
+        thumb_style: (
+            fg: "{{ colors.secondary.default.hex }}",
+        ),
+        use_track_when_empty: false,
+    ),
+    scrollbar: (
+        symbols: ["│", "█", "▲", "▼"],
+        track_style: (fg: "{{ colors.secondary.default.hex }}"),
+        ends_style: (fg: "{{ colors.secondary_fixed.default.hex }}"),
+        thumb_style: (fg: "{{ colors.primary.default.hex }}"),
+    ),
+    song_table_format: [
+        (
+            prop: (
+                kind: Property(Artist),
+                style: (fg: "{{ colors.primary_fixed.default.hex }}"),
+                default: (kind: Text("Unknown"), style: (fg: "{{ colors.primary_fixed.default.hex }}"))
+            ),
+            width: "20%",
+        ),
+        (
+            prop: (
+                kind: Property(Title),
+                style: (fg: "{{ colors.primary.default.hex }}"),
+                default: (kind: Text("Unknown"), style: (fg: "{{ colors.primary_fixed.default.hex }}"))
+            ),
+            width: "35%",
+        ),
+        (
+            prop: (kind: Property(Album), style: (fg: "{{ colors.primary_fixed.default.hex }}"),
+                default: (kind: Text("Unknown Album"), style: (fg: "{{ colors.primary_fixed.default.hex }}"))
+            ),
+            width: "30%",
+        ),
+        (
+            prop: (kind: Property(Duration), style: (fg: "{{ colors.primary.default.hex }}"),
+                default: (kind: Text("-"), style: (fg: "{{ colors.primary_fixed.default.hex }}"))
+            ),
+            width: "15%",
+            alignment: Right,
+        ),
+    ],
+    components: {},
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                pane: Pane(Header),
+                size: "2",
+            ),
+            (
+                pane: Pane(Tabs),
+                size: "3",
+            ),
+            (
+                pane: Pane(TabContent),
+                size: "100%",
+            ),
+            (
+                pane: Pane(ProgressBar),
+                size: "1",
+            ),
+        ],
+    ),
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Text("["), style: (fg: "{{ colors.tertiary.default.hex }}", modifiers: "Bold")),
+                    (
+                      kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))),
+                      style: (fg: "{{ colors.tertiary.default.hex }}", modifiers: "Bold")
+                    ),
+                    (kind: Text("]"), style: (fg: "{{ colors.tertiary.default.hex }}", modifiers: "Bold"))
+                ],
+                center: [
+                    (kind: Property(Song(Title)), style: (modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (modifiers: "Bold"))
+                    )
+                ],
+                right: [
+                    (kind: Property(Widget(ScanStatus)), style: (fg: "{{ colors.primary.default.hex }}")),
+                    (kind: Property(Widget(Volume)), style: (fg: "{{ colors.primary.default.hex }}"))
+                ]
+            ),
+            (
+                left: [
+                    (kind: Property(Status(Elapsed))),
+                    (kind: Text(" / ")),
+                    (kind: Property(Status(Duration))),
+                    (kind: Text(" (")),
+                    (kind: Property(Status(Bitrate))),
+                    (kind: Text(" kbps)"))
+                ],
+                center: [
+                    (kind: Property(Song(Artist)), style: (fg: "{{ colors.tertiary.default.hex }}", modifiers: "Bold"),
+                        default: (kind: Text("Unknown"), style: (fg: "{{ colors.tertiary.default.hex }}", modifiers: "Bold"))
+                    ),
+                    (kind: Text(" - ")),
+                    (kind: Property(Song(Album)),
+                        style: (fg: "{{ colors.primary.default.hex }}"),
+                        default: (kind: Text("Unknown Album"))
+                    )
+                ],
+                right: [
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "{{ colors.primary.default.hex }}", modifiers: "Bold"),
+                            separator_style: (fg: "{{ colors.primary.default.hex }}")))
+                        ),
+                        style: (fg: "{{ colors.secondary_fixed_dim.default.hex }}")
+                    ),
+                ]
+            ),
+        ],
+    ),
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Property(Track), style: (fg: "{{ colors.primary.default.hex }}")),
+                (kind: Text(" ")),
+            ])
+        ),
+        (
+            kind: Group([
+                (kind: Property(Artist), style: (fg: "{{ colors.primary.default.hex }}")),
+                (kind: Text(" - ")),
+                (kind: Property(Title), style: (fg: "{{ colors.primary.default.hex }}")),
+            ]),
+            default: (kind: Property(Filename), style: (fg: "{{ colors.primary.default.hex }}"))
+        ),
+    ],
+    lyrics: (
+        timestamp: false
+    ),
+    cava: (
+
+        bar_width: 2, // width of a single bar in columns
+        bar_spacing: 1, // free space between bars in columns
+
+        orientation: Bottom,
+
+        // A simple color gradient.
+        // This is a map where keys are percent values of the height where the
+        // color starts. After that it is linearly interpolated towards the next
+        // value. Keys must be between 0 and 100 and if the first or last key
+        // are not 0 and 100 respectively, the lowest and highest value will be
+        // used as 0 and 100.
+        // Only hex and RGB colors are supported here and your terminal must
+        // support them as well!
+        // rmpc does not support `horizontal_gradient` (yet?)
+        bar_color: Gradient({
+            0: "{{colors.primary_container.default.hex}}",
+            50: "{{colors.primary.default.hex}}",
+            100: "{{colors.on_primary_container.default.hex}}"
+        })
+    ),
+)
