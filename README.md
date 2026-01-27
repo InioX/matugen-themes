@@ -457,7 +457,7 @@ Then, edit your `~/.config/rmpc/config.ron` to switch to the matugen theme:
 )
 ```
 > [!NOTE]
-> See [nix-hm-example](./rmpc/nix-hm-example) for an example of how to use with Nix Home Manager.
+> See [nix-hm-example](./templates/rmpc/nix-hm-example/) for an example of how to use with Nix Home Manager.
 
 ### Rofi
 ```toml
