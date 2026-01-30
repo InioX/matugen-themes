@@ -301,7 +301,32 @@ Then, activate the theme from vencord themes.
 
 ### Neovim
 
-Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For further info, see [here](./templates/neovim).
+Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For information on how to leverage plugins for doing the "heavy-lifting", see [here](./templates/neovim).
+
+Alternatively, you can style Neovim through its configuration standard in `.vim` format.
+```toml
+[config]
+# ...
+[templates.nvim]
+input_path = 'path/to/templates/nvim-colors.vim'
+output_path = '~/.config/nvim/colors/matugen.vim'
+post_hook = 'pkill -SIGUSR1 nvim'
+```
+
+Then, add the following lines to your `~/.config/nvim/init.vim` file:
+```vimscript
+colorscheme matugen
+autocmd Signal SIGUSR1 colorscheme matugen
+```
+
+If you instead use an `init.lua` file at this position, use:
+```lua
+vim.cmd("colorscheme matugen")
+vim.api.nvim_create_autocmd("Signal", {
+    pattern = "SIGUSR1",
+    command = "colorscheme matugen",
+})
+```
 
 ### Niri
 ```toml
