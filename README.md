@@ -769,19 +769,9 @@ output_path = '~/.config/zed/themes/matugen.json'
 ```
 Then, choose `Matugen Dark` or `Matugen Light` theme from Zed settings.
 
-<h2 class="acknowledgements">
-     <sub>
-          <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
-           height="25"
-           width="25">
-     </sub>
-     Acknowledgements
-</h2>
-
-[Heus-Sueh](https://github.com/Heus-Sueh)
-
 ### Wofi
-Copy the `colors.css` to `~/.config/matugen`
+Copy the `colors.css` to `~/.config/matugen`.
+
 Add to `config.toml`
 ```toml
 [config]
@@ -796,7 +786,8 @@ Then import the `colors.css` to `~/.config/wofi/style.css`:
 ```
 
 ### SwayNC
-Copy the `colors.css` to `~/.config/matugen`
+Copy the `colors.css` to `~/.config/matugen`.
+
 Add to `config.toml`:
 ```toml
 [config]
@@ -810,3 +801,14 @@ Then import the `colors.css` to `~/.config/swaync/style.css`:
 ```css
 @import "colors.css";
 ```
+
+<h2 class="acknowledgements">
+     <sub>
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/353caef1-d2bd-4a10-a709-c64b35465e65"
+           height="25"
+           width="25">
+     </sub>
+     Acknowledgements
+</h2>
+
+[Heus-Sueh](https://github.com/Heus-Sueh)
