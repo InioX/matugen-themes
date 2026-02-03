@@ -57,6 +57,8 @@
 - [Yazi](#yazi)
 - [Zathura](#zathura)
 - [Zed](#zed)
+- [Wofi](#wofi)
+- [SwayNC](#swaync)
 
 ### Alacritty
 ```toml
@@ -766,6 +768,39 @@ output_path = '~/.config/zed/themes/matugen.json'
 # ...
 ```
 Then, choose `Matugen Dark` or `Matugen Light` theme from Zed settings.
+
+### Wofi
+Copy the `colors.css` to `~/.config/matugen`.
+
+Add to `config.toml`
+```toml
+[config]
+# ...
+[templates.wofi]
+input_path = "./colors.css"
+output_path = "~/.config/wofi/colors.css"
+```
+Then import the `colors.css` to `~/.config/wofi/style.css`:
+```css
+@import "colors.css";
+```
+
+### SwayNC
+Copy the `colors.css` to `~/.config/matugen`.
+
+Add to `config.toml`:
+```toml
+[config]
+# ...
+[templates.swaync]
+input_path = "./colors.css"
+output_path = "~/.config/swaync/colors.css"
+post_hook = "swaync-client -rs"
+```
+Then import the `colors.css` to `~/.config/swaync/style.css`:
+```css
+@import "colors.css";
+```
 
 <h2 class="acknowledgements">
      <sub>
