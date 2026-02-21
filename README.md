@@ -8,16 +8,66 @@
      <img alt="size" src="https://custom-icon-badges.demolab.com/github/repo-size/InioX/matugen-themes?color=3D3838&logo=file&style=for-the-badge&logoColor=370D10&labelColor=FEB3B3">
      <img alt="stars" src="https://custom-icon-badges.demolab.com/github/stars/InioX/matugen-themes?color=3D3838&logo=star&style=for-the-badge&logoColor=370D10&labelColor=FEB3B3">
      <br>
-     <a href="#-------------------------description">Description</a>
+     <a href="#templates-for-websites">Websites</a>
     ·
-    <a href="#-------------------------installation">Installation</a>
+    <a href="#templates-for-programs">Programs</a>
     ·
-    <a href="#-------------------------programs">Programs</a>
+    <a href="#-------------------------acknowledgements">Acknowledgements</a>
 </div>
 
 <div align="center">
   <img src="https://github.com/InioX/matugen/assets/81521595/9008d8d9-0157-4b38-9500-597986a2cb9f">
 </div>
+
+## Templates for websites
+
+### List of all websites
+- [YouTube](#alacritty)
+- [Bitwarden](#btop)
+- [GitHub](#cava)
+
+### Using with firefox based browsers
+
+
+
+1. Copy the template from [here](https://github.com/InioX/matugen-themes/blob/main/templates/firefox-colors.css) and add it to matugen
+   ```toml
+	[templates.firefox-website-colors]
+	input_path = "${default.templateFolder}/firefox-colors.css"
+	output_path = "~/.floorp/ini/chrome/colors.css"
+   ```
+2. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+3. Find your profile directory by going to `about:support`. Under "Application Basics", find "Profile Directory" and click "Open Directory"
+4. Make a folder inside of that directory called `chrome`
+5. Make sure to replace any of the paths you import according to your profile path
+6. Copy all of the website themes from [here](https://github.com/InioX/matugen-themes/tree/main/websites) and put them into `chrome/websites`
+7. Make a new file called `UserContent.css` inside of the created folder
+8. Import the matugen colors
+   ```css
+	@import url("/home/username/path/to/profile/chrome/colors.css");
+   ```
+10. Add your imports for each website theme
+	```css
+	@import url("/home/username/path/to/profile/chrome/websites/bitwarden.css");
+	@import url("/home/username/path/to/profile/chrome/websites/github.css");
+	@import url("/home/username/path/to/profile/chrome/websites/youtube.css");
+	```
+
+> [!WARNING]
+> Make sure the replaced paths are absolute (`/home/user`) instead of relative (`~/`)
+> Using relative paths will not import anything.
+
+#### Example `UserContent.css` file
+
+```css
+@import url("/home/ini/.floorp/ini/chrome/colors.css");
+
+@import url("/home/ini/.floorp/ini/chrome/websites/bitwarden.css");
+@import url("/home/ini/.floorp/ini/chrome/websites/github.css");
+@import url("/home/ini/.floorp/ini/chrome/websites/youtube.css");
+```
+
+## Templates for programs
 
 #### List of all templates
 - [Alacritty](#alacritty)
