@@ -1,0 +1,28 @@
+# Matugen template for McFly
+# Uses crossterm named colors — hex is not supported by McFly's color parser.
+# Named colors are resolved by the terminal emulator, which matugen
+# themes separately, so the accent color tracks the Material You palette.
+
+[colors.menubar]
+bg = "dark_blue"
+fg = "aqua"
+
+[colors.darkmode]
+prompt               = "dark_blue"
+timing               = "dark_grey"
+results_fg           = "grey"
+results_bg           = "black"
+results_hl           = "dark_blue"
+results_selection_fg = "black"
+results_selection_bg = "dark_blue"
+results_selection_hl = "white"
+
+[colors.lightmode]
+prompt               = "dark_blue"
+timing               = "grey"
+results_fg           = "black"
+results_bg           = "white"
+results_hl           = "dark_blue"
+results_selection_fg = "white"
+results_selection_bg = "dark_blue"
+results_selection_hl = "black"
