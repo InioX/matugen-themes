@@ -30,16 +30,17 @@
 
 
 
-1. Copy the template from [here](https://github.com/InioX/matugen-themes/blob/main/templates/firefox-colors.css) and add it to matugen
+
+1. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+2. Find your profile directory by going to `about:support`. Under "Application Basics", find "Profile Directory" and click "Open Directory"
+3. Make a folder inside of that directory called `chrome`
+4. Make sure to replace any of the paths you import according to your profile path
+5. Copy the template from [here](https://github.com/InioX/matugen-themes/blob/main/templates/firefox-colors.css) and add it to matugen
    ```toml
 	[templates.firefox-website-colors]
-	input_path = "${default.templateFolder}/firefox-colors.css"
-	output_path = "~/.floorp/ini/chrome/colors.css"
+	input_path = "path/to/template/"
+	output_path = "~/path/to/profile/colors.css"
    ```
-2. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
-3. Find your profile directory by going to `about:support`. Under "Application Basics", find "Profile Directory" and click "Open Directory"
-4. Make a folder inside of that directory called `chrome`
-5. Make sure to replace any of the paths you import according to your profile path
 6. Copy all of the website themes from [here](https://github.com/InioX/matugen-themes/tree/main/websites) and put them into `chrome/websites`
 7. Make a new file called `UserContent.css` inside of the created folder
 8. Import the matugen colors
