@@ -142,6 +142,11 @@ output_path = "~/.cache/terminal-sequences"
 post_hook = "cat ~/.cache/terminal-sequences > /dev/pts/[0-9]*" # export the sequences to every running terminal
 ```
 
+The target for post_hook changes depending on your OS.
+- **Linux**: "/dev/pts/[0-9]*"
+- **MacOS**: "/dev/ttys00[0-9]*"
+
+
 Then, in a profile script of your choice, put `[[ -f ~/.cache/color-sequences ]] && (cat ~/.cache/color-sequences &)`
 
 
