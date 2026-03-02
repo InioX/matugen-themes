@@ -22,9 +22,9 @@
 ## Templates for websites
 
 ### List of all websites
-- [YouTube](#alacritty)
-- [Bitwarden](#btop)
-- [GitHub](#cava)
+- [YouTube](./websites/youtube.css)
+- [Bitwarden](./websites/bitwarden.css)
+- [GitHub](./websites/github.css)
 
 ### Using with firefox based browsers
 
