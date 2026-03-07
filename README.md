@@ -929,7 +929,15 @@ output_path = '~/.config/AdwSteamGtk/custom.css'
 post_hook =  'adwaita-steam-gtk -i'
 # ...
 ```
-**IMPORTANT:** Template needs `adwsteamgtk` to work.
+**IMPORTANT**:
+
+1. Install adwsteamgtk if you haven’t already.
+
+
+2. In Preferences → Custom CSS, make sure Custom CSS is enabled!
+
+
+
 
 ### OBS
 ```toml
