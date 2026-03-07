@@ -1,0 +1,23 @@
+{
+    "name": "Matugen Dark Generated Theme",
+    "black": "{{colors.surface.dark.hex}}",
+    "red": "{{colors.error.dark.hex | auto_lightness: 15 }}",
+    "green": "{{colors.tertiary.dark.hex | auto_lightness: 25 }}",
+    "yellow": "{{colors.tertiary.dark.hex | auto_lightness: 20 }}",
+    "blue": "{{colors.secondary.dark.hex | auto_lightness: 25 }}",
+    "purple": "{{colors.secondary.dark.hex | auto_lightness: 20 }}",
+    "cyan": "{{colors.primary.dark.hex | auto_lightness: 10 }}",
+    "white": "{{colors.on_surface_variant.dark.hex}}",
+    "brightBlack": "{{colors.surface_container_high.dark.hex}}",
+    "brightRed": "{{colors.error.dark.hex | auto_lightness: 10 }}",
+    "brightGreen": "{{colors.tertiary.dark.hex | auto_lightness: 10 }}",
+    "brightYellow": "{{colors.tertiary_fixed.dark.hex | auto_lightness: 10 }}",
+    "brightBlue": "{{colors.secondary.dark.hex | auto_lightness: 10 }}",
+    "brightPurple": "{{colors.secondary_fixed.dark.hex| auto_lightness: 10 }}",
+    "brightCyan": "{{colors.primary.dark.hex | auto_lightness: -5 }}",
+    "brightWhite": "{{colors.on_surface.dark.hex}}",
+    "background": "{{colors.surface.dark.hex}}",
+    "foreground": "{{colors.on_surface.dark.hex}}",
+    "selectionBackground": "{{colors.primary.dark.hex}}",
+    "cursorColor": "{{colors.on_surface.dark.hex}}"
+}

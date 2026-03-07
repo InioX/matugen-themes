@@ -72,6 +72,7 @@
 
 #### List of all templates
 - [Alacritty](#alacritty)
+- [ANSI sequences](#ansi-sequences)
 - [Btop](#btop)
 - [Cava](#cava)
 - [Cosmic](#cosmic)
@@ -104,6 +105,7 @@
 - [Vivaldi](#vivaldi)
 - [Waybar](#waybar)
 - [WezTerm](#wezterm)
+- [Windows Terminal](#windows-terminal)
 - [Wine](#wine)
 - [Wlogout](#wlogout)
 - [Yazi](#yazi)
@@ -129,6 +131,24 @@ Then, add this line to your `~/.config/alacritty/alacritty.toml`
 ```toml
 import = ["colors.toml"]
 ```
+
+### ANSI Sequences
+```toml
+[config]
+# ...
+[templates.terminal-sequences]
+input_path = 'path/to/template'
+output_path = "~/.cache/terminal-sequences"
+post_hook = "cat ~/.cache/terminal-sequences > /dev/pts/[0-9]*" # export the sequences to every running terminal
+```
+
+The target for post_hook changes depending on your OS.
+- **Linux**: "/dev/pts/[0-9]*"
+- **MacOS**: "/dev/ttys00[0-9]*"
+
+
+Then, in a profile script of your choice, put `[[ -f ~/.cache/color-sequences ]] && (cat ~/.cache/color-sequences &)`
+
 
 ### Btop
 ```toml
@@ -761,6 +781,19 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "matugen_theme"
 ```
+
+### Windows Terminal
+```toml
+[config]
+# ...
+[templates.windows-terminal]
+input_path = 'path\to\template'
+output_path = "C:\\Windows\\Temp\\matugen_windows_term.json"
+post_hook = "powershell path\to\template_post.ps1" # to actually apply the scheme to settings.json
+# ...
+```
+
+This will make a color scheme preset in the Windows Terminal.
 
 ### Wine
 ```toml
