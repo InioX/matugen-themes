@@ -84,6 +84,7 @@
 - [Hyprland & Hyprlock](#hyprland)
 - [Kitty](#kitty)
 - [Kvantum](#kvantum)
+- [Labwc](#labwc)
 - [Mako](#mako)
 - [McFly](#mcfly)
 - [MangoWC](#mangowc)
@@ -316,6 +317,16 @@ Then, add the following in your ` ~/.config/Kvantum/kvantum.kvconfig` file:
 ```kvconfig
 [General]
 theme=matugen
+```
+
+### Labwc
+```toml
+# ...
+[templates.labwc]
+input_path = 'path/to/template'
+output_path = '~/.config/labwc/themerc-override'
+post_hook = 'labwc -reload'
+# ...
 ```
 
 ### Mako
