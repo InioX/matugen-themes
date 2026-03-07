@@ -321,6 +321,7 @@ theme=matugen
 
 ### Labwc
 ```toml
+[config]
 # ...
 [templates.labwc]
 input_path = 'path/to/template'
