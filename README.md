@@ -191,7 +191,7 @@ post_hook = "~/.config/matugen/templates/cosmic_postprocess.py ~/.config/matugen
 ```
 Then, in Cosmic Settings app, under Desktop -> Appearance, click import and select the theme located at `~/.config/matugen/themes/matugen_cosmic.theme.ron` It will build several config files derived from the matugen colors. Cosmic is new and still in development, so updates may break things throughout the beta. Opacity is not yet in the Cosmic gui, but you can set it in the matugen template file and the theme builder will apply it.
 
-![Cosmic Screenshot](./cosmic-screenshot.png)
+![Cosmic Screenshot](assets/cosmic-screenshot.png)
 
 ### Dunst
 ```toml
@@ -490,6 +490,13 @@ post_hook = 'pywalfox update'
 > [!NOTE]
 > Add the [Pywalfox plugin](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/) to firefox / thunderbird. <br>
 > Dependencies: [pywalfox](https://github.com/frewacom/pywalfox) <br>
+
+#### Theme switching in pywalfox require manual intervention:
+- If you want to use **light** mode, with matugen generate colors with `-m light` flag
+- If you want to use **dark** mode, with matugen generate colors with `-m dark` flag
+- Within **pywalfox setting** you also need to set the corresponding mode "dark/light":
+> [!NOTE] Auto here doesnt follow your matugen theme, its based on time of day
+![Pywalfox Theme Switch](assets/pywalfox-screenshot.png)
 
 ### Qt 
 ```toml
