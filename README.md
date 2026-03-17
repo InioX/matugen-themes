@@ -936,9 +936,6 @@ post_hook =  'adwaita-steam-gtk -i'
 
 2. In Preferences → Custom CSS, make sure Custom CSS is enabled!
 
-
-
-
 ### OBS
 ```toml
 [config]
@@ -949,6 +946,18 @@ output_path = '~/.config/obs-studio/themes/matugen.obt'
 # ...
 ```
 After: Open OBS > File > Settings > Appearance > Theme > Matugen
+
+### Obsidian
+```toml
+[config]
+# ...
+[templates.obsidian]
+input_path = 'path/to/template'
+output_path = 'yourOwnPath/to/obsidianVault/.obsidian/snippets/matugen.css'
+# ...
+```
+> ![NOTE] For Obsidian, you might need to make multiple template with different output_path entry if you have multiple Obsidian Vaults.
+After: Open Obsidian > Settings > Appearance > CSS snippets > Turn on matugen.css
 
 ### Telegram
 ```toml
