@@ -50,5 +50,11 @@
 
         /* Star button */
         --button-star-iconColor: var(--primary) !important;
+
+        /* Hovered button color */
+        --control-bgColor-active: var(--surface_container_highest) !important;
+
+        /* Profile popout color */
+        --overlay-bgColor: var(--surface_container) !important;
     }
 }
