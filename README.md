@@ -499,6 +499,10 @@ post_hook = 'pywalfox update'
 ![Pywalfox Theme Switch](assets/pywalfox-screenshot.png)
 
 ### Qt 
+
+> [!WARNING]
+> If your QT themes break when you update your system its most likely your qt libs are mismatched between `qtxct-kde` application and qt lib packages installed on the system. To fix this you just need to recompile the application.
+
 ```toml
 [config]
 # ...
