@@ -76,6 +76,7 @@
 - [Btop](#btop)
 - [Cava](#cava)
 - [Cosmic](#cosmic)
+- [Clipse](#clipse)
 - [Dunst](#dunst)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
@@ -192,6 +193,16 @@ post_hook = "~/.config/matugen/templates/cosmic_postprocess.py ~/.config/matugen
 Then, in Cosmic Settings app, under Desktop -> Appearance, click import and select the theme located at `~/.config/matugen/themes/matugen_cosmic.theme.ron` It will build several config files derived from the matugen colors. Cosmic is new and still in development, so updates may break things throughout the beta. Opacity is not yet in the Cosmic gui, but you can set it in the matugen template file and the theme builder will apply it.
 
 ![Cosmic Screenshot](assets/cosmic-screenshot.png)
+
+### Clipse
+```toml
+[config]
+# ...
+[templates.clipse]
+input_path = './templates/clipse-colors.json'
+output_path = '~/.config/clipse/custom_theme.json'
+# ...
+```
 
 ### Dunst
 ```toml
