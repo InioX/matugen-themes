@@ -94,6 +94,7 @@
 - [Neovim](#neovim)
 - [Niri](#niri)
 - [Opencode](#opencode)
+- [PrismLauncher](#prismlauncher)
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
 - [Quickshell](#quickshell)
@@ -486,6 +487,18 @@ output_path = '~/.config/opencode/themes/matugen.json'
 # ...
 ```
 In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme. 
+
+### PrismLauncher
+```toml
+[config]
+# ...
+[templates.opencode]
+input_path = '~/.config/matugen/templates/prismlauncher.json'
+output_path = '~/.local/share/PrismLauncher/themes/Matugen/theme.json'
+# ...
+```
+In PrismLauncher, to set the theme, navigate to settings, then appearance, where you can set the theme to "Matugen" and apply it.
+
 
 ### Pywalfox
 ```toml
