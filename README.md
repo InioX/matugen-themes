@@ -94,7 +94,7 @@
 - [Neovim](#neovim)
 - [Niri](#niri)
 - [Opencode](#opencode)
-- [PrismLauncher](#prismlauncher)
+- [PrismLauncher](prismlauncher#)
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
 - [Quickshell](#quickshell)
@@ -492,7 +492,7 @@ In OpenCode use '/theme', select matugen, exit and restart the app. Since option
 ```toml
 [config]
 # ...
-[templates.opencode]
+[templates.prismlauncher]
 input_path = '~/.config/matugen/templates/prismlauncher.json'
 output_path = '~/.local/share/PrismLauncher/themes/Matugen/theme.json'
 # ...
