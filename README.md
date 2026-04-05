@@ -94,7 +94,7 @@
 - [Neovim](#neovim)
 - [Niri](#niri)
 - [Opencode](#opencode)
-- [PrismLauncher](#prismlauncher#)
+- [PrismLauncher](#prismlauncher)
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
 - [Quickshell](#quickshell)
