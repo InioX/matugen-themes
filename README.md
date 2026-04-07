@@ -82,6 +82,7 @@
 - [Ghostty](#ghostty)
 - [GTK (3.0, 4.0)](#gtk)
 - [Helix](#helix)
+- [Heroic Games Launcher](#heroic)
 - [Hyprland & Hyprlock](#hyprland)
 - [Kitty](#kitty)
 - [Kvantum](#kvantum)
@@ -282,6 +283,16 @@ Then, add this line to your `~/.config/helix/config.toml`:
 ```toml
 theme = "matugen"
 ```
+
+### Heroic
+```toml
+[templates.heroic]
+input = 'path/to/template'
+output_path = 'your/own/path/to/matugen.css'
+# ...
+```
+
+Then, go to `Settings`, add your output_path directory to `Custom Themes Path` and select `matugen.css`.
 
 ### Hyprland
 ```toml
