@@ -1,5 +1,14 @@
 # Matugen + Neovim
 
+> [!NOTE]
+> This theme is primarily a proof-of-concept with sample colors chosen. While
+> it is usable and somewhat complete, the colors themselves may not necessarily
+> look the best, so it's important you style them accordingly if you are
+> unsatisfied with the result. Additionally, this setup only styles basic
+> Neovim colors + Lualine. Other plugins that manage their own highlight groups
+> are not covered by this guide (e.g. Neogit)
+
+
 ## The `base16-colorscheme` Plugin
 
 As with any program broad and free as Neovim, there are infinite ways to go
@@ -9,25 +18,25 @@ list of 16 color values, and it will automatically propagate them to all
 highlight groups in a reasonable fashion.
 
 ```lua
--- NOTE: THIS IS NOT THE ENTIRE TEMPLATE FILE
+-- THIS IS NOT THE ENTIRE TEMPLATE FILE
 -- To see why, continue reading below...
 require('base16-colorscheme').setup({
   base00 = "{{colors.background.default.hex}}",
   base01 = "{{colors.surface_container_lowest.default.hex}}",
   base02 = "{{colors.surface_container_low.default.hex}}",
-  base03 = "{{colors.outline_variant.default.hex}}",    
-  base04 = "{{colors.on_surface_variant.default.hex}}", 
-  base05 = "{{colors.on_surface.default.hex}}",         
-  base06 = "{{colors.inverse_on_surface.default.hex}}", 
-  base07 = "{{colors.surface_bright.default.hex}}",    
-  base08 = "{{colors.error.default.hex}}",
+  base03 = "{{colors.outline_variant.default.hex}}",
+  base04 = "{{colors.on_surface_variant.default.hex}}",
+  base05 = "{{colors.on_surface.default.hex}}",
+  base06 = "{{colors.inverse_on_surface.default.hex}}",
+  base07 = "{{colors.surface_bright.default.hex}}",
+  base08 = "{{colors.tertiary.default.hex | lighten: -5}}",
   base09 = "{{colors.tertiary.default.hex}}",
   base0A = "{{colors.secondary.default.hex}}",
   base0B = "{{colors.primary.default.hex}}",
   base0C = "{{colors.tertiary_container.default.hex}}",
   base0D = "{{colors.primary_container.default.hex}}",
   base0E = "{{colors.secondary_container.default.hex}}",
-  base0F = "{{colors.error_container.default.hex}}",
+  base0F = "{{colors.secondary.default.hex | lighten: -10}}",
 })
 ```
 
@@ -60,15 +69,18 @@ require('lualine').setup({
 Setting this option tells Lualine to base its highlight group colors off of
 some internal 16 base values (which `base16-colorscheme` sets). While this helps,
 it unfortunately does not give us full hot-reloading out of the box. In addition
-to this, Lualine must be **re-sourced upon every matugen update**.
+to this, Lualine must be **re-sourced upon every matugen update** in order to
+refresh its colors.
 
 If you are using an unmodified (or simple) Lualine configuration, all you need
-to do is tack on a `require('lualine').setup({})` to the end of matugen's
-`template.lua` and call it a day. However, if your Lualine setup is a bit
-complex, it can be sub-optimal to copy its entire setup function into the
-matugen template file. To solve this, you can instead extract your entire
-Lualine setup into its own file, and then just call `dofile()` on said file
-from both your `init.lua` and matugen template.
+to do add a `require('lualine').setup({})` to the end of matugen's
+`template.lua`, which will re-setup Lualine as the output file gets sourced.
+However, if your Lualine setup is a bit complex, it can be sub-optimal to copy
+its entire setup function into the matugen template file. 
+
+One solution to this is to refactor your Lualine setup into its own file, and
+then just call `dofile()` on said file from both your `init.lua` and matugen
+template. _(This is not necessary, but helps tidy your configuration up)_
 
 ## Init Hook
 
@@ -99,9 +111,12 @@ end
 
 ## Updating Neovim with New Colors
 
-Neovim does not support hot-reloading directly, but we must register an
+Neovim does not support hot-reloading directly, so we must register an
 `autocmd` to listen process signals and execute Lua code as a result. This is
 fairly simply, as shown below:
+
+> [!NOTE] The below `autocmd` is only tested for Linux. Separate workarounds
+> may be required for other systems.
 
 ```lua
 -- Register an autocmd to listen for matugen updates

@@ -1,0 +1,67 @@
+#browser {
+--colorFg: {{colors.on_surface.default.rgb}} !important;  /* foreground text */
+--colorFgAlpha: {{colors.on_surface.default.rgba | set_alpha: 0.10}} !important; /* foreground text */
+--colorFgIntense: {{colors.on_surface.default.rgb}} !important; /* foreground text */
+--colorFgFaded: {{colors.on_surface.default.rgb | set_lightness: -10.0}} !important; /* unfocused window foreground text */
+--colorFgFadedMore: {{colors.on_surface.default.rgb | set_lightness: -15.0}} !important; /* unfocused window foreground text */
+--colorFgFadedMost: {{colors.on_surface.default.rgb | set_lightness: -25.0}} !important; /* unfocused window foreground text */
+--colorBg: {{colors.secondary_container.default.rgb}} !important; /* adress bar and selected tab and settings sidebar */
+--colorBgAlpha: {{colors.secondary_container.default.rgba | set_alpha: 0.90}} !important; /* adress bar and selected tab and settings sidebar */
+--colorBgAlphaHeavy: {{colors.secondary_container.default.rgba | set_alpha: 0.65}} !important; /* adress bar and selected tab and settings sidebar */
+--colorBgAlphaHeavier: {{colors.secondary_container.default.rgba | set_alpha: 0.25}} !important; /* adress bar and selected tab and settings sidebar */
+--colorBgAlphaBlur: {{colors.surface.default.rgb}} !important; /* adress bar and selected tab */
+--colorBgDark: {{colors.surface.default.rgb}} !important; /* n/a */
+--colorBgDarker: {{colors.surface.default.rgb | set_lightness: -10.0}} !important; /* n/a */
+--colorBgLight: {{colors.surface.default.rgb | set_lightness: 5.0}} !important; /* unfocused adress bar and selected tab */
+--colorBgLighter: {{colors.surface.default.rgb | set_lightness: 15.0}} !important; /* unfocused adress bar and selected tab */
+--colorBgLightIntense: {{colors.surface_dim.default.rgb | set_lightness: 15.0}} !important; /* n/a */
+--colorBgIntense: {{colors.surface_dim.default.rgb}} !important; /* search field */
+--colorBgIntenser: {{colors.surface_dim.default.rgb | set_lightness: -5.0}} !important; /* search field */
+--colorBgIntserAlpha: {{colors.surface_dim.default.rgba | set_lightness: -5.0 | set_alpha: 0.92}} !important; /* search field */
+--colorBgInverse: {{colors.surface_variant.default.rgb}} !important; /* only on crtl+f => not found */
+--colorBgInverser: {{colors.surface_variant.default.rgb | set_lightness: 10.0}} !important; /* only on crtl+f => not found */
+--colorBgFaded: {{colors.primary.default.rgb}} !important; /* n/a */
+--colorHighlightBg: {{colors.primary.default.rgb}} !important; /* text highlight and search field border */
+--colorHighlightBgFaded: {{colors.primary_fixed_dim.default.rgb | set_lightness: 10.0}} !important;  /* text highlight and search field border */
+--colorHighlightBgAlpha: {{colors.primary.default.rgba | set_alpha: 0.10}} !important; /* text highlight and search field border */
+--colorHighlightBgDark: {{colors.inverse_primary .default.rgb | set_lightness: -10.0}} !important; /* text highlight and search field border */
+--colorHighlightFg: {{colors.on_primary.default.rgb}} !important; /* selected text */
+--colorHighlightFgAlpha: {{colors.on_primary.default.rgba | set_alpha: 0.50}} !important; /* selected text */
+--colorHighlightFgAlphaHeavy: {{colors.on_primary.default.rgba | set_alpha: 0.25}} !important; /* selected text */
+--colorAccentBg: {{colors.surface.default.rgb}} !important; /* tab bg color */
+--colorAccentBgAlpha: {{colors.surface.default.rgba | set_alpha: 0.55}} !important; /* tab bg color */
+--colorAccentBgAlphaHeavy: {{colors.surface.default.rgba | set_alpha: 0.35}} !important; /* tab bg color */
+--colorAccentBgDark: {{colors.surface_container_low.default.rgb}} !important; /* n/a */
+--colorAccentBgDarker: {{colors.surface_container_lowest.default.rgb}} !important; /* n/a */
+--colorAccentBgFaded: {{colors.surface_dim.default.rgb}} !important; /* unfocused tab bg color */
+--colorAccentBgFadedMore: {{colors.surface_container_low.default.rgb}} !important; /* n/a */
+--colorAccentBgFadedMost: {{colors.surface_container_lowest.default.rgb}} !important; /* n/a */
+--colorAccentBorder: {{colors.outline_variant.default.rgb}} !important; /* n/a */
+--colorAccentBorderDark: {{colors.outline_variant.default.rgb | set_lightness: -10.0}} !important; /* n/a */
+--colorAccentFg: {{colors.on_surface.default.rgb}} !important;  /* tab titles and vivaldi sign */
+--colorAccentFgFaded: {{colors.on_surface_variant.default.rgb | set_lightness: -20.0}} !important; /* tab titles and vivaldi sign */
+--colorAccentFgAlpha: {{colors.on_surface.default.rgba | set_alpha: 0.15}} !important; /* tab titles and vivaldi sign */
+--colorAccentFgAlphaHeavy: {{colors.on_surface.default.rgba | set_alpha: 0.35}} !important; /* tab titles and vivaldi sign */
+--colorBorder: {{colors.outline.default.rgb}} !important; /* some borders */
+--colorBorderDisabled: {{colors.surface_tint.default.rgb}} !important; /* some borders disabled */
+--colorBorderSubtle: {{colors.outline.default.rgb | set_lightness: -5.0}} !important; /* some borders disabled */
+--colorBorderIntense: {{colors.outline_variant.default.rgb}} !important; /* some borders disabled */
+--colorSuccessBg: rgb(118 100.00% 32.75%);
+--colorSuccessBgAlpha: rgba(118 100.00% 32.75% / 0.10);
+--colorSuccessFg: rgb(0 0.00% 100.00%);
+--colorWarningBg: rgb(48 100.00% 50.00%);
+--colorWarningBgAlpha: rgba(48 100.00% 50.00% / 0.10);
+--colorWarningFg: rgb(0 0.00% 0.00%);
+--colorErrorBg: {{colors.error_container.default.rgb}} !important;
+--colorErrorBgAlpha: {{colors.error_container.default.rgba | set_alpha: 0.10}} !important;
+--colorErrorFg: {{colors.on_error.default.rgb}} !important;
+/* --colorWindowBg: {{colors.error.default.rgb}} !important; new page monotone bg (replaces image background) */
+/* --colorWindowFg: {{colors.error.default.rgb}} !important; fg for previos*/
+}
+
+/* in some color schemes settings appear too bright. this is meant to fix it. */
+.vivaldi-settings,
+.settings-content,
+.settings-sidebar {
+  background-color: {{colors.surface.default.rgb}} !important;
+}
