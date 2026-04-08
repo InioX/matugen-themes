@@ -287,7 +287,7 @@ theme = "matugen"
 ### Heroic
 ```toml
 [templates.heroic]
-input = 'path/to/template'
+input_path = 'path/to/template'
 output_path = 'your/own/path/to/matugen.css'
 # ...
 ```
