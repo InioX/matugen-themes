@@ -1,14 +1,3 @@
-// Matugen template for Zellij theme
-// Generated from Material You color scheme
-// Usage: add this to your matugen config.toml:
-//
-// [templates.zellij]
-// input_path  = "~/.config/matugen/templates/zellij-theme.kdl.tera"
-// output_path = "~/.config/zellij/themes/matugen.kdl"
-//
-// Then run: matugen image /path/to/wallpaper.png
-// or:       matugen color hex "#RRGGBB"
-
 themes {
     matugen {
         // Text: readable content on surfaces
