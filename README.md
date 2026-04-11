@@ -106,6 +106,7 @@
 - [Sway](#sway)
 - [Television](#television)
 - [Tmux](#tmux)
+- [Zellij](#zellij)
 - [Vivaldi](#vivaldi)
 - [Waybar](#waybar)
 - [WezTerm](#wezterm)
@@ -997,6 +998,25 @@ source-file ~/.config/tmux/generated.conf
 
 # Style whatever you wish with the imported colors
 # ...
+```
+
+### Zellij
+```toml
+[config]
+# ...
+[template.zellij]
+input_path = 'path/to/template'
+output_path = '~/.config/zellij/themes/matugen.kdl'
+```
+
+Then, add this line in your config file (`~/.config/zellij/config.kdl`):
+```conf
+theme "matugen"
+```
+
+You can also load the theme from the command line when starting zellij:
+```shell
+zellij options --theme matugen
 ```
 
 ### Vivaldi
