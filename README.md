@@ -1007,6 +1007,10 @@ source-file ~/.config/tmux/generated.conf
 [template.zellij]
 input_path = 'path/to/template'
 output_path = '~/.config/zellij/themes/matugen.kdl'
+
+# Add this line to get hot-reloading. Without it, the new theme will only
+# appear on next start
+post_hook = 'touch ~/.config/zellij/config.kdl' 
 ```
 
 Then, add this line in your config file (`~/.config/zellij/config.kdl`):
