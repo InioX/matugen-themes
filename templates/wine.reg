@@ -1,0 +1,49 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"Decorated"="N"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes]
+"AppsUseClassicTheme"=dword:00000001
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\Colors]
+"ActiveBorder"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"ActiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
+"AppWorkSpace"="{{ colors.surface.default.red }} {{ colors.surface.default.green }} {{ colors.surface.default.blue }}"
+"Background"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+
+"ButtonAlternativeFace"="{{ colors.primary.default.red }} {{ colors.primary.default.green }} {{ colors.primary.default.blue }}"
+"ButtonDkShadow"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"ButtonFace"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"ButtonHilight"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"ButtonLight"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"ButtonShadow"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"ButtonText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
+
+"GradientActiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
+"GradientInactiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
+"GrayText"="{{ colors.secondary_container.default.red }} {{ colors.secondary_container.default.green }} {{ colors.secondary_container.default.blue }}"
+
+"Hilight"="{{ colors.primary_container.default.red }} {{ colors.primary_container.default.green }} {{ colors.primary_container.default.blue }}"
+"HilightText"="{{ colors.primary.default.red }} {{ colors.primary.default.green }} {{ colors.primary.default.blue }}"
+
+"InactiveBorder"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"InactiveTitle"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
+"InactiveTitleText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
+
+"InfoText"="{{ colors.on_surface.default.red }} {{ colors.on_surface.default.green }} {{ colors.on_surface.default.blue }}"
+"InfoWindow"="{{ colors.surface.default.red }} {{ colors.surface.default.green }} {{ colors.surface.default.blue }}"
+
+"Menu"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"MenuBar"="{{ colors.surface_dim.default.red }} {{ colors.surface_dim.default.green }} {{ colors.surface_dim.default.blue }}"
+"MenuHilight"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"MenuText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
+
+"Scrollbar"="{{ colors.surface_container_low.default.red }} {{ colors.surface_container_low.default.green }} {{ colors.surface_container_low.default.blue }}"
+"TitleText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"
+
+"Window"="{{ colors.surface_container_low.default.red }} {{ colors.surface_container_low.default.green }} {{ colors.surface_container_low.default.blue }}"
+"WindowFrame"="{{ colors.background.default.red }} {{ colors.background.default.green }} {{ colors.background.default.blue }}"
+"WindowText"="{{ colors.on_background.default.red }} {{ colors.on_background.default.green }} {{ colors.on_background.default.blue }}"

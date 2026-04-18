@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "AlternateBase": "{{colors.surface.default.hex}}",
+    "Base": "{{colors.surface.default.hex}}",
+    "BrightText": "{{colors.secondary.default.hex}}",
+    "Button": "{{colors.surface_variant.default.hex}}",
+    "ButtonText": "{{colors.on_surface.default.hex}}",
+    "Highlight": "{{colors.primary.default.hex}}",
+    "HighlightedText": "{{colors.on_primary.default.hex}}",
+    "Link": "{{colors.primary.default.hex}}",
+    "Text": "{{colors.on_surface.default.hex}}",
+    "ToolTipBase": "{{colors.surface_variant.default.hex}}",
+    "ToolTipText": "{{colors.on_surface.default.hex}}",
+    "Window": "{{colors.surface.default.hex}}",
+    "WindowText": "{{colors.on_surface.default.hex}}",
+    "fadeAmount": 0.5,
+    "fadeColor": "{{colors.surface_variant.default.hex}}"
+  },
+  "name": "Matugen",
+  "widgets": "Fusion"
+}
