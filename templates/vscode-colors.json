@@ -3,7 +3,7 @@
         "editor.background": "{{colors.surface.default.hex}}",
         "editor.foreground": "{{colors.on_surface.default.hex}}",
         "editorPane.background": "{{colors.surface.default.hex}}",
-        "editor.lineHighlightBackground": "{{colors.surface_container_high.default.hex}}44",
+        "editor.lineHighlightBackground": "{{colors.surface_container_high.default.hex}}",
         "editor.lineHighlightBorder": "#00000000",
         "editorGutter.background": "{{colors.surface.default.hex}}",
         "editorLineNumber.foreground": "{{colors.outline.default.hex}}",
@@ -15,7 +15,7 @@
         "editor.wordHighlightStrongBackground": "{{colors.tertiary.default.hex}}33",
         "editor.findMatchBackground": "{{colors.primary.default.hex}}66",
         "editor.findMatchHighlightBackground": "{{colors.primary.default.hex}}33",
-        "editor.findRangeHighlightBackground": "{{colors.surface_container_highest.default.hex}}44",
+        "editor.findRangeHighlightBackground": "{{colors.surface_container_highest.default.hex}}",
         "editorStickyScroll.background": "{{colors.surface.default.hex}}",
         "editorStickyScrollHover.background": "{{colors.surface_container.default.hex}}",
         "editorWidget.border": "{{colors.outline_variant.default.hex}}",
@@ -201,6 +201,6 @@
         "welcomePage.tileBackground": "{{colors.surface_container.default.hex}}",
         "welcomePage.tileHoverBackground": "{{colors.surface_container_high.default.hex}}",
         "welcomePage.tileBorder": "{{colors.outline_variant.default.hex}}",
-        "focusBorder": "{{colors.primary.default.hex}}"
+        "focusBorder": "{{colors.primary.default.hex}}"   
     }
 }
