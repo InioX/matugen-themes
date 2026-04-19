@@ -24,24 +24,15 @@ import signal
 import subprocess
 import sys
 
-try:
-    from materialyoucolor.hct import Hct
-    from materialyoucolor.utils.color_utils import rgba_from_argb, argb_from_rgb
-    from materialyoucolor.utils.math_utils import (
-        difference_degrees,
-        rotation_direction,
-        sanitize_degrees_double,
-    )
-except ImportError:
-    print(
-        "Error: materialyoucolor is required. Install it with: pip install materialyoucolor",
-        file=sys.stderr,
-    )
-    sys.exit(1)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from harmonizer import (
+    DEFAULT_PALETTE,
+    hex_to_rgb_spec,
+    harmonize_from_matugen,
+)
 
 IS_UNIX = sys.platform != "win32"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_PALETTE = os.path.join(SCRIPT_DIR, "base-palette.json")
 
 CACHE_DIR = os.path.expanduser("~/.cache/matugen")
 KITTY_PATH = os.path.expanduser("~/.config/kitty/matugen.conf")
@@ -49,70 +40,6 @@ WEZTERM_PATH = os.path.expanduser("~/.config/wezterm/matugen.lua")
 WINDOWS_TERM_SCHEME = os.path.join(CACHE_DIR, "windows_term.json")
 WINDOWS_TERM_POST = os.path.join(SCRIPT_DIR, "windows_term_post.ps1")
 SEQUENCES_PATH = os.path.join(CACHE_DIR, "sequences.txt")
-
-
-# ── Color helpers ──────────────────────────────────────────────────────
-
-
-def hex_to_rgb(h):
-    h = h.lstrip("#")
-    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
-
-
-def rgb_to_hex(r, g, b):
-    return "#{:02X}{:02X}{:02X}".format(r, g, b)
-
-
-def hex_to_argb(h):
-    r, g, b = hex_to_rgb(h)
-    return argb_from_rgb(r, g, b)
-
-
-def argb_to_hex(argb):
-    rgba = rgba_from_argb(argb)
-    return "#{:02X}{:02X}{:02X}".format(round(rgba[0]), round(rgba[1]), round(rgba[2]))
-
-
-def hex_to_rgb_spec(h):
-    r, g, b = hex_to_rgb(h)
-    return f"rgb:{r:02x}/{g:02x}/{b:02x}"
-
-
-def luminance(h):
-    r, g, b = hex_to_rgb(h)
-    return 0.2126 * r + 0.7152 * g + 0.0722 * b
-
-
-# ── HCT harmonization ─────────────────────────────────────────────────
-
-
-def harmonize(design_argb, source_argb, threshold, harmony):
-    from_hct = Hct.from_int(design_argb)
-    to_hct = Hct.from_int(source_argb)
-    diff = difference_degrees(from_hct.hue, to_hct.hue)
-    rot = min(diff * harmony, threshold)
-    out_hue = sanitize_degrees_double(
-        from_hct.hue + rot * rotation_direction(from_hct.hue, to_hct.hue)
-    )
-    return Hct.from_hct(out_hue, from_hct.chroma, from_hct.tone).to_int()
-
-
-def boost_tone(argb, factor):
-    hct = Hct.from_int(argb)
-    new_tone = max(2, min(98, hct.tone * factor))
-    return Hct.from_hct(hct.hue, hct.chroma, new_tone).to_int()
-
-
-def harmonize_palette(base, primary_hex, harmony, threshold, fg_boost, is_dark):
-    primary_argb = hex_to_argb(primary_hex)
-    colors = {}
-    for name, hex_val in base.items():
-        h = harmonize(hex_to_argb(hex_val), primary_argb, threshold, harmony)
-        if name != "term0":
-            direction = 1 if is_dark else -1
-            h = boost_tone(h, 1 + (fg_boost * direction))
-        colors[name] = argb_to_hex(h)
-    return colors
 
 
 # ── Terminal writers ───────────────────────────────────────────────────
@@ -284,25 +211,12 @@ def main():
     parser.add_argument("--print", action="store_true", help="Print harmonized colors")
     args = parser.parse_args()
 
-    with open(args.colors) as f:
-        mc = json.load(f)
-
-    with open(args.palette) as f:
-        palette = json.load(f)
-
-    is_dark = luminance(mc.get("background", "#000000")) < 128
-    mode = "dark" if is_dark else "light"
-    base = palette[mode]
-
-    accent = mc.get("source_color") or mc.get("primary", "#888888")
-
-    term = harmonize_palette(
-        base,
-        accent,
+    term, mc, mode, accent = harmonize_from_matugen(
+        args.colors,
+        args.palette,
         args.harmony,
         args.harmonize_threshold,
         args.term_fg_boost,
-        is_dark,
     )
 
     term["term0"] = mc.get("background", term["term0"])
@@ -313,7 +227,6 @@ def main():
     term["term17"] = mc.get("on_secondary", term["term17"])
     term["term18"] = mc.get("secondary", term["term18"])
 
-    # Write terminal themes (platform-aware)
     if IS_UNIX:
         write_kitty(term, mc)
 
@@ -322,7 +235,6 @@ def main():
     if not IS_UNIX:
         write_windows_terminal(term, mc)
 
-    # Print info
     if args.print:
         print(f"mode:    {mode}")
         print(f"accent:  {accent}")
@@ -336,7 +248,6 @@ def main():
             print(f"windows terminal: {WINDOWS_TERM_SCHEME}")
         print(f"wezterm: {WEZTERM_PATH}")
 
-    # Live injection (Unix only)
     if args.apply:
         seq = build_osc_sequences(term)
         write_sequences(seq)
