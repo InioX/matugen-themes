@@ -28,9 +28,6 @@
 
 ### Using with firefox based browsers
 
-
-
-
 1. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 2. Find your profile directory by going to `about:support`. Under "Application Basics", find "Profile Directory" and click "Open Directory"
 3. Make a folder inside of that directory called `chrome`
@@ -67,6 +64,124 @@
 @import url("/home/ini/.floorp/ini/chrome/websites/github.css");
 @import url("/home/ini/.floorp/ini/chrome/websites/youtube.css");
 ```
+## Templates for universal terminals
+
+Generates a harmonized 16-color terminal palette. Supports all terminals and is cross platform.
+
+> [!NOTE]
+> Requires the `materialyoucolor` Python package: `pip install materialyoucolor`
+
+### Setup
+
+<details>
+<summary>Unix Systems (Linux/macOS)</summary>
+
+Make sure to copy the following files from the `scripts/` folder to `~/.config/matugen/scripts/`:
+- `harmonizer.py`
+- `generate-term-colors.py`
+- `base-palette.json`
+
+And then in your matugen config:
+```toml
+[config]
+# ...
+
+[templates.term-colors]
+input_path = "./templates/term-colors.json"
+output_path = "~/.cache/matugen/term-colors.json"
+post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py --colors ~/.cache/matugen/term-colors.json --apply --print"
+
+```
+
+</details>
+
+<details>
+<summary>Windows</summary>
+
+Make sure to copy all four scripts from the `scripts/` folder to your matugen config's `scripts/` directory:
+- `harmonizer.py`
+- `generate-term-colors.py`
+- `base-palette.json`
+- `windows_term_post.ps1`
+
+And then in your matugen config:
+```toml
+[config]
+# ...
+
+[templates.term-colors]
+input_path = "./templates/term-colors.json"
+output_path = "~/.cache/matugen/term-colors.json"
+post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py --colors ~/.cache/matugen/term-colors.json --apply --print"
+```
+
+</details>
+
+### Applying colors (All terminals) through terminal sequence
+
+<details>
+<summary>Unix Systems (Linux/macOS)</summary>
+
+```bash
+# in bashrc or zshrc or fish
+cat ~/.cache/matugen/sequences.txt 2> /dev/null
+```
+
+</details>
+
+<details>
+<summary>Windows</summary>
+
+```pwsh
+# in powershell profile
+Get-Content "$env:USERPROFILE\.cache\matugen\sequences.txt" 2>$null
+```
+
+</details>
+
+### Applying colors as a theme (Kitty, WezTerm, Windows Terminal)
+
+<details>
+<summary>Kitty</summary>
+
+The script writes `~/.config/kitty/matugen.conf`. Add to your `kitty.conf`:
+
+```
+include matugen.conf
+```
+
+</details>
+
+<details>
+<summary>WezTerm</summary>
+
+The script writes `~/.config/wezterm/matugen.lua`. Use it in your config:
+
+```lua
+local config = wezterm.config_builder()
+
+local theme = require("matugen")
+config.colors = theme
+config.bold_brightens_ansi_colors = false -- important to make colors properly render
+
+return config
+```
+
+</details>
+
+<details>
+<summary>Windows Terminal</summary>
+
+The PowerShell post-script automatically injects the scheme into your `settings.json`.
+In your **Windows Terminal** settings simply select the "Matugen Colors" scheme and apply it as default scheme.
+
+</details>
+
+### What this does:
+1. Generate matugen colors as JSON via the template
+2. Run the python script as posthook to generate proper terminal sequence and themes
+3. Write and inject colors into running terminals
+
 
 ## Templates for programs
 
