@@ -37,8 +37,8 @@
 
         "activityBar.background": "{{colors.surface_container.default.hex}}",
         "activityBar.foreground": "{{colors.primary.default.hex}}",
-        "activityBarItem.activeBorder": "{{colors.primary.default.hex}}",
-        "activityBar.activeBorder": "{{colors.primary.default.hex}}",
+        "activityBarItem.activeBorder": "{{colors.on_primary_container.default.hex}}",
+        "activityBar.activeBorder": "{{colors.on_primary_container.default.hex}}",
         "activityBarBadge.background": "{{colors.primary.default.hex}}",
         "activityBarBadge.foreground": "{{colors.on_primary.default.hex}}",
 
