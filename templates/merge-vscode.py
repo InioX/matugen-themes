@@ -4,6 +4,9 @@ from pathlib import Path
 BASE = Path.home() / ".config/Code/User/settings.json"
 COLORS_PATH = Path.home() / ".config/Code/User/vscode-colors.json"
 
+# BASE = Path.home() / ".config/VSCodium/User/settings.json"
+# COLORS_PATH = Path.home() / ".config/VSCodium/User/vscode-colors.json"
+
 try:
     # Handle empty or missing settings file
     if BASE.exists() and BASE.stat().st_size > 0:
