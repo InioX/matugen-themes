@@ -18,6 +18,8 @@
         "editor.findRangeHighlightBackground": "{{colors.surface_container_highest.default.hex}}44",
         "editorStickyScroll.background": "{{colors.surface.default.hex}}",
         "editorStickyScrollHover.background": "{{colors.surface_container.default.hex}}",
+        "editorWidget.background": "{{colors.surface.default.hex}}",
+        "editorWidget.foreground": "{{colors.on_surface.default.hex}}",
         "editorWidget.border": "{{colors.outline_variant.default.hex}}",
         "editorMarkerNavigationError.background": "{{colors.error.default.hex}}",
         "editorMarkerNavigationWarning.background": "{{colors.secondary.default.hex}}",
@@ -28,17 +30,14 @@
         "editorSuggestWidget.selectedBackground": "{{colors.primary_container.default.hex}}",
         "editorSuggestWidget.selectedForeground": "{{colors.on_primary_container.default.hex}}",
         "editorSuggestWidget.focusHighlightForeground": "{{colors.primary.default.hex}}",
-        "editorWidget.background": "{{colors.surface.default.hex}}",
-        "editorWidget.foreground": "{{colors.on_surface.default.hex}}",
         "editorError.foreground": "{{colors.error.default.hex}}",
         "editorWarning.foreground": "{{colors.secondary.default.hex}}",
         "editorInfo.foreground": "{{colors.tertiary.default.hex}}",
 
-
         "activityBar.background": "{{colors.surface_container.default.hex}}",
         "activityBar.foreground": "{{colors.primary.default.hex}}",
-        "activityBarItem.activeBorder": "{{colors.on_primary_container.default.hex}}",
         "activityBar.activeBorder": "{{colors.on_primary_container.default.hex}}",
+        "activityBarItem.activeBorder": "{{colors.on_primary_container.default.hex}}",
         "activityBarBadge.background": "{{colors.primary.default.hex}}",
         "activityBarBadge.foreground": "{{colors.on_primary.default.hex}}",
 
@@ -147,8 +146,8 @@
         "notification.border": "{{colors.primary.default.hex}}",
 
         "input.background": "{{colors.surface_container_high.default.hex}}",
-        "input.border": "{{colors.outline.default.hex}}",
         "input.foreground": "{{colors.on_surface.default.hex}}",
+        "input.border": "{{colors.outline.default.hex}}",
         "input.placeholderForeground": "{{colors.outline.default.hex}}",
 
         "quickInput.background": "{{colors.surface_container.default.hex}}",
@@ -158,10 +157,10 @@
         "pickerGroup.border": "{{colors.outline_variant.default.hex}}",
 
         "commandCenter.background": "{{colors.surface_container_high.default.hex}}",
+        "commandCenter.foreground": "{{colors.primary.default.hex}}",
         "commandCenter.border": "{{colors.primary.default.hex}}33",
         "commandCenter.activeBackground": "{{colors.primary_container.default.hex}}",
         "commandCenter.activeBorder": "{{colors.primary.default.hex}}",
-        "commandCenter.foreground": "{{colors.primary.default.hex}}",
 
         "breadcrumb.background": "{{colors.surface.default.hex}}",
         "breadcrumb.foreground": "{{colors.outline.default.hex}}",
@@ -205,6 +204,11 @@
         "welcomePage.tileBackground": "{{colors.surface_container.default.hex}}",
         "welcomePage.tileHoverBackground": "{{colors.surface_container_high.default.hex}}",
         "welcomePage.tileBorder": "{{colors.outline_variant.default.hex}}",
-        "focusBorder": "{{colors.primary.default.hex}}"
+        "focusBorder": "{{colors.primary.default.hex}}",
+
+        "scrollbar.background": "{{colors.surface_container.default.hex}}80",
+        "scrollbarSlider.background": "{{colors.primary_container.default.hex}}66",
+        "scrollbarSlider.hoverBackground": "{{colors.primary.default.hex}}aa",
+        "scrollbarSlider.activeBackground": "{{colors.primary.default.hex}}ff"
     }
 }
