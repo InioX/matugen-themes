@@ -78,6 +78,8 @@
         "menubar.selectionBackground": "{{colors.surface_container_high.default.hex}}",
         "menubar.selectionForeground": "{{colors.on_surface.default.hex}}",
 
+        "progressBar.background": "{{colors.on_primary_container.default.hex}}",
+
         "menu.background": "{{colors.surface_container.default.hex}}",
         "menu.foreground": "{{colors.on_surface.default.hex}}",
         "menu.selectionBackground": "{{colors.primary_container.default.hex}}",
