@@ -61,6 +61,10 @@
         "editorGroupHeader.noTabsBackground": "{{colors.surface_container_low.default.hex}}",
         "editorGroupHeader.tabsBorder": "{{colors.outline_variant.default.hex}}",
 
+        "editorIndentGuide.background": "{{colors.surface_container_highest.default.hex}}33",
+        "editorIndentGuide.activeBackground": "{{colors.primary.default.hex}}aa",
+        "editorWhitespace.foreground": "{{colors.outline_variant.default.hex}}44",
+
         "statusBar.background": "{{colors.surface_container.default.hex}}",
         "statusBar.foreground": "{{colors.on_surface_variant.default.hex}}",
         "statusBar.noFolderBackground": "{{colors.surface_container_low.default.hex}}",
@@ -209,6 +213,20 @@
         "scrollbar.background": "{{colors.surface_container.default.hex}}80",
         "scrollbarSlider.background": "{{colors.primary_container.default.hex}}66",
         "scrollbarSlider.hoverBackground": "{{colors.primary.default.hex}}aa",
-        "scrollbarSlider.activeBackground": "{{colors.primary.default.hex}}ff"
+        "scrollbarSlider.activeBackground": "{{colors.primary.default.hex}}ff",
+
+        "gitDecoration.addedResourceForeground": "{{colors.primary.default.hex}}",
+        "gitDecoration.modifiedResourceForeground": "{{colors.secondary.default.hex}}",
+        "gitDecoration.untrackedResourceForeground": "{{colors.tertiary.default.hex}}",
+        "gitDecoration.ignoredResourceForeground": "{{colors.outline.default.hex}}",
+
+        "editorGutter.addedBackground": "{{colors.primary.default.hex}}",
+        "editorGutter.modifiedBackground": "{{colors.secondary.default.hex}}",
+        "editorGutter.deletedBackground": "{{colors.error.default.hex}}",
+
+        "charts.blue": "{{colors.primary.default.hex}}cc",
+        "charts.purple": "{{colors.secondary.default.hex}}",
+        "charts.red": "{{colors.error.default.hex}}",
+        "charts.lines": "{{colors.outline.default.hex}}88"
     }
 }
