@@ -61,8 +61,8 @@
         "editorGroupHeader.noTabsBackground": "{{colors.surface_container_low.default.hex}}",
         "editorGroupHeader.tabsBorder": "{{colors.outline_variant.default.hex}}",
 
-        "editorIndentGuide.background": "{{colors.surface_container_highest.default.hex}}33",
-        "editorIndentGuide.activeBackground": "{{colors.primary.default.hex}}aa",
+        "editorIndentGuide.background1": "{{colors.surface_container_highest.default.hex}}33",
+        "editorIndentGuide.activeBackground1": "{{colors.primary.default.hex}}aa",
         "editorWhitespace.foreground": "{{colors.outline_variant.default.hex}}44",
 
         "statusBar.background": "{{colors.surface_container.default.hex}}",
