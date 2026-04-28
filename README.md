@@ -83,14 +83,14 @@ Make sure to copy the following files from the `scripts/` folder to `~/.config/m
 
 And then in your matugen config:
 ```toml
-[config]
-# ...
-
+# Universal terminal colors
 [templates.term-colors]
 input_path = "./templates/term-colors.json"
 output_path = "~/.cache/matugen/term-colors.json"
-post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py --colors ~/.cache/matugen/term-colors.json --apply --print"
+post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py ~/.cache/matugen/term-colors.json"
 
+# Optionally you can adjust harmonization strength:
+post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py ~/.cache/matugen/term-colors.json --strength 0.95"
 ```
 
 </details>
@@ -107,12 +107,15 @@ Make sure to copy all four scripts from the `scripts/` folder to your matugen co
 And then in your matugen config:
 ```toml
 [config]
-# ...
-
+# Universal terminal colors
 [templates.term-colors]
 input_path = "./templates/term-colors.json"
 output_path = "~/.cache/matugen/term-colors.json"
-post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py --colors ~/.cache/matugen/term-colors.json --apply --print"
+# windows use slight different path
+post_hook = "python ~/AppData/Roaming/InioX/matugen/config/scripts/generate-term-colors.py ~/.cache/matugen/term-colors.json"
+
+# Optionally you can adjust harmonization strength:
+post_hook = "python ~/AppData/Roaming/InioX/matugen/config/scripts/generate-term-colors.py ~/.cache/matugen/term-colors.json --strength 0.95"
 ```
 
 </details>

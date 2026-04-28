@@ -62,9 +62,9 @@ def luminance(h):
 # ── HCT harmonization ─────────────────────────────────────────────────
 
 
-def harmonize(from_hct, to_hct, tone_boost, chroma_scale=1.0):
+def harmonize(from_hct, to_hct, tone_boost, chroma_scale=1.0, strength=0.8):
     diff = difference_degrees(from_hct.hue, to_hct.hue)
-    rot = min(diff * 0.8, 100)
+    rot = diff * strength
     out_hue = sanitize_degrees_double(
         from_hct.hue + rot * rotation_direction(from_hct.hue, to_hct.hue)
     )
@@ -72,7 +72,7 @@ def harmonize(from_hct, to_hct, tone_boost, chroma_scale=1.0):
     return Hct.from_hct(out_hue, out_chroma, from_hct.tone * (1 + tone_boost))
 
 
-def harmonize_palette(base, primary_hex, is_dark, source_hex=None):
+def harmonize_palette(base, primary_hex, is_dark, source_hex=None, strength=0.8):
     primary_hct = Hct.from_int(hex_to_argb(primary_hex))
     if source_hex:
         source_hct = Hct.from_int(hex_to_argb(source_hex))
@@ -88,7 +88,7 @@ def harmonize_palette(base, primary_hex, is_dark, source_hex=None):
         else:
             boost = 0.35 if idx < 8 else 0.20
             tone_boost = boost * (-1 if not is_dark else 1)
-        h = harmonize(from_hct, primary_hct, tone_boost, chroma_scale)
+        h = harmonize(from_hct, primary_hct, tone_boost, chroma_scale, strength)
         colors[name] = argb_to_hex(h.to_int())
     return colors
 
@@ -99,8 +99,13 @@ def harmonize_palette(base, primary_hex, is_dark, source_hex=None):
 def harmonize_from_matugen(
     colors_path,
     palette_path=None,
+    strength=0.8,
 ):
     """Load matugen colors + base palette, harmonize, return results.
+
+    Args:
+        strength: 0.0–1.0 hue rotation factor (default 0.8).
+                  Higher = closer to primary hue, lower = more original.
 
     Returns:
         (term, mc, mode, accent)
@@ -124,6 +129,6 @@ def harmonize_from_matugen(
     primary = mc.get("primary") or mc.get("source_color", "#888888")
     source = mc.get("source_color")
 
-    term = harmonize_palette(base, primary, is_dark, source)
+    term = harmonize_palette(base, primary, is_dark, source, strength)
 
     return term, mc, mode, primary

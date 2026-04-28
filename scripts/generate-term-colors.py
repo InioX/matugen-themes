@@ -11,10 +11,10 @@ Terminals:
   Win32: Windows Terminal, Wezterm
 
 Usage (as matugen post_hook):
-  python3 generate-term-colors.py --colors ~/.cache/matugen/term-colors.json --apply
+  python3 generate-term-colors.py ~/.cache/matugen/term-colors.json
 
-Standalone:
-  python3 generate-term-colors.py --colors term-colors.json --print
+With custom harmonization strength:
+  python3 generate-term-colors.py ~/.cache/matugen/term-colors.json --strength 0.95
 """
 
 import argparse
@@ -26,7 +26,6 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from harmonizer import (
-    DEFAULT_PALETTE,
     hex_to_rgb_spec,
     harmonize_from_matugen,
 )
@@ -188,23 +187,21 @@ def main():
         description="Harmonize terminal colors from matugen output"
     )
     parser.add_argument(
-        "--colors", required=True, help="Path to matugen-generated colors JSON"
+        "colors", help="Path to matugen-generated colors JSON"
     )
     parser.add_argument(
-        "--palette", default=DEFAULT_PALETTE, help="Path to base palette JSON"
+        "--strength",
+        type=float,
+        default=0.8,
+        help="Harmonization strength 0.0-1.0 (default: 0.8)",
     )
-    parser.add_argument(
-        "--apply", action="store_true", help="Push colors to running terminals"
-    )
-    parser.add_argument("--print", action="store_true", help="Print harmonized colors")
     args = parser.parse_args()
 
     term, mc, mode, accent = harmonize_from_matugen(
         args.colors,
-        args.palette,
+        strength=args.strength,
     )
 
-    # Make sure to override with Material You for background and foreground
     term["term0"] = mc.get("background", term["term0"])
     term["term7"] = mc.get("on_background", term["term7"])
 
@@ -216,33 +213,30 @@ def main():
     if not IS_UNIX:
         write_windows_terminal(term, mc)
 
-    if args.print:
-        print(f"mode:    {mode}")
-        print(f"accent:  {accent}")
-        print()
-        for name in sorted(term, key=lambda k: int(k.replace("term", ""))):
-            print(f"  {name:8s} {term[name]}")
-        print()
-        if IS_UNIX:
-            print(f"kitty:   {KITTY_PATH}")
-        else:
-            print(f"windows terminal: {WINDOWS_TERM_SCHEME}")
-        print(f"wezterm: {WEZTERM_PATH}")
+    print(f"mode:    {mode}")
+    print(f"accent:  {accent}")
+    print()
+    for name in sorted(term, key=lambda k: int(k.replace("term", ""))):
+        print(f"  {name:8s} {term[name]}")
+    print()
+    if IS_UNIX:
+        print(f"kitty:   {KITTY_PATH}")
+    else:
+        print(f"windows terminal: {WINDOWS_TERM_SCHEME}")
+    print(f"wezterm: {WEZTERM_PATH}")
 
-    if args.apply:
-        seq = build_osc_sequences(term)
-        write_sequences(seq)
-        if IS_UNIX:
-            apply_kitty_reload()
-            reload_all_ptys(seq)
-        if args.print:
-            print(f"\nSequences written to {SEQUENCES_PATH}")
-            if IS_UNIX:
-                print("Apply with: cat ~/.cache/matugen/sequences.txt 2> /dev/null")
-            else:
-                print(
-                    'Apply with: Get-Content "$env:USERPROFILE\\.cache\\matugen\\sequences.txt" 2>$null'
-                )
+    seq = build_osc_sequences(term)
+    write_sequences(seq)
+    if IS_UNIX:
+        apply_kitty_reload()
+        reload_all_ptys(seq)
+    print(f"\nSequences written to {SEQUENCES_PATH}")
+    if IS_UNIX:
+        print("Apply with: cat ~/.cache/matugen/sequences.txt 2> /dev/null")
+    else:
+        print(
+            'Apply with: Get-Content "$env:USERPROFILE\\.cache\\matugen\\sequences.txt" 2>$null'
+        )
 
 
 if __name__ == "__main__":
