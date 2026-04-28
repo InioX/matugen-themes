@@ -62,32 +62,28 @@ def luminance(h):
 # ── HCT harmonization ─────────────────────────────────────────────────
 
 
-def harmonize(design_argb, source_argb, threshold, harmony):
-    from_hct = Hct.from_int(design_argb)
-    to_hct = Hct.from_int(source_argb)
+def harmonize(from_hct, to_hct, tone_boost):
     diff = difference_degrees(from_hct.hue, to_hct.hue)
-    rot = min(diff * harmony, threshold)
+    rot = min(diff * 0.8, 100)
     out_hue = sanitize_degrees_double(
         from_hct.hue + rot * rotation_direction(from_hct.hue, to_hct.hue)
     )
-    return Hct.from_hct(out_hue, from_hct.chroma, from_hct.tone).to_int()
+    return Hct.from_hct(out_hue, from_hct.chroma, from_hct.tone * (1 + tone_boost))
 
 
-def boost_tone(argb, factor):
-    hct = Hct.from_int(argb)
-    new_tone = max(2, min(98, hct.tone * factor))
-    return Hct.from_hct(hct.hue, hct.chroma, new_tone).to_int()
-
-
-def harmonize_palette(base, primary_hex, harmony, threshold, fg_boost, is_dark):
-    primary_argb = hex_to_argb(primary_hex)
+def harmonize_palette(base, primary_hex, is_dark):
+    primary_hct = Hct.from_int(hex_to_argb(primary_hex))
     colors = {}
     for name, hex_val in base.items():
-        h = harmonize(hex_to_argb(hex_val), primary_argb, threshold, harmony)
-        if name != "term0":
-            direction = 1 if is_dark else -1
-            h = boost_tone(h, 1 + (fg_boost * direction))
-        colors[name] = argb_to_hex(h)
+        idx = int(name.replace("term", ""))
+        from_hct = Hct.from_int(hex_to_argb(hex_val))
+        if idx == 0:
+            tone_boost = 0
+        else:
+            boost = 0.35 if idx < 8 else 0.20
+            tone_boost = boost * (-1 if not is_dark else 1)
+        h = harmonize(from_hct, primary_hct, tone_boost)
+        colors[name] = argb_to_hex(h.to_int())
     return colors
 
 
@@ -97,9 +93,6 @@ def harmonize_palette(base, primary_hex, harmony, threshold, fg_boost, is_dark):
 def harmonize_from_matugen(
     colors_path,
     palette_path=None,
-    harmony=0.8,
-    harmonize_threshold=100,
-    fg_boost=0.35,
 ):
     """Load matugen colors + base palette, harmonize, return results.
 
@@ -124,8 +117,6 @@ def harmonize_from_matugen(
 
     accent = mc.get("source_color") or mc.get("primary", "#888888")
 
-    term = harmonize_palette(
-        base, accent, harmony, harmonize_threshold, fg_boost, is_dark
-    )
+    term = harmonize_palette(base, accent, is_dark)
 
     return term, mc, mode, accent

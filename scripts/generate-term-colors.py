@@ -14,7 +14,7 @@ Usage (as matugen post_hook):
   python3 generate-term-colors.py --colors ~/.cache/matugen/term-colors.json --apply
 
 Standalone:
-  python3 generate-term-colors.py --colors term-colors.json --harmony 0.8 --print
+  python3 generate-term-colors.py --colors term-colors.json --print
 """
 
 import argparse
@@ -194,18 +194,6 @@ def main():
         "--palette", default=DEFAULT_PALETTE, help="Path to base palette JSON"
     )
     parser.add_argument(
-        "--harmony", type=float, default=0.8, help="Hue shift strength 0-1"
-    )
-    parser.add_argument(
-        "--harmonize-threshold",
-        type=float,
-        default=100,
-        help="Max hue shift angle 0-180",
-    )
-    parser.add_argument(
-        "--term-fg-boost", type=float, default=0.35, help="Contrast boost factor"
-    )
-    parser.add_argument(
         "--apply", action="store_true", help="Push colors to running terminals"
     )
     parser.add_argument("--print", action="store_true", help="Print harmonized colors")
@@ -214,18 +202,11 @@ def main():
     term, mc, mode, accent = harmonize_from_matugen(
         args.colors,
         args.palette,
-        args.harmony,
-        args.harmonize_threshold,
-        args.term_fg_boost,
     )
 
+    # Make sure to override with Material You for background and foreground
     term["term0"] = mc.get("background", term["term0"])
     term["term7"] = mc.get("on_background", term["term7"])
-    term["term8"] = mc.get("outline", term["term8"])
-    term["term15"] = mc.get("on_surface", term["term15"])
-    term["term16"] = mc.get("tertiary", term["term16"])
-    term["term17"] = mc.get("on_secondary", term["term17"])
-    term["term18"] = mc.get("secondary", term["term18"])
 
     if IS_UNIX:
         write_kitty(term, mc)
