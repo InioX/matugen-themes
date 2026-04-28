@@ -62,17 +62,23 @@ def luminance(h):
 # ── HCT harmonization ─────────────────────────────────────────────────
 
 
-def harmonize(from_hct, to_hct, tone_boost):
+def harmonize(from_hct, to_hct, tone_boost, chroma_scale=1.0):
     diff = difference_degrees(from_hct.hue, to_hct.hue)
     rot = min(diff * 0.8, 100)
     out_hue = sanitize_degrees_double(
         from_hct.hue + rot * rotation_direction(from_hct.hue, to_hct.hue)
     )
-    return Hct.from_hct(out_hue, from_hct.chroma, from_hct.tone * (1 + tone_boost))
+    out_chroma = from_hct.chroma * chroma_scale
+    return Hct.from_hct(out_hue, out_chroma, from_hct.tone * (1 + tone_boost))
 
 
-def harmonize_palette(base, primary_hex, is_dark):
+def harmonize_palette(base, primary_hex, is_dark, source_hex=None):
     primary_hct = Hct.from_int(hex_to_argb(primary_hex))
+    if source_hex:
+        source_hct = Hct.from_int(hex_to_argb(source_hex))
+        chroma_scale = min(primary_hct.chroma / max(source_hct.chroma, 1), 1.0)
+    else:
+        chroma_scale = 1.0
     colors = {}
     for name, hex_val in base.items():
         idx = int(name.replace("term", ""))
@@ -82,7 +88,7 @@ def harmonize_palette(base, primary_hex, is_dark):
         else:
             boost = 0.35 if idx < 8 else 0.20
             tone_boost = boost * (-1 if not is_dark else 1)
-        h = harmonize(from_hct, primary_hct, tone_boost)
+        h = harmonize(from_hct, primary_hct, tone_boost, chroma_scale)
         colors[name] = argb_to_hex(h.to_int())
     return colors
 
@@ -115,8 +121,9 @@ def harmonize_from_matugen(
     mode = "dark" if is_dark else "light"
     base = palette[mode]
 
-    accent = mc.get("source_color") or mc.get("primary", "#888888")
+    primary = mc.get("primary") or mc.get("source_color", "#888888")
+    source = mc.get("source_color")
 
-    term = harmonize_palette(base, accent, is_dark)
+    term = harmonize_palette(base, primary, is_dark, source)
 
-    return term, mc, mode, accent
+    return term, mc, mode, primary
