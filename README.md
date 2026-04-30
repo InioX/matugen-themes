@@ -108,6 +108,7 @@
 - [Tmux](#tmux)
 - [Zellij](#zellij)
 - [Vivaldi](#vivaldi)
+- [VS Code](#vs-code)
 - [Waybar](#waybar)
 - [WezTerm](#wezterm)
 - [Windows Terminal](#windows-terminal)
@@ -1035,6 +1036,21 @@ output_path = 'path/to/vivaldi_css/vivaldi.css'
 1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
 2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
 Note that you can store vivaldi.css anywhere in a separate folder.
+
+### VS Code
+Install the [Matugen Theme](https://marketplace.visualstudio.com/items?itemName=haikalllp.matugen-theme) extension from the VS Code Marketplace or [Open VSX](https://open-vsx.org/) (for VSCodium).
+
+```toml
+[config]
+# ...
+[templates.vscode-raw]
+input_path = './templates/vscode-colors'
+output_path = '~/.cache/matugen/vscode-colors'
+
+[templates.vscode-json]
+input_path = './templates/vscode-colors.json'
+output_path = '~/.cache/matugen/vscode-colors.json'
+```
 
 ### Waybar
 ```toml
