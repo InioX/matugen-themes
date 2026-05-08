@@ -1,0 +1,5 @@
+[theme]
+font_color = {{colors.on_primary.default.hex}}
+background_color = {{colors.surface.default.hex}}
+hover_color = {{colors.primary.default.hex}}
+active_color = {{colors.secondary.default.hex_stripped}}
