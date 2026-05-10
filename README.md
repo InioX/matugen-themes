@@ -144,7 +144,7 @@ import = ["colors.toml"]
 [templates.terminal-sequences]
 input_path = 'path/to/template'
 output_path = "~/.cache/terminal-sequences"
-post_hook = "cat ~/.cache/terminal-sequences > /dev/pts/[0-9]*" # export the sequences to every running terminal
+post_hook = "tee /dev/pts/[0-9]* < ~/.cache/terminal-sequences" # export the sequences to every running terminal
 ```
 
 The target for post_hook changes depending on your OS.
