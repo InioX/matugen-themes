@@ -256,7 +256,7 @@ post_hook = 'pkill -SIGUSR2 ghostty'
 Then, add this line to your `~/.config/ghostty/config`:
 
 ```ini
-theme = "Matugen"  
+theme = "Matugen"
 ```
 
 ### GTK
@@ -404,7 +404,7 @@ McFly will automatically pick up the config file from this location and use the 
 [templates.mango]
 input_path = 'path/to/template'
 output_path = '~/.config/mango/colors.conf'
-post_hook = 'mmsg -d reload_config' 
+post_hook = 'mmsg -d reload_config'
 # ...
 ```
 Then, add this line to your `~/.config/mango/config.conf` file:
@@ -507,7 +507,7 @@ input_path = '~/.config/matugen/templates/opencode.json'
 output_path = '~/.config/opencode/themes/matugen.json'
 # ...
 ```
-In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme. 
+In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme.
 
 ### PrismLauncher
 ```toml
@@ -543,7 +543,7 @@ post_hook = 'pywalfox update'
 > [!NOTE] Auto here doesnt follow your matugen theme, its based on time of day
 ![Pywalfox Theme Switch](assets/pywalfox-screenshot.png)
 
-### Qt 
+### Qt
 
 > [!WARNING]
 > If your QT themes break when you update your system its most likely your qt libs are mismatched between `qtxct-kde` application and qt lib packages installed on the system. To fix this you just need to recompile the application.
@@ -969,7 +969,7 @@ theme = "matugen"
 [templates.tmux]
 input_path = 'path/to/template'
 output_path = '~/.config/tmux/generated.conf'
-post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
+post_hook = 'tmux source-file ~/.config/tmux/generated.conf'
 # ...
 ```
 1. Add a `tmux source-file <OUTPUT_PATH>` line at the end of your
@@ -1019,7 +1019,7 @@ output_path = '~/.config/zellij/themes/matugen.kdl'
 
 # Add this line to get hot-reloading. Without it, the new theme will only
 # appear on next start
-post_hook = 'touch ~/.config/zellij/config.kdl' 
+post_hook = 'touch ~/.config/zellij/config.kdl'
 ```
 
 Then, add this line in your config file (`~/.config/zellij/config.kdl`):
@@ -1038,7 +1038,7 @@ zellij options --theme matugen
 # ...
 [templates.vivaldi]
 input_path = 'path/to/template'
-output_path = 'path/to/vivaldi_css/vivaldi.css' 
+output_path = 'path/to/vivaldi_css/vivaldi.css'
 # ...
 ```
 1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
@@ -1048,10 +1048,10 @@ Note that you can store vivaldi.css anywhere in a separate folder.
 ### VS Code
 ```	toml
 [config]
-# ...	
+# ...
 [templates.vscode]
 input_path = 'path/to/template'
-output_path = '~/.config/Code/User/'
+output_path = '~/.config/Code/User/code-colors.jsonc'
 post_hook = "python path/to/merge-vscode.py"
 # ...
 ```
@@ -1273,11 +1273,11 @@ input_path = 'path/to/template'
 output_path = 'out/path'
 # ...
 ```
-**IMPORTANT:** Telegram does not support automatically applying themes.  
-To apply a theme, follow these steps:  
-1. Open Telegram.  
-2. Drag and drop the theme file into any chat.  
-3. Send the file.  
+**IMPORTANT:** Telegram does not support automatically applying themes.
+To apply a theme, follow these steps:
+1. Open Telegram.
+2. Drag and drop the theme file into any chat.
+3. Send the file.
 4. Open the sent file and apply the theme.
 
 <h2 class="acknowledgements">

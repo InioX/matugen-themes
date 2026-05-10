@@ -1,28 +1,35 @@
 import json
+import re
 from pathlib import Path
 
 BASE = Path.home() / ".config/Code/User/settings.json"
-COLORS_PATH = Path.home() / ".config/Code/User/vscode-colors.json"
+COLORS_PATH = Path.home() / ".config/Code/User/code-colors.jsonc"
+
+# uncomment for VS-Codium
+
+# BASE = Path.home() / ".config/VSCodium/User/settings.json"
+# COLORS_PATH = Path.home() / ".config/Code/User/code-colors.jsonc"
+
+def strip_jsonc(text):
+    # Remove /* ... */ block comments
+    text = re.sub(r"/\*.*?\*/", "", text, flags=re.DOTALL)
+    # Remove // line comments (but not URLs like https://)
+    text = re.sub(r'(?<!:)//.*', "", text)
+    return text
 
 try:
-    # Handle empty or missing settings file
     if BASE.exists() and BASE.stat().st_size > 0:
         base = json.loads(BASE.read_text())
     else:
         base = {}
 
-    colors_data = json.loads(COLORS_PATH.read_text())
-    
-    # Extract the actual colors (handles wrapped or raw Matugen output)
+    colors_data = json.loads(strip_jsonc(COLORS_PATH.read_text()))
+
     new_colors = colors_data.get("workbench.colorCustomizations", colors_data)
 
-    # POP the key: This checks if it exists AND removes it from its old spot
     existing_customs = base.pop("workbench.colorCustomizations", {})
-
-    # Merge them
     existing_customs.update(new_colors)
 
-    # Reconstruct: Colors FIRST, then the rest
     final_settings = {"workbench.colorCustomizations": existing_customs}
     final_settings.update(base)
 
