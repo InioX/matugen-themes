@@ -144,7 +144,7 @@ import = ["colors.toml"]
 [templates.terminal-sequences]
 input_path = 'path/to/template'
 output_path = "~/.cache/terminal-sequences"
-post_hook = "cat ~/.cache/terminal-sequences > /dev/pts/[0-9]*" # export the sequences to every running terminal
+post_hook = "tee /dev/pts/[0-9]* < ~/.cache/terminal-sequences" # export the sequences to every running terminal
 ```
 
 The target for post_hook changes depending on your OS.
@@ -1008,6 +1008,10 @@ source-file ~/.config/tmux/generated.conf
 [template.zellij]
 input_path = 'path/to/template'
 output_path = '~/.config/zellij/themes/matugen.kdl'
+
+# Add this line to get hot-reloading. Without it, the new theme will only
+# appear on next start
+post_hook = 'touch ~/.config/zellij/config.kdl' 
 ```
 
 Then, add this line in your config file (`~/.config/zellij/config.kdl`):
