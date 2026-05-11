@@ -301,13 +301,17 @@ Then, go to `Settings`, add your output_path directory to `Custom Themes Path` a
 # ...
 [templates.hyprland]
 input_path = 'path/to/template'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.config/hypr/colors.conf' # If using lua config replace *.conf* with *.lua* at the end
 # ...
 ```
-Then, add this line to the top of your `~/.config/hypr/hyprland.conf` and/or `~/.config/hypr/hyprlock.conf` file:
-
+Then, add this line to the top of your `~/.config/hypr/hyprland.conf` (or) `~/.config/hypr/hyprland.lua` and/or `~/.config/hypr/hyprlock.conf` 
 ```hyprlang
 source = colors.conf
+```
+If using Lua 
+
+```Lua_config
+require("colors")
 ```
 
 ### Kitty
