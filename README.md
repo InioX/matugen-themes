@@ -39,10 +39,10 @@
    ```toml
 	[templates.firefox-website-colors]
 	input_path = "path/to/template/"
-	output_path = "~/path/to/profile/colors.css"
+	output_path = "~/path/to/profile/chrome/colors.css"
    ```
 6. Copy all of the website themes from [here](https://github.com/InioX/matugen-themes/tree/main/websites) and put them into `chrome/websites`
-7. Make a new file called `UserContent.css` inside of the created folder
+7. Make a new file called `userContent.css` inside of the created folder
 8. Import the matugen colors
    ```css
 	@import url("/home/username/path/to/profile/chrome/colors.css");
@@ -58,7 +58,7 @@
 > Make sure the replaced paths are absolute (`/home/user`) instead of relative (`~/`)
 > Using relative paths will not import anything.
 
-#### Example `UserContent.css` file
+#### Example `userContent.css` file
 
 ```css
 @import url("/home/ini/.floorp/ini/chrome/colors.css");
