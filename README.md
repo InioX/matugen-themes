@@ -96,6 +96,7 @@
 - [Neovim](#neovim)
 - [Niri](#niri)
 - [Opencode](#opencode)
+- [Papirus Folders](#papirus-folders)
 - [PrismLauncher](#prismlauncher)
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
@@ -520,6 +521,26 @@ output_path = '~/.config/opencode/themes/matugen.json'
 # ...
 ```
 In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme.
+
+### Papirus Folders
+
+Adds an auto syncing Papirus Folders colors.
+Make sure to add a sudoers drop-in so papirus-folders can be run without sudo in the posthook
+```bash
+echo "$USER ALL=(ALL) NOPASSWD: $(which papirus-folders)" | sudo tee /etc/sudoers.d/papirus-folders
+sudo chmod 440 /etc/sudoers.d/papirus-folders
+```
+And then in your template
+```toml
+[config]
+# ...
+[templates.papirus-folders]
+input_path = '~/.config/matugen/templates/papirus-color'
+output_path = '~/.cache/matugen/papirus-color'
+post_hook = '~/.config/matugen/scripts/papirus-sync.sh'
+index=1 # make run last
+# ...
+```
 
 ### PrismLauncher
 ```toml
