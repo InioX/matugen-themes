@@ -1023,7 +1023,7 @@ source-file ~/.config/tmux/generated.conf
 ```toml
 [config]
 # ...
-[template.zellij]
+[templates.zellij]
 input_path = 'path/to/template'
 output_path = '~/.config/zellij/themes/matugen.kdl'
 
