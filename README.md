@@ -80,6 +80,7 @@
 - [Dunst](#dunst)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
+- [Gnome-shell](#gnome-shell)
 - [GTK (3.0, 4.0)](#gtk)
 - [Helix](#helix)
 - [Heroic Games Launcher](#heroic)
