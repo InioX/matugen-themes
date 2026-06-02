@@ -251,6 +251,33 @@ Then, add this line to your `~/.config/ghostty/config`:
 theme = "Matugen"
 ```
 
+### Gnome-shell
+```toml
+[config]
+# ...
+[templates.gnome-shell]
+input_path = '~/.config/matugen/templates/gnome-shell.css'
+output_path = '~/.themes/Material-Gnome/gnome-shell/gnome-shell.css'
+post_hook = "dconf write /org/gnome/shell/extensions/user-theme/name \"'default'\" && dconf write /org/gnome/shell/extensions/user-theme/name \"'Material-Gnome'\""
+# ...
+```
+Before that, create `index.theme` inside `~/.themes/Material-Gnome/` with
+
+```ini
+Type=X-GNOME-Metatheme
+[Desktop Entry]
+Name=Material-Gnome
+Comment=An Flat Gtk+ theme based on Matugen color generator
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Material-Gnome
+MetacityTheme=Material-Gnome
+IconTheme=Tela-circle-Dark
+CursorTheme=Tokyonight-cursors
+ButtonLayout=close,minimize,maximize:menu
+```
+
 ### GTK
 ```toml
 [config]
