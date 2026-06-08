@@ -79,7 +79,6 @@ Generates a harmonized 16-color terminal palette. Supports all terminals and is 
 Make sure to copy the following files from the `scripts/` folder to `~/.config/matugen/scripts/`:
 - `harmonizer.py`
 - `generate-term-colors.py`
-- `base-palette.json`
 
 And then in your matugen config:
 ```toml
@@ -101,7 +100,6 @@ post_hook = "python ~/.config/matugen/scripts/generate-term-colors.py ~/.cache/m
 Make sure to copy all four scripts from the `scripts/` folder to your matugen config's `scripts/` directory:
 - `harmonizer.py`
 - `generate-term-colors.py`
-- `base-palette.json`
 - `windows-term-post.ps1`
 
 And then in your matugen config:
