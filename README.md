@@ -121,6 +121,7 @@
 - [SwayNC](#swaync)
 - [Steam](#steam)
 - [OBS](#obs)
+- [Obsidian](#obsidian)
 - [Telegram](#telegram)
 
 ### Alacritty
