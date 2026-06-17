@@ -262,7 +262,7 @@ output_path = '~/.themes/Material-Gnome/gnome-shell/gnome-shell.css'
 post_hook = "dconf write /org/gnome/shell/extensions/user-theme/name \"'default'\" && dconf write /org/gnome/shell/extensions/user-theme/name \"'Material-Gnome'\""
 # ...
 ```
-Before that, create `index.theme` inside `~/.themes/Material-Gnome/` with
+Then, create `index.theme` inside `~/.themes/Material-Gnome/` with
 
 ```ini
 Type=X-GNOME-Metatheme
