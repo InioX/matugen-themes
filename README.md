@@ -266,7 +266,7 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 [templates.gtk4]
 input_path = 'path/to/template'
 output_path = '~/.config/gtk-4.0/colors.css'
-post_hook = '~/.config/matugen/posthooks/gtk-themes-reload.sh'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 # ...
 ```
 Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`:
