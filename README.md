@@ -71,6 +71,7 @@
 ## Templates for programs
 
 #### List of all templates
+- [Aerc](#aerc)
 - [Alacritty](#alacritty)
 - [ANSI sequences](#ansi-sequences)
 - [Btop](#btop)
@@ -122,6 +123,22 @@
 - [Steam](#steam)
 - [OBS](#obs)
 - [Telegram](#telegram)
+
+### Aerc
+```
+[config]
+# ...
+[templates.aerc]
+input_path = 'path/to/template'
+output_path = '~/.config/aerc/stylesets/matugen'
+# ...
+```
+Then, add/change this line in your '~/.config/aerc/aerc.conf'
+
+```conf
+[ui]
+styleset-name=matugen
+```
 
 ### Alacritty
 ```toml
