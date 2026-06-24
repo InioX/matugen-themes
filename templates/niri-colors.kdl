@@ -31,3 +31,10 @@ layout {
 overview {
 	backdrop-color "{{colors.background.default.hex}}"
 }
+
+recent-windows {
+    highlight {
+        active-color "{{colors.primary.default.hex}}"
+        urgent-color "{{colors.error.default.hex}}"
+    }
+}

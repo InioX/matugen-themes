@@ -39,10 +39,10 @@
    ```toml
 	[templates.firefox-website-colors]
 	input_path = "path/to/template/"
-	output_path = "~/path/to/profile/colors.css"
+	output_path = "~/path/to/profile/chrome/colors.css"
    ```
 6. Copy all of the website themes from [here](https://github.com/InioX/matugen-themes/tree/main/websites) and put them into `chrome/websites`
-7. Make a new file called `UserContent.css` inside of the created folder
+7. Make a new file called `userContent.css` inside of the created folder
 8. Import the matugen colors
    ```css
 	@import url("/home/username/path/to/profile/chrome/colors.css");
@@ -58,7 +58,7 @@
 > Make sure the replaced paths are absolute (`/home/user`) instead of relative (`~/`)
 > Using relative paths will not import anything.
 
-#### Example `UserContent.css` file
+#### Example `userContent.css` file
 
 ```css
 @import url("/home/ini/.floorp/ini/chrome/colors.css");
@@ -81,6 +81,7 @@
 - [Dunst](#dunst)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
+- [Gnome-shell](#gnome-shell)
 - [GTK (3.0, 4.0)](#gtk)
 - [Helix](#helix)
 - [Heroic Games Launcher](#heroic)
@@ -97,6 +98,7 @@
 - [Neovim](#neovim)
 - [Niri](#niri)
 - [Opencode](#opencode)
+- [Papirus Folders](#papirus-folders)
 - [PrismLauncher](#prismlauncher)
 - [Pywalfox](#pywalfox)
 - [Qt (qt5, qt6)](#qt)
@@ -110,6 +112,7 @@
 - [Tmux](#tmux)
 - [Zellij](#zellij)
 - [Vivaldi](#vivaldi)
+- [VS Code](#vs-code)
 - [Waybar](#waybar)
 - [WezTerm](#wezterm)
 - [Windows Terminal](#windows-terminal)
@@ -122,6 +125,7 @@
 - [SwayNC](#swaync)
 - [Steam](#steam)
 - [OBS](#obs)
+- [Obsidian](#obsidian)
 - [Telegram](#telegram)
 
 ### Aerc
@@ -162,7 +166,7 @@ import = ["colors.toml"]
 [templates.terminal-sequences]
 input_path = 'path/to/template'
 output_path = "~/.cache/terminal-sequences"
-post_hook = "cat ~/.cache/terminal-sequences > /dev/pts/[0-9]*" # export the sequences to every running terminal
+post_hook = "tee /dev/pts/[0-9]* < ~/.cache/terminal-sequences" # export the sequences to every running terminal
 ```
 
 The target for post_hook changes depending on your OS.
@@ -268,6 +272,33 @@ Then, add this line to your `~/.config/ghostty/config`:
 theme = "Matugen"
 ```
 
+### Gnome-shell
+```toml
+[config]
+# ...
+[templates.gnome-shell]
+input_path = '~/.config/matugen/templates/gnome-shell.css'
+output_path = '~/.themes/Material-Gnome/gnome-shell/gnome-shell.css'
+post_hook = "dconf write /org/gnome/shell/extensions/user-theme/name \"'default'\" && dconf write /org/gnome/shell/extensions/user-theme/name \"'Material-Gnome'\""
+# ...
+```
+Then, create `index.theme` inside `~/.themes/Material-Gnome/` with
+
+```ini
+Type=X-GNOME-Metatheme
+[Desktop Entry]
+Name=Material-Gnome
+Comment=An Flat Gtk+ theme based on Matugen color generator
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Material-Gnome
+MetacityTheme=Material-Gnome
+IconTheme=Tela-circle-Dark
+CursorTheme=Tokyonight-cursors
+ButtonLayout=close,minimize,maximize:menu
+```
+
 ### GTK
 ```toml
 [config]
@@ -280,6 +311,7 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 [templates.gtk4]
 input_path = 'path/to/template'
 output_path = '~/.config/gtk-4.0/colors.css'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 # ...
 ```
 Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`:
@@ -319,13 +351,17 @@ Then, go to `Settings`, add your output_path directory to `Custom Themes Path` a
 # ...
 [templates.hyprland]
 input_path = 'path/to/template'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.config/hypr/colors.conf' # If using lua config replace *.conf* with *.lua* at the end
 # ...
 ```
-Then, add this line to the top of your `~/.config/hypr/hyprland.conf` and/or `~/.config/hypr/hyprlock.conf` file:
-
+Then, add this line to the top of your `~/.config/hypr/hyprland.conf` (or) `~/.config/hypr/hyprland.lua` and/or `~/.config/hypr/hyprlock.conf` 
 ```hyprlang
 source = colors.conf
+```
+If using Lua 
+
+```Lua_config
+require("colors")
 ```
 
 ### Hyprwat
@@ -530,6 +566,53 @@ output_path = '~/.config/opencode/themes/matugen.json'
 # ...
 ```
 In OpenCode use '/theme', select matugen, exit and restart the app. Since options are all loaded into memory at runtime, there is no on-the-fly changes to the theme.
+
+### Papirus Folders
+
+Syncs Papirus Folders colors automatically. It picks the closest Papirus folder to primary accent from the wallpaper.
+
+Make sure to add a sudoers drop-in so `papirus-folders` can run without a password prompt in the posthook:
+```bash
+echo "$USER ALL=(ALL) NOPASSWD: $(which papirus-folders)" | sudo tee /etc/sudoers.d/papirus-folders
+sudo chmod 440 /etc/sudoers.d/papirus-folders
+```
+Then in your `config.toml`:
+```toml
+[config]
+# ...
+[templates.papirus-folders]
+input_path = '~/.config/matugen/templates/papirus-color'
+colors_to_compare = [
+    { name = "black",      color = "#4f4f4f" },
+    { name = "blue",       color = "#5294e2" },
+    { name = "bluegrey",   color = "#607d8b" },
+    { name = "brown",      color = "#ae8e6c" },
+    { name = "carmine",    color = "#a30002" },
+    { name = "cyan",       color = "#00bcd4" },
+    { name = "darkcyan",   color = "#45abb7" },
+    { name = "deeporange", color = "#eb6637" },
+    { name = "green",      color = "#87b158" },
+    { name = "grey",       color = "#8e8e8e" },
+    { name = "indigo",     color = "#5c6bc0" },
+    { name = "magenta",    color = "#ca71df" },
+    { name = "nordic",     color = "#81a1c1" },
+    { name = "orange",     color = "#ee923a" },
+    { name = "palebrown",  color = "#d1bfae" },
+    { name = "paleorange", color = "#eeca8f" },
+    { name = "pink",       color = "#f06292" },
+    { name = "red",        color = "#e25252" },
+    { name = "teal",       color = "#16a085" },
+    { name = "violet",     color = "#7e57c2" },
+    { name = "white",      color = "#e4e4e4" },
+    { name = "yaru",       color = "#676767" },
+    { name = "yellow",     color = "#f9bd30" },
+]
+compare_to = "{{ colors.primary.default.hex }}"
+post_hook = 'sudo -n papirus-folders -C {{ closest_color }} -u'
+index = 1
+# ...
+```
+The `{{ closest_color }}` is the name of the nearest one to primary and is passed straight to `papirus-folders -C`.
 
 ### PrismLauncher
 ```toml
@@ -1035,7 +1118,7 @@ source-file ~/.config/tmux/generated.conf
 ```toml
 [config]
 # ...
-[template.zellij]
+[templates.zellij]
 input_path = 'path/to/template'
 output_path = '~/.config/zellij/themes/matugen.kdl'
 
@@ -1066,6 +1149,21 @@ output_path = 'path/to/vivaldi_css/vivaldi.css'
 1. In vivaldi://experiments, enable “Allow for using CSS modifications”.
 2. In Settings > Appearance > Custom UI Modifications, select the folder where you’ll store matugen vivaldi.css output.
 Note that you can store vivaldi.css anywhere in a separate folder.
+
+### VS Code
+Install the [Matugen Theme](https://marketplace.visualstudio.com/items?itemName=haikalllp.matugen-theme) extension from the VS Code Marketplace or [Open VSX](https://open-vsx.org/) (for VSCodium).
+
+```toml
+[config]
+# ...
+[templates.vscode-raw]
+input_path = './templates/vscode-colors'
+output_path = '~/.cache/matugen/vscode-colors'
+
+[templates.vscode-json]
+input_path = './templates/vscode-colors.json'
+output_path = '~/.cache/matugen/vscode-colors.json'
+```
 
 ### Waybar
 ```toml

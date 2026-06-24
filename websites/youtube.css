@@ -1,6 +1,6 @@
 @-moz-document domain("youtube.com") {
 
-    :root {
+    :root, [dark], [light] {
         --yt-spec-base-background: var(--background) !important;
         --yt-spec-raised-background: var(--surface_container) !important;
         --yt-spec-general-background-a: var(--background) !important;
@@ -20,9 +20,13 @@
         --yt-spec-10-percent-layer: var(--surface_variant) !important;
         --yt-spec-badge-chip-background: var(--surface_container_high) !important;
         --yt-spec-button-chip-background-hover: var(--surface_bright) !important;
+        --yt-saturated-raised-background: var(--surface_container) !important;
+        --t3e41d7b17b187f69: var(--background) !important; /* General background */
+        --t518e925f61bdcb91: var(--surface_container) !important;
         --t2d807bb79e75606d: var(--primary) !important;
         --t6216186c28b3834b: var(--on_primary) !important;
         --t617db776af0de196: var(--primary) !important;
+        --t08a7c6c176cbc5c2: var(--surface_container) !important;
     }
 
     /* Sidebar / Navigation */
@@ -32,7 +36,7 @@
     .style-scope ytd-two-column-browse-results-renderer,
     .style-scope ytd-rich-grid-renderer,
     .style-scope ytd-feed-filter-chip-bar-renderer {
-        background-color: var(--surface_container_low) !important;
+        background-color: var(--background) !important;
     }
 
     /* Progress bar */
@@ -96,6 +100,7 @@
 
     /* Header + Top Bar + Chip background */
     #masthead-container.ytd-app,
+    #background.ytd-masthead,
     ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
     ytd-mini-guide-entry-renderer[frosted-glass],
     ytd-mini-guide-renderer[frosted-glass] {
@@ -136,6 +141,25 @@
     .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill:hover {
         background-color: var(--secondary_fixed_dim) !important;
         color: var(--on_secondary_fixed_variant) !important;
+    }
+
+    /* Community posts */
+    ytd-post-renderer {
+    	background-color: var(--surface_container) !important;
+		border: 1px solid var(--outline_variant) !important;
+		color: var(--on_surface_container) !important;
+    }
+
+    /* Dropdowns */
+    ytd-multi-page-menu-renderer {
+	    background: var(--surface_container) !important;
+	    color: var(--on_surface_container) !important;
+    }
+
+    /* Search box */
+    .ytSearchboxComponentSuggestionsContainer {
+    	background-color: var(--surface_container) !important;
+		color: var(--on_surface_container) !important;
     }
 
     /* The "Subscribe" button */
