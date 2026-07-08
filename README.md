@@ -475,6 +475,11 @@ post_hook = "kitty +kitten themes --reload-in=all Matugen"
 
 Then, you just need to apply the theme once. Run `kitten themes` and select Matugen under the User section, finally just set it to update your `kitty.conf`.
 
+If the `post_hook` above doesn't work, you can replace it with this instead:
+```
+post_hook = "pkill -SIGUSR1 kitty"
+```
+
 ### Kvantum
 
 Make new template files and paste the content from [here](./templates/kvantum-colors.kvconfig) and [here](./templates/kvantum-colors.svg) into the files.
