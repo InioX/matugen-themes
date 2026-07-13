@@ -96,7 +96,7 @@
 - [Micro](#micro)
 - [Midnight Discord](#midnight-discord)
 - [Neovim](#neovim)
-- [NeoVim plugin](#neovim-plugin)
+- [Neovim plugin](#neovim-plugin)
 - [Niri](#niri)
 - [OBS](#obs)
 - [Obsidian](#obsidian)
@@ -659,7 +659,7 @@ vim.api.nvim_create_autocmd("Signal", {
 })
 ```
 
-### NeoVim plugin
+### Neovim plugin
 
 For a dedicated Neovim plugin with a semantic palette, check out [matugen.nvim](https://github.com/Senal-D-A-Gunaratna/matugen.nvim).
 
