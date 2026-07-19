@@ -1215,7 +1215,7 @@ Then replace `/path/to/template/` with the path to your previously created templ
 [templates.spotify]
 input_path = 'path/to/template'
 output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
-post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
+post_hook = 'pgrep -x spicetify > /dev/null || spicetify apply -n'
 # ...
 ```
 Then, add this line to your `~/.config/spicetify/config-xpui.ini` file:
@@ -1231,18 +1231,7 @@ curl -L --create-dirs \
 	-o ~/.config/spicetify/Themes/Sleek/user.css \
 	https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Sleek/user.css
 ```
-Now, start spotify using spicetify command:
-
-```bash
-spicetify watch -s
-```
-> [!NOTE]
->> `spicetify watch -s` might fails to start flatpak version of spotify. In
->> that case uncomment the `post_hook` and start spotify using following command:
->>
->> ```bash
->> flatpak run com.spotify.Client  --remote-debugging-port=9222 --remote-allow-origins='*'
->> ```
+Start spotify. Now it will update theme in real time.
 
 ### Starship
 
