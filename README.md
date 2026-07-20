@@ -1600,14 +1600,14 @@ output_path = '~/.config/yazi/theme.toml'
 
 3. Create a folder called `chrome` inside your profile directory
 
-4. Copy the template from [here](https://github.com/InioX/matugen-themes/blob/main/templates/zen-usercontent.css) and add it to matugen:
+4. Copy the template and add it to matugen:
    ```toml
    [templates.zen-usercontent]
    input_path = "path/to/template/zen-usercontent.css"
    output_path = "~/path/to/profile/chrome/zen-userContent.css"
    ```
 
-5. Copy the template from [here](https://github.com/InioX/matugen-themes/blob/main/templates/zen-userchrome.css) and add it to matugen:
+5. Copy the template and add it to matugen:
    ```toml
    [templates.zen-userchrome]
    input_path = "path/to/template/zen-userchrome.css"
