@@ -122,6 +122,7 @@
 - [Wine](#wine)
 - [Wlogout](#wlogout)
 - [Yazi](#yazi)
+- [Zen Browser](#zen-browser)
 - [Zathura](#zathura)
 - [Zed](#zed)
 - [Wofi](#wofi)
@@ -1576,6 +1577,56 @@ Then replace `/path/to/template/` with the path to your previously created templ
 input_path = 'path/to/template'
 output_path = '~/.config/yazi/theme.toml'
 # ...
+```
+
+### Zen Browser
+
+1. Go to `about:config` and set these preferences:
+   - `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+   - `zen.view.use-native-popup` to `true` (optional, for better UI)
+
+2. Find your profile directory by going to `about:support`. Under "Application Basics", find "Profile Directory" and click "Open Directory"
+
+3. Create a folder called `chrome` inside your profile directory
+
+4. Copy the template and add it to matugen:
+   ```toml
+   [templates.zen-usercontent]
+   input_path = "path/to/template/zen-usercontent.css"
+   output_path = "~/path/to/profile/chrome/zen-userContent.css"
+   ```
+
+5. Copy the template and add it to matugen:
+   ```toml
+   [templates.zen-userchrome]
+   input_path = "path/to/template/zen-userchrome.css"
+   output_path = "~/path/to/profile/chrome/zen-userChrome.css"
+   ```
+
+6. Create `userContent.css` in your `chrome` folder and import the matugen colors:
+   ```css
+   @import url("/home/username/path/to/profile/chrome/zen-userContent.css");
+   ```
+
+7. Create `userChrome.css` in your `chrome` folder and import the matugen colors:
+   ```css
+   @import url("/home/username/path/to/profile/chrome/zen-userChrome.css");
+   ```
+
+> [!WARNING]
+> Make sure the replaced paths are absolute (`/home/user`) instead of relative (`~/`)
+> Using relative paths will not import anything.
+
+#### Example `userContent.css` file
+
+```css
+@import url("/home/user/.zen-profiles/abc123.default/chrome/zen-userContent.css");
+```
+
+#### Example `userChrome.css` file
+
+```css
+@import url("/home/user/.zen-profiles/abc123.default/chrome/zen-userChrome.css");
 ```
 
 ### Zathura
