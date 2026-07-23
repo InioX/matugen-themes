@@ -822,7 +822,7 @@ colors_to_compare = [
     { name = "yellow",     color = "#f9bd30" },
 ]
 compare_to = "{{ colors.primary.default.hex }}"
-post_hook = 'sudo -n papirus-folders -C {{ closest_color }} -u'
+post_hook = 'nohup sudo -n papirus-folders -C {{ closest_color }} -u > /dev/null 2>&1 &'
 index = 1
 # ...
 ```
