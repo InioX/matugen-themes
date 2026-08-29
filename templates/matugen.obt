@@ -1725,27 +1725,51 @@ QGroupBox::indicator {
 
 QCheckBox::indicator:unchecked,
 QGroupBox::indicator:unchecked,
-
+QTableView::indicator:unchecked {
+    background-color: transparent;
+    border: var(--highlight_width) solid var(--input_border);
+    border-radius: var(--border_radius_small);
+}
 
 QCheckBox::indicator:unchecked:hover,
 QGroupBox::indicator:unchecked:hover,
-
+QTableView::indicator:unchecked:hover {
+    background-color: var(--button_bg_hover);
+    border: var(--highlight_width) solid var(--primary_lighter);
+    border-radius: var(--border_radius_small);
+}
 
 QCheckBox::indicator:checked,
 QGroupBox::indicator:checked,
-
+QTableView::indicator:checked {
+    background-color: var(--primary);
+    border: var(--highlight_width) solid var(--primary);
+    border-radius: var(--border_radius_small);
+}
 
 QCheckBox::indicator:checked:hover,
 QGroupBox::indicator:checked:hover,
-
+QTableView::indicator:checked:hover {
+    background-color: var(--primary_light);
+    border: var(--highlight_width) solid var(--primary_light);
+    border-radius: var(--border_radius_small);
+}
 
 QCheckBox::indicator:checked:disabled,
 QGroupBox::indicator:checked:disabled,
-
+QTableView::indicator:checked:disabled {
+    background-color: var(--grey4);
+    border: var(--highlight_width) solid var(--grey4);
+    border-radius: var(--border_radius_small);
+}
 
 QCheckBox::indicator:unchecked:disabled,
 QGroupBox::indicator:unchecked:disabled,
-
+QTableView::indicator:unchecked:disabled {
+    background-color: transparent;
+    border: var(--highlight_width) solid var(--grey4);
+    border-radius: var(--border_radius_small);
+}
 
 /* Icon Checkboxes */
 .checkbox-icon {
