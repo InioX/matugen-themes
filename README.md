@@ -450,20 +450,21 @@ ButtonLayout=close,minimize,maximize:menu
 
 ### GTK
 
-Make a new template file and paste the content from [here](./templates/gtk-colors.css) into the file.
+You can style GTK applications using two different methods depending on your needs: a lightweight color-import setup, or a complete theme configuration.
 
-Then replace `/path/to/template/` with the path to your previously created template file.
+#### Option 1: Light (Simple Version)
+This method injects Matugen's color variables directly into your existing GTK configuration files.
 
 ```toml
 [config]
 # ...
 [templates.gtk3]
-input_path = 'path/to/template'
+input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
 post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
-input_path = 'path/to/template'
+input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 # ...
@@ -473,6 +474,27 @@ Then, add this line to the top of your `~/.config/gtk-3.0/gtk.css` and `~/.confi
 ```css
 @import 'colors.css';
 ```
+
+#### Option 2: Full (Complete Theme)
+This method generates and applies a comprehensive, fully-styled Material theme for a deeper visual overhaul.
+
+```toml
+[config]
+# ...
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk4-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
+# ...
+```
+
+Then use  [gtk3.css](./templates/gtk3.css) and  [gtk4.css](./templates/gtk4.css) as your `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css`
+
 
 ### Helix
 
