@@ -119,6 +119,7 @@
 - [Telegram](#telegram)
 - [Tmux](#tmux)
 - [Zellij](#zellij)
+- [Vicinae](#vicinae)
 - [Vivaldi](#vivaldi)
 - [VS Code](#vs-code)
 - [Waybar](#waybar)
@@ -1533,6 +1534,24 @@ source-file ~/.config/tmux/generated.conf
 # Style whatever you wish with the imported colors
 # ...
 ```
+
+### Vicinae
+
+Make a new template file and paste the content from [here](./templates/vicinae.toml) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.vicinae]
+input_path = "path/to/template"
+output_path = "~/.local/share/vicinae/themes/matugen.toml"
+post_hook = "nohup vicinae server --replace >/dev/null 2>&1 &"
+# ...
+```
+
+Finally, open Vicinae, search for `Set Theme`, and choose `Matugen`.
 
 ### Vivaldi
 
