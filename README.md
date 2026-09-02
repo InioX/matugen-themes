@@ -195,7 +195,7 @@ The target for post_hook changes depending on your OS.
 - **MacOS**: "/dev/ttys00[0-9]*"
 
 
-Then, in a profile script of your choice, put `[[ -f ~/.cache/color-sequences ]] && (cat ~/.cache/color-sequences &)`
+Then, in a profile script of your choice, put `[[ -f ~/.cache/terminal-sequences ]] && (cat ~/.cache/terminal-sequences &)`
 
 
 ### Btop
