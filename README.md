@@ -701,6 +701,8 @@ Then, press `Ctrl+E` in micro editor and enter `set colorscheme matugen`
 
 ### Neovim
 
+- **Method 1**
+
 Styling Neovim with matugen is an involved process due to working with plugins and various highlight groups. For information on how to leverage plugins for doing the "heavy-lifting", see [here](./templates/neovim).
 
 Alternatively, you can style Neovim through its configuration standard in `.vim` format.
@@ -733,7 +735,52 @@ vim.api.nvim_create_autocmd("Signal", {
 })
 ```
 
-### Neovim plugin
+- **Method 2**
+
+This method uses a Lua template to generate a Neovim colorscheme with matugen. The generated file should be placed in Neovim's colors/ directory, where Neovim looks for colorscheme files.
+
+First, make sure the directory exists:
+
+```bash
+mkdir -p ~/.config/nvim/colors
+```
+
+Make sure you have the following custom colors in your config.toml (you can change them if you want):
+```toml
+[config.custom_colors]
+red      = { color = "#e06c75", blend = true }
+maroon   = { color = "#c96b6f", blend = true }
+orange   = { color = "#d19a66", blend = true }
+yellow   = { color = "#e5c07b", blend = true }
+green    = { color = "#98c379", blend = true }
+mint     = { color = "#5fd9a4", blend = true }
+teal     = { color = "#56b6c2", blend = true }
+sky      = { color = "#7dcfff", blend = true }
+blue     = { color = "#61afef", blend = true }
+purple   = { color = "#c678dd", blend = true }
+lavender = { color = "#b4befe", blend = true }
+pink     = { color = "#f5c2e7", blend = true }
+```
+Then, add the following to your config.toml, replacing the input_path with the matugen.lua template from the templates/ directory:
+```toml
+[templates.neovim]
+input_path = 'path/to/matugen.lua'
+output_path = '~/.config/nvim/colors/matugen.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
+```
+Finally, add the following to your Neovim configuration:
+```lua
+vim.cmd.colorscheme("matugen")
+
+vim.api.nvim_create_autocmd("Signal", {
+    pattern = "SIGUSR1",
+    command = "colorscheme matugen",
+})
+```
+If you don't like the generated colors, you can easily tweak them directly in the template. You can also add highlight groups for specific plugins to extend the integration.
+Inspired by [How to make your own neovim colorscheme](https://vonheikemen.github.io/learn-nvim/feature/colorscheme.html)
+
+- **Method 3**
 
 For a dedicated Neovim plugin with a semantic palette, check out [matugen.nvim](https://github.com/Senal-D-A-Gunaratna/matugen.nvim).
 
