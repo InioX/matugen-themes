@@ -649,13 +649,13 @@ Then replace `/path/to/template/` with the path to your previously created templ
 [templates.mango]
 input_path = 'path/to/template'
 output_path = '~/.config/mango/colors.conf'
-post_hook = 'mmsg -d reload_config'
+post_hook = 'mmsg dispatch reload_config'
 # ...
 ```
 Then, add this line to your `~/.config/mango/config.conf` file:
 
 ```conf
-source=~/.config/mango/colors.conf
+source-optional=~/.config/mango/colors.conf
 ```
 
 ### McFly
