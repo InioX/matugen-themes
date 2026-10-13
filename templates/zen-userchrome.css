@@ -78,6 +78,10 @@ toolbar .toolbarbutton-1 {
   color: {{colors.primary.default.hex}} !important;
 }
 
+#ContentSelectDropdown menupopup menuitem {
+  color: {{colors.on_surface.default.hex}} !important;
+}
+
 toolbar .toolbarbutton-1 > .toolbarbutton-icon {
   fill: {{colors.primary.default.hex}} !important;
 }
