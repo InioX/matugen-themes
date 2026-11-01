@@ -1,0 +1,29 @@
+{
+  "mode": "<* if {{ is_dark_mode }} *>dark<* else *>light<* endif *>",
+  "stylesheets": ["overrides/matugen.css"],
+  "colors": {
+    "background": "{{ colors.background.default.rgb }}",
+    "background-alternate": "{{ colors.surface.default.rgb }}",
+    "surface": "{{ colors.surface_container.default.rgb }}",
+    "surface-foreground": "{{ colors.on_surface.default.rgb }}",
+    "foreground": "{{ colors.on_background.default.rgb }}",
+    "foreground-muted": "{{ colors.on_surface_variant.default.rgb }}",
+
+    "primary": "{{ colors.primary.default.rgb }}",
+    "black": "{{ colors.shadow.default.rgb }}",
+    "white": "{{ colors.on_background.default.rgb }}",
+
+    "state-error": "{{ colors.error.default.rgb }}",
+    "state-info": "{{ colors.secondary.default.rgb }}",
+    "state-success": "{{ colors.primary.default.rgb }}",
+    "state-warning": "{{ colors.tertiary.default.rgb }}"
+  },
+  "app": {
+    "scrollbar-handle-background": "rgba({{ colors.secondary.default.red }}, {{ colors.secondary.default.green }}, {{ colors.secondary.default.blue }}, 0.4)",
+    "scrollbar-handle-active-background": "rgba({{ colors.primary.default.red }}, {{ colors.primary.default.green }}, {{ colors.primary.default.blue }}, 6.0)",
+    "scrollbar-handle-hover-background": "rgba({{ colors.primary.default.red }}, {{ colors.primary.default.green }}, {{ colors.primary.default.blue }}, 1.0)",
+    "scrollbar-track-background": "rgba({{ colors.background.default.red }}, {{ colors.background.default.green }}, {{ colors.background.default.blue }}, 0.0)",
+    "scrollbar-track-active-background": "rgba({{ colors.background.default.red }}, {{ colors.background.default.green }}, {{ colors.background.default.blue }}, 0.0)",
+    "scrollbar-track-hover-background": "rgba({{ colors.background.default.red }}, {{ colors.background.default.green }}, {{ colors.background.default.blue }}, 0.0)"
+  }
+}
