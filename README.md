@@ -1554,9 +1554,9 @@ Note that you can store vivaldi.css anywhere in a separate folder.
 
 ### VS Code
 
-Install the [Matugen Theme](https://marketplace.visualstudio.com/items?itemName=haikalllp.matugen-theme) extension from the VS Code Marketplace or [Open VSX](https://open-vsx.org/) (for VSCodium).
+Install the [Matugen Theme](https://marketplace.visualstudio.com/items?itemName=haikalllp.matugen-theme) extension from the VS Code Marketplace or [Open VSX](https://open-vsx.org/extension/haikalllp/matugen-theme) (for VSCodium).
 
-Make new template files and paste the content from [here](./templates/vscode-colors.json) and [here](vscode-colors.json) into the files.
+Make new template files and paste the content from [here](./templates/vscode-colors) and [here](./templates/vscode-colors.json) into the files.
 
 Then replace `/path/to/template/` with the path to your previously created template files.
 
