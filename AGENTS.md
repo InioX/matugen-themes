@@ -74,3 +74,14 @@ These instructions apply to the entire repository. Follow any more specific `AGE
 - Treat each commit as unfinished until its associated CI and checks reach a final state. Inspect failed job details, fix regressions introduced by the change, and rerun relevant checks. Pending checks are not passing checks.
 - Before ending a session, review all commits made during that session, their CI results, remaining actionable issues, and required manual validation.
 - Optimize for verified issue completion and a healthy default branch, not commit volume, issue-closure volume, or frequent status messages.
+
+## Incremental Commit CI Audit Ledger
+
+- Before reviewing commit checks, read `docs/maintenance/commit-ci-audit.md`.
+- Compare its checkpoint with the current default-branch head. Review only commits newer than the checkpoint, plus older entries marked **red**, **pending**, or explicitly unresolved. Do not repeatedly audit the full history.
+- Record each checked commit by full SHA, subject, check result, check date, and workflow/run reference when available.
+- **green** means an observed completed success; **red** an observed completed failure; **pending** an unfinished run; **unavailable** missing/inaccessible evidence; **not applicable** only when workflow configuration confirms no relevant check is triggered.
+- An empty status list, missing badge, or missing workflow record is **unavailable**, never an implied pass or failure.
+- Preserve each red result and append the failed job/step, diagnosis, classification, fix commit(s), reruns, and final verified outcome. Record reruns against the original failing commit; do not erase its failure history.
+- Advance the checkpoint only after the newer range has been reviewed. Carry unresolved entries forward.
+- Include commits that create/update this ledger and these instructions in the next incremental review unless explicitly listed as checked.
