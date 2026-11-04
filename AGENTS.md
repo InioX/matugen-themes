@@ -111,3 +111,8 @@ Classify every open issue into exactly one of these categories during triage. Re
 - For Category E, ask the owner promptly and track the answer needed. Do not leave it indefinitely in a generic blocked/deferred bucket.
 - Keep Categories B, C, and D visible and actionable: state exactly what remains, who or what can unblock it, and when it should be revisited.
 - Reassess categories when code, tests, CI, upstream dependencies, environments, or owner decisions change. Never close an issue solely because it has been categorized.
+
+
+## Acceptance Criteria Integrity
+
+Acceptance criteria must reflect reality: check a criterion only when its complete requirement is implemented and supported by concrete evidence. Leave incomplete, partial, untested, and unverified criteria unchecked. Before closing an issue, compare every checkbox with the current code, tests, CI, and required manual validation. Do not infer completion from a commit or closed issue. Reopen previously closed issues when required criteria remain unmet or unverified, and explain the remaining work.
